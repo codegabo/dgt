@@ -7,9 +7,29 @@
 ************************************
 ************************************
  */
-//body{
-//  overflow: hidden;
-//}
+*,*::before,*::after{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Nexa";
+}
+@font-face {
+  font-family: 'Nexa';
+  font-style: normal;
+  src: local('Nexa'), local('Nexa'), url(../font) format('otf');
+}
+body{
+  //overflow: hidden;
+  //background: #eaeaea;
+}
+$max-width-320:95%;
+$max-width-1024: 80%;
+
+
+$color-1:#ffffff;
+$color-2:#eaeaea;
+$color-3:#b3b2b2;
+$color-4:#4d4c4c;
 /***********************************
 ************************************
 ************************************
@@ -21,62 +41,73 @@
  */
 .main_action_panel{
   display: flex;
-  //margin:10em;
-  justify-content:flex-end;
   outline:1px solid black;
   width: 80%;
-  margin:auto;
-  max-width: 90%;
-  max-height:35em;
-  height:80%;
-}
-.preview{
-  outline:1px solid blue;
-  width: 31%;
-  height: 40%;
-  max-height:50%;
-  display: flex;
-  margin:auto;
-  justify-content:center;
-  background: #000;
-  overflow: hidden;
-  .clothes{
-    outline:1px solid pink;
-    height: 80%;
-    border:0;
-    display: block;
-    margin:auto;
-    position: fixed;
-    z-index:20;
-  }
-  .design{
-    z-index:10;
-    outline:1px solid blue;
-    display: block;
-    height: 50em;
-    border:0;
-    //transition: all .3s;
-  }
-}
-.all-clothes{
-  display: flex;
-  width: 35%;
-  flex-wrap: wrap;
   justify-content:space-between;
-  outline: 2px solid orange;
-  //margin:0 1em;
-}
-.all-clothes-item{
-  outline: 1px solid green;
-  align-items:flex-end;
-  //margin: .1em;
-  height: 10em;
+  //max-width: 90%;
+  height:35em;
+  //min-height: 40%;
+  margin:auto;
+  .other-designs{
+    outline:4px solid yellow;
+  }
+  .preview, .full_design {
+    outline:4px solid blue;
+    //margin: auto;
+    height: 100%;
+    //max-height:50%;
+    display: flex;
+    background: #000;
+    position: relative;
+    overflow: hidden;
+    .design{
+      //position: absolute;
+      z-index:10;
+      //margin-top:10%;
+      outline:1px solid blue;
+      display: block;
+      border:0;
+      justify-content:center;
+      //transition: all .3s;
+    }
+    .clothes{
+      position: absolute;
+      outline:1px solid green;
+      //height: 100%;
+      border:0;
+      display: block;
+      //left: 25%;
+      //top: 10%;
+      //margin: -9em auto 0;
+      z-index:20;
+      //margin:auto;
+    }
+  }
+  .all-clothes{
+    display: flex;
+    width: 35%;
+    //height: 100%;
+    flex-wrap: wrap;
+    justify-content:space-around;
+    outline: 4px solid red;
+    overflow: scroll;
+    //margin:0 1em;
+    &-item{
+      margin:.1em 0;
+      //outline: 1px solid green;
+      //border:6px solid #eaeaea;
+      //margin: .4em;
+      height: 8.5em;
 
+    }
+  }
 }
 
 #botones{
   display: flex;
-  justify-content: space-around;
+  //flex-wrap: wrap;
+  //width: 20%;
+  justify-content: flex-end;
   outline:1px solid red;
   margin: 1em 0;
   #text{
@@ -106,3 +137,16 @@
     outline:0;
   }
 }
+.multiple-design{
+  display: flex;
+  width: 80%;
+  justify-content:flex-end;
+  margin:auto;
+  outline: 2px solid brown;
+  img{
+    height:10em;
+  }
+}
+
+@import "index";
+@import "normalize";

@@ -1,0 +1,56 @@
+@media screen and(min-width:320px) {
+  .index-main-container{
+    max-width: $max-width-320;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:center;
+    margin:30% auto;
+    //outline:1px solid blue;
+    .login-container{
+      //outline:1px solid black;
+      display: flex;
+      width:$max-width-320;
+      justify-content:center;
+      flex-wrap: wrap;
+      margin:auto;
+      &-form{
+        display: flex;
+        background: $color-2;
+        flex-wrap: wrap;
+        //outline:1px solid red;
+        justify-content:space-around;
+      }
+    }
+    .logo-container{
+      //outline:1px solid yellow;
+      width: $max-width-320;
+      margin:auto;
+      display: flex;
+      justify-content:center;
+      .logo{
+        height: 10em;
+      }
+    }
+  }
+  input[class^='login-input']{
+    width: 80%;
+    background-color: $color-3;
+    color:$color-1;
+    border: none;
+    padding: 1em;
+    margin: 1em auto;
+    text-align: center;
+  }
+  .login-button_submit{
+    width: 80%;
+    background: $color-1;
+    color: $color-4;
+    font-weight: bold;
+    padding: .5em;
+    border:none;
+    margin: 1em;
+  }
+  fieldset{
+    border-width: 0;
+  }
+}

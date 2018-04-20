@@ -50,7 +50,7 @@ less.addEventListener('click', () => {
 //     document.body.getElementsByClassName('preview').appendChild(element);
 // });
 
-
+//
 // Creamos un array vacio
 var ElementosClick = new Array();
 // Capturamos el click y lo pasamos a una funcion
@@ -71,13 +71,28 @@ function captura_click(e) {
     // Una prueba con salida en consola
     console.log('clase -> ' + HaHechoClick.className);
     console.log('item -> ' + HaHechoClick.id);
-    if (document.getElementsByClassName('all-clothes-item') === document.getElementsByClassName('all-clothes-item')) {
-        document.getElementById("preview").innerHTML = HaHechoClick.element;
-        console.log('item  condicional works-> ' + HaHechoClick.id);
-        // previewcontainer.appendChild(HaHechoClick.id);
+    if (document.getElementsByClassName('all-clothes-item')) {
+        // console.log('item  condicional works-> <img src="img/clothes_png/LEGINS.png" alt="" class="all-clothes-item" id="' + HaHechoClick.id + '">');
+        document.getElementById("preview").innerHTML = '' +
+            '<img src="img/clothes_designs/DIBUJO%20CO-0001/CO-0001PRENDA.jpg" alt="" id="design" class="design">' +
+            '<img src="' + HaHechoClick.src + '" alt="" class="clothes" id="' + HaHechoClick.id + '">';
+        // document.addEventListener("click", function(event){
+        //     if (event.target.className === "all-clothes-item") console.log(event.target.src);
+        // }, false);
 
-    }
-}
+    }}
+
+    // document.addEventListener("click", function(event){
+    //     if (event.target.className === "all-clothes-item")
+    //         console.log(event.target.src);
+    //         console.log(event.target.id);
+    //         document.getElementById("preview").innerHTML = '' +
+    //             '<img src="img/clothes_designs/DIBUJO%20CO-0001/CO-0001PRENDA.jpg" alt="" id="design" class="design"> ' +
+    //             '<img src="' + event.target.src + '" alt="" class="clothes" id="' +
+    //             event.target.id + '">';
+    //
+    // }, false);
+// }
 // console.log(previewClothes);
 console.log('Alto ' + img.offsetHeight);
 console.log('Ancho ' + img.offsetWidth);
