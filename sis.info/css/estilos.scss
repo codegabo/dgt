@@ -30,6 +30,8 @@ $color-1:#ffffff;
 $color-2:#eaeaea;
 $color-3:#b3b2b2;
 $color-4:#4d4c4c;
+
+$fz-320:16px;
 /***********************************
 ************************************
 ************************************
@@ -148,5 +150,8 @@ $color-4:#4d4c4c;
   }
 }
 
-@import "index";
 @import "normalize";
+@import "index";
+@import "dashboard";
+@import "menu";
+@import "icon-font";

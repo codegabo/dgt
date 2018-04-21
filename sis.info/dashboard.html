@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+   <meta charset="UTF-8">
+   <title>DGT Dashboard</title>
+   <meta name="title" content="Digital Global Textiles Dashboard">
+   <meta name="description" content="Digital Global Textiles Dashboard">
+   <meta name="author" content="Juan Gabriel Mogollón Martínez">
+   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <link rel="stylesheet" href="css/estilos.css">
+
+</head>
+<body>
+   <nav class="dashboard-menu">
+      <div class="icon icon-menu burguer-menu" id="toggle"></div>
+      <ul class="dashboard-menu-list" id="dashboard-menu-list">
+         <li class="dashboard-menu-list-item" id="design">Diseños</li>
+         <li class="dashboard-menu-list-item" id="last">Lo Último</li>
+         <li class="dashboard-menu-list-item" id="users">Usuarios</li>
+         <li class="dashboard-menu-list-item" id="data">Registros</li>
+      </ul>
+   </nav>
+   <main class="content-items-container" id="content-items-container"></main>
+</body>
+<script>
+//    menu desplegable
+    let toggle = document.getElementById('toggle'),
+        mainnav= document.getElementById('dashboard-menu-list');
+    toggle.addEventListener('click',show);
+    function show() {
+        mainnav.classList.toggle('show-menu-block');
+        document.addEventListener("click",function(event){
+         if (event.target.className === "dashboard-menu-list-item") {
+             mainnav.innerHTML = '<li class="selected-item" id="'+event.target.id+'">'+event.target.firstChild.data+'</li>' +
+                 ' <li class="dashboard-menu-list-item" id="design">Diseños</li>\n' +
+                 '<li class="dashboard-menu-list-item" id="last">Lo Último</li>\n' +
+                 '<li class="dashboard-menu-list-item" id="users">Usuarios</li>\n' +
+                 '<li class="dashboard-menu-list-item" id="data">Registros</li>';
+             document.getElementById("content-items-container").innerHTML = event.target.firstChild.data;
+             if(event.target.id === 'design'){
+                 document.getElementById("content-items-container").innerHTML = '<div>Diseños</div>'
+             }
+             if(event.target.id === 'last'){
+                 document.getElementById("content-items-container").innerHTML = '<div>Lo último</div>'
+             }
+             if(event.target.id === 'users'){
+                 document.getElementById("content-items-container").innerHTML = '<div>Usuarios</div>'
+             }
+             if(event.target.id === 'data'){
+                 document.getElementById("content-items-container").innerHTML = '<div>Registros</div>'
+             }
+
+
+         }
+        }
+       )
+    }
+
+
+
+//
+//
+    /////////////////////////////////
+    ////////////MENÚ///////
+//    let design = document.getElementById("design"),
+//        menu_container = document.getElementById("dashboard-menu-list");
+//
+//    design.addEventListener("click",designF);
+//
+//    function designF() {
+//        menu_container.innerHTML = design.content;
+        // mainnav.classList.toggle('show-menu-block');
+        // toggle.classList.add('hidetoggle');
+//    }
+</script>
+</html>

@@ -96,3 +96,5 @@ function captura_click(e) {
 // console.log(previewClothes);
 console.log('Alto ' + img.offsetHeight);
 console.log('Ancho ' + img.offsetWidth);
+//
+//
