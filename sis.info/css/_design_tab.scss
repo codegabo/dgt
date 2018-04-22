@@ -1,0 +1,65 @@
+  .design{
+    position: relative;
+    //outline:1px solid red;
+    display: block;
+    background: $color-1;
+    height: 11em;
+    margin:0 0 1.5em;
+    font-family: "Nexa";
+    font-weight: bold;
+    //font-size:$fz-320 - 4;
+    width: 100%;
+    overflow: hidden;
+    border: none;
+    &:hover .edit{
+      display: flex;
+      position: absolute;
+      top: .5em;
+      justify-content:center;
+      left: 88%;
+      background: $color-3;
+      padding: .4em;
+      color: $color-1;
+      border-radius: 3px;
+    }
+    &-title{
+      border-bottom:.2em solid $color-3;
+      text-align: center;
+      padding-top:1.8em;
+      padding-bottom:1em;
+    }
+  }
+  .edit{
+    display: none;
+  }
+  .design-image{
+    display: block;
+    height: 100%;
+    margin:auto;
+  }
+  .border-1, .border-2{
+    //outline:1px solid blue;
+    position: absolute;
+    display: block;
+    width:50%;
+    height: 100px;
+    top: 45%;
+    left:-53%;
+    border-style: solid;
+    border-color: transparent transparent $color-2 transparent;
+    border-width: 0 155px 25px 155px;
+    &::after{
+      content: '';
+      position: absolute;
+      top: 11em;
+      left: 0;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-color: transparent transparent transparent transparent;
+      border-width: 70px 50px 0 50px;
+    }
+  }
+  .border-2{
+    left: 47%;
+  }

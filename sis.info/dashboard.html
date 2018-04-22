@@ -21,7 +21,7 @@
          <li class="dashboard-menu-list-item" id="data">Registros</li>
       </ul>
    </nav>
-   <main class="content-items-container" id="content-items-container"></main>
+   <main class="content-container" id="content-container"></main>
 </body>
 <script>
 //    menu desplegable
@@ -32,23 +32,31 @@
         mainnav.classList.toggle('show-menu-block');
         document.addEventListener("click",function(event){
          if (event.target.className === "dashboard-menu-list-item") {
-             mainnav.innerHTML = '<li class="selected-item" id="'+event.target.id+'">'+event.target.firstChild.data+'</li>' +
+             mainnav.innerHTML = '<li class="dashboard-menu-list-item selected-item" id="'+event.target.id+'">'+event.target.firstChild.data+'</li>' +
                  ' <li class="dashboard-menu-list-item" id="design">Diseños</li>\n' +
                  '<li class="dashboard-menu-list-item" id="last">Lo Último</li>\n' +
                  '<li class="dashboard-menu-list-item" id="users">Usuarios</li>\n' +
                  '<li class="dashboard-menu-list-item" id="data">Registros</li>';
-             document.getElementById("content-items-container").innerHTML = event.target.firstChild.data;
+             document.getElementById("content-container").innerHTML = event.target.firstChild.data;
              if(event.target.id === 'design'){
-                 document.getElementById("content-items-container").innerHTML = '<div>Diseños</div>'
+                 document.getElementById("content-container").innerHTML =
+                 '<iframe src="designs.html" class="content-container-items"></iframe>';
+//                     '<h1 class="content-container-items-title">Diseños</h1></div>'
              }
              if(event.target.id === 'last'){
-                 document.getElementById("content-items-container").innerHTML = '<div>Lo último</div>'
+                 document.getElementById("content-container").innerHTML =
+                     '<div class="content-container-items">' +
+                     '<h1 class="content-container-items-title">Lo último</h1></div>'
              }
              if(event.target.id === 'users'){
-                 document.getElementById("content-items-container").innerHTML = '<div>Usuarios</div>'
+                 document.getElementById("content-container").innerHTML =
+                     '<div class="content-container-items">' +
+                     '<h1 class="content-container-items-title">Usuarios</h1></div>'
              }
              if(event.target.id === 'data'){
-                 document.getElementById("content-items-container").innerHTML = '<div>Registros</div>'
+                 document.getElementById("content-container").innerHTML =
+                     '<div class="content-container-items">' +
+                     '<h1 class="content-container-items-title">Registros</h1></div>'
              }
 
 

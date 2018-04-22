@@ -1,13 +1,10 @@
-@media screen and(min-width:320px) {
   .index-main-container{
     max-width: $max-width-320;
     display: flex;
     flex-wrap: wrap;
     justify-content:center;
     margin:20% auto;
-    //outline:1px solid blue;
     .login-container{
-      //outline:1px solid black;
       display: flex;
       width:$max-width-320;
       justify-content:center;
@@ -17,12 +14,10 @@
         display: flex;
         background: $color-2;
         flex-wrap: wrap;
-        //outline:1px solid red;
         justify-content:space-around;
       }
     }
     .logo-container{
-      //outline:1px solid yellow;
       width: $max-width-320;
       margin:auto;
       display: flex;
@@ -53,4 +48,3 @@
   fieldset{
     border-width: 0;
   }
-}

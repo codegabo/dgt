@@ -1,0 +1,13 @@
+  .content-container{
+    width:90%;
+    display: block;
+    margin:1em auto;
+    height: 100vh;
+  }
+  //este es el IFRAME pero se la da estilos con esta clase
+  .content-container-items{
+    border:none;
+    width:100%;
+    text-align: center;
+    height: 100vh;
+  }

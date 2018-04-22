@@ -7,20 +7,16 @@
 ************************************
 ************************************
  */
-*,*::before,*::after{
+@font-face {
+  font-family: 'Nexa';
+  font-style: normal;
+  src:url("../font/Nexa Light.otf") format("opentype");
+}
+*,*::before,*::after, html, h1{
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   font-family: "Nexa";
-}
-@font-face {
-  font-family: 'Nexa';
-  font-style: normal;
-  src: local('Nexa'), local('Nexa'), url(../font) format('otf');
-}
-body{
-  //overflow: hidden;
-  //background: #eaeaea;
 }
 $max-width-320:95%;
 $max-width-1024: 80%;
@@ -32,6 +28,15 @@ $color-3:#b3b2b2;
 $color-4:#4d4c4c;
 
 $fz-320:16px;
+body{
+  background: $color-2;
+}
+
+
+
+//h1{
+//  color: $color-2;
+//}
 /***********************************
 ************************************
 ************************************
@@ -155,3 +160,4 @@ $fz-320:16px;
 @import "dashboard";
 @import "menu";
 @import "icon-font";
+@import "design_tab";
