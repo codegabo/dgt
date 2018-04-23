@@ -11,6 +11,10 @@
     width: 90%;
     justify-content:flex-start;
   }
+  @include medias(640px) {
+    width: 90%;
+    justify-content:center;
+  }
 }
 .design{
     position: relative;
@@ -35,6 +39,11 @@
     width: 30%;
     margin: 1em;
   }
+  @include medias(1024px) {
+    width: 20%;
+    height: 15em;
+    margin:1em 1em;
+  }
     &:hover .edit{
       display: flex;
       position: absolute;
@@ -46,12 +55,29 @@
       font-size: $fz-320 + 1.5;
       color: $color-1;
       border-radius: 3px;
+      @include medias(480px) {
+        left: 80%;
+        font-size:$fz-320 - .5;
+        padding: .3em;
+      }
+      @include medias(640px) {
+        font-size:$fz-320 - 4;
+      }
+      @include medias(768px) {
+        font-size:$fz-320 - 2;
+        left: 85%;
+        padding: .4em;
+      }
     }
     &-title{
       border-bottom:.2em solid $color-3;
       text-align: center;
       padding-top:1.8em;
       padding-bottom:1em;
+      @include medias(1024px) {
+        padding-top:2.5em;
+        padding-bottom:1.2em;
+      }
     }
   }
   .edit{
@@ -71,6 +97,9 @@
   top: 10.1em;
   border-bottom: 3px solid $color-2;
   //outline:3px solid orange;
+  @include medias(1024px) {
+    top: 12.1em;
+  }
   .border-1, .border-2{
     width: 100%;
     border-style: solid;
@@ -86,11 +115,12 @@
       border-width: 0 10em 20px 0;
     }
     @include medias(480px) {
-      border-width: 0 m 20px 0;
+      border-width: 0 12em 20px 0;
     }
     @include medias(640px) {
       border-width: 0 15em 20px 0;
     }
+
     //&::after{
     //  content: '';
     //  position: absolute;

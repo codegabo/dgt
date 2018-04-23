@@ -1,48 +1,91 @@
 .dashboard-menu {
   display: flex;
+  //outline:1px solid blue;
+  //@include medias(640px) {
+  //  height: 3em;
+  //}
 }
 .burguer-menu {
   font-size: 3em;
   color: $color-1;
   background: $color-3;
   max-height: 1em;
+  @include medias(640px) {
+    display: none;
+  }
 }
 .dashboard-menu-list {
   //outline:1px solid red;
-  display: block;
-  width: 100%;
-  //margin-top: 10%;
-  color: $color-1;
-  background: $color-4;
+  display: flex;
   list-style: none;
-  justify-content: center;
-  align-items: baseline;
-  //align-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 3em;
+  @include medias(640px) {
+    flex-wrap: nowrap;
+    justify-content:center;
+    padding: 0;
+    height: 1.5em;
+  }
+  &-item:nth-child(1){
+    width: 100%;
+    //background: red;
+
+    & ~ li{
+      display: none;
+      @include medias(640px) {
+        display: block;
+        text-align: center;
+        width: 100%;
+      }
+    }
+  }
   &-item {
     cursor: pointer;
     font-size: $fz-320;
     padding: .8em .2em .8em .8em;
     margin: .1em;
     text-align: left;
+    background: $color-3;
+    color: $color-1;
     //outline:1px solid black;
     &:hover {
       background: $color-1;
       color: $color-4;
     }
+    @include medias(640px) {
+      padding: .1em;
+    }
   }
 }
 .show-menu-block {
-  height: 3em;
-  display: flex;
+  display: table;
+  width: 100%;
+  @include medias(640px) {
+    display: flex;
+  }
+  //margin-top: 10%;
+
   & li[class="dashboard-menu-list-item"] {
-    display: none;
+    display: flex;
+    text-align: center;
   }
 }
 .selected-item {
   font-weight: bold;
   //border-bottom:1px solid $color-1;
   font-size: $fz-320;
-  padding: .8em .2em .8em .8em;
+  padding: .9em .2em .9em .8em;
   margin: auto;
+  background: $color-4;
   width: 100%;
+  &:hover {
+    background: $color-2;
+    color: $color-4;
+    cursor: default;
+  }
+  @include medias(640px) {
+    display: none;
+    text-align: center;
+  }
 }

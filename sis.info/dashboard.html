@@ -15,10 +15,10 @@
    <nav class="dashboard-menu">
       <div class="icon icon-menu burguer-menu" id="toggle"></div>
       <ul class="dashboard-menu-list" id="dashboard-menu-list">
-         <li class="dashboard-menu-list-item" id="design">Diseños</li>
-         <li class="dashboard-menu-list-item" id="last">Lo Último</li>
-         <li class="dashboard-menu-list-item" id="users">Usuarios</li>
-         <li class="dashboard-menu-list-item" id="data">Registros</li>
+         <li class="dashboard-menu-list-item" id="design">DISEÑOS</li>
+         <li class="dashboard-menu-list-item" id="last">LO ÚLTIMO</li>
+         <li class="dashboard-menu-list-item" id="users">USUARIOS</li>
+         <li class="dashboard-menu-list-item" id="data">REGISTROS</li>
       </ul>
    </nav>
    <main class="content-container" id="content-container"></main>
@@ -33,10 +33,10 @@
         document.addEventListener("click",function(event){
          if (event.target.className === "dashboard-menu-list-item") {
              mainnav.innerHTML = '<li class="dashboard-menu-list-item selected-item" id="'+event.target.id+'">'+event.target.firstChild.data+'</li>' +
-                 ' <li class="dashboard-menu-list-item" id="design">Diseños</li>\n' +
-                 '<li class="dashboard-menu-list-item" id="last">Lo Último</li>\n' +
-                 '<li class="dashboard-menu-list-item" id="users">Usuarios</li>\n' +
-                 '<li class="dashboard-menu-list-item" id="data">Registros</li>';
+                 ' <li class="dashboard-menu-list-item" id="design">DISEÑOS</li>\n' +
+                 '<li class="dashboard-menu-list-item" id="last">LO ÚLTIMO</li>\n' +
+                 '<li class="dashboard-menu-list-item" id="users">USUARIOS</li>\n' +
+                 '<li class="dashboard-menu-list-item" id="data">REGISTROS</li>';
              document.getElementById("content-container").innerHTML = event.target.firstChild.data;
              if(event.target.id === 'design'){
                  document.getElementById("content-container").innerHTML =
@@ -58,28 +58,9 @@
                      '<div class="content-container-items">' +
                      '<h1 class="content-container-items-title">Registros</h1></div>'
              }
-
-
          }
         }
        )
     }
-
-
-
-//
-//
-    /////////////////////////////////
-    ////////////MENÚ///////
-//    let design = document.getElementById("design"),
-//        menu_container = document.getElementById("dashboard-menu-list");
-//
-//    design.addEventListener("click",designF);
-//
-//    function designF() {
-//        menu_container.innerHTML = design.content;
-        // mainnav.classList.toggle('show-menu-block');
-        // toggle.classList.add('hidetoggle');
-//    }
 </script>
 </html>

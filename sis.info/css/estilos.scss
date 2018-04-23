@@ -7,7 +7,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  outline:1px solid red;
+  //outline:1px solid red;
   font-family: "Nexa";
 }
 @mixin medias($min-width){
@@ -17,6 +17,7 @@
 }
 $max-width-320:95%;
 $max-width-1024: 80%;
+$max-width-plus1024: 60%;
 
 
 $color-1:#ffffff;

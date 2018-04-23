@@ -2,10 +2,19 @@
     width:90%;
     display: block;
     margin:1em auto;
-    //outline:1px solid blue;
+    //outline:3px solid orange;
     height: 100vh;
     @include medias(480px) {
       width: 100%;
+      margin:1em auto;
+    }
+    @include medias(1024px) {
+      width: 80%;
+      max-width:$max-width-1024;
+    }
+    @include medias(1600px) {
+      width: 60%;
+      max-width:$max-width-plus1024;
     }
   }
   //este es el IFRAME pero se la da estilos con esta clase
@@ -13,8 +22,6 @@
     //outline: 2px solid green;
     border:none;
     width:100%;
-    //display: block;
-    //border:none;
     text-align: center;
     height: 100vh;
   }
