@@ -2,12 +2,19 @@
     width:90%;
     display: block;
     margin:1em auto;
+    //outline:1px solid blue;
     height: 100vh;
+    @include medias(480px) {
+      width: 100%;
+    }
   }
   //este es el IFRAME pero se la da estilos con esta clase
   .content-container-items{
+    //outline: 2px solid green;
     border:none;
     width:100%;
+    //display: block;
+    //border:none;
     text-align: center;
     height: 100vh;
   }

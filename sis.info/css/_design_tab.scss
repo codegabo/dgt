@@ -1,16 +1,40 @@
-  .design{
+.container-designer{
+  //outline: 1px solid red;
+  display: flex;
+  justify-content:space-between;
+  flex-wrap: wrap;
+  width: 100%;
+  @include medias(480px) {
+    margin:auto;
+  }
+  @include medias(640px) {
+    width: 90%;
+    justify-content:flex-start;
+  }
+}
+.design{
     position: relative;
-    //outline:1px solid red;
+    //outline:1px solid blue;
     display: block;
     background: $color-1;
-    height: 11em;
+    height: 12em;
     margin:0 0 1.5em;
     font-family: "Nexa";
     font-weight: bold;
-    //font-size:$fz-320 - 4;
+    font-size:$fz-320 - 4;
     width: 100%;
+    //margin:auto;
     overflow: hidden;
     border: none;
+  @include medias(480px) {
+    width: 45%;
+    margin:0 auto 1.5em;
+  }
+  @include medias(640px) {
+    font-size:$fz-320 - 8;
+    width: 30%;
+    margin: 1em;
+  }
     &:hover .edit{
       display: flex;
       position: absolute;
@@ -19,6 +43,7 @@
       left: 88%;
       background: $color-3;
       padding: .4em;
+      font-size: $fz-320 + 1.5;
       color: $color-1;
       border-radius: 3px;
     }
@@ -37,29 +62,67 @@
     height: 100%;
     margin:auto;
   }
+
+.container-border{
+  //justify-content:space-between;
+  display: flex;
+  width: 100%;
+  position: absolute;
+  top: 10.1em;
+  border-bottom: 3px solid $color-2;
+  //outline:3px solid orange;
   .border-1, .border-2{
-    //outline:1px solid blue;
-    position: absolute;
-    display: block;
-    width:50%;
-    height: 100px;
-    top: 45%;
-    left:-53%;
+    width: 100%;
     border-style: solid;
-    border-color: transparent transparent $color-2 transparent;
-    border-width: 0 155px 25px 155px;
-    &::after{
-      content: '';
-      position: absolute;
-      top: 11em;
-      left: 0;
-      width: 0;
-      height: 0;
-      border-style: solid;
-      border-color: transparent transparent transparent transparent;
-      border-width: 70px 50px 0 50px;
+    border-color: orange transparent $color-2 transparent;
+    border-width: 0 13em 15px 0;
+    @media screen and(max-width: 320px) {
+      border-width: 0 12em 20px 0;
     }
+    @include medias(330px) {
+      border-width: 0 15em 20px 0;
+    }
+    @include medias(400px) {
+      border-width: 0 10em 20px 0;
+    }
+    @include medias(480px) {
+      border-width: 0 m 20px 0;
+    }
+    @include medias(640px) {
+      border-width: 0 15em 20px 0;
+    }
+    //&::after{
+    //  content: '';
+    //  position: absolute;
+    //  top: 11em;
+    //  left: 0;
+    //  width: 0;
+    //  height: 0;
+    //  border-style: solid;
+    //  border-color: transparent transparent transparent transparent;
+    //  border-width: 70px 50px 0 50px;
+    //}
   }
   .border-2{
-    left: 47%;
+    border-width: 0 0 20px 14em;
+    @include medias(330px) {
+      border-width: 0 0 20px 15em;
+    }
+    @include medias(400px) {
+        border-width: 0 0 20px 20em;
+      }
+    @include medias(480px) {
+      border-width: 0 0 20px 10em;
+    }
+    //@include medias(320px) {
+    //  border-width: 0 0 25px 220px;
+    //  border-color: transparent transparent $color-2 transparent;
+    //  left: 50%;
+    //}
+    //@include medias(480px) {
+    //  border-color: transparent transparent $color-2 transparent;
+    //  border-width: 0 0 25px 220px;
+    //  left:25%;
+    //}
   }
+}
