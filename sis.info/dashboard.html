@@ -62,5 +62,14 @@
         }
        )
     }
+
+//   document.getElementById('toggle').click();
+const resize = () => {
+    if(innerWidth > 639) {
+        document.getElementById('toggle').click();
+    }
+};
+addEventListener('resize', resize);
+addEventListener('DOMContentLoaded', resize);
 </script>
 </html>

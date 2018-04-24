@@ -26,11 +26,11 @@
     justify-content:center;
     padding: 0;
     height: 1.5em;
+    font-weight:bold;
+    margin-top: 1em;
   }
   &-item:nth-child(1){
     width: 100%;
-    //background: red;
-
     & ~ li{
       display: none;
       @include medias(640px) {
@@ -49,13 +49,17 @@
     background: $color-3;
     color: $color-1;
     //outline:1px solid black;
+    @include medias(640px) {
+    padding: .1em;
+      margin:0;
+      text-align: center;
+    background: $color-4;
+  }
     &:hover {
       background: $color-1;
       color: $color-4;
     }
-    @include medias(640px) {
-      padding: .1em;
-    }
+
   }
 }
 .show-menu-block {
@@ -69,6 +73,9 @@
   & li[class="dashboard-menu-list-item"] {
     display: flex;
     text-align: center;
+    @include medias(640px) {
+      display: block;
+    }
   }
 }
 .selected-item {
@@ -79,6 +86,9 @@
   margin: auto;
   background: $color-4;
   width: 100%;
+  @include medias(640px) {
+    background: $color-3;
+  }
   &:hover {
     background: $color-2;
     color: $color-4;
