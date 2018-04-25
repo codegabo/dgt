@@ -146,6 +146,9 @@ body{
     height:10em;
   }
 }
+.content-container{
+  outline:1px solid blue;
+}
 
 @import "icon-font";
 @import "normalize";
@@ -153,3 +156,4 @@ body{
 @import "dashboard";
 @import "menu";
 @import "design_tab";
+@import "news";
