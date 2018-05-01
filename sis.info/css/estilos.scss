@@ -147,7 +147,7 @@ body{
   }
 }
 .content-container{
-  outline:1px solid blue;
+  //outline:1px solid blue;
 }
 
 @import "icon-font";
@@ -157,3 +157,5 @@ body{
 @import "menu";
 @import "design_tab";
 @import "news";
+@import "users";
+@import "data";

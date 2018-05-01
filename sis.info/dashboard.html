@@ -41,7 +41,6 @@
              if(event.target.id === 'design'){
                  document.getElementById("content-container").innerHTML =
                  '<iframe src="designs.html" class="content-container-items"></iframe>';
-//                     '<h1 class="content-container-items-title">Diseños</h1></div>'
              }
              if(event.target.id === 'last'){
                  document.getElementById("content-container").innerHTML =
@@ -51,7 +50,7 @@
              if(event.target.id === 'users'){
                  document.getElementById("content-container").innerHTML =
                      '<div class="content-container-items">' +
-                     '<h1 class="content-container-items-title">Usuarios</h1></div>'
+                     '<iframe src="users.html" class="content-container-items"></iframe>';
              }
              if(event.target.id === 'data'){
                  document.getElementById("content-container").innerHTML =
@@ -63,7 +62,7 @@
        )
     }
 
-//   document.getElementById('toggle').click();
+
 const resize = () => {
     if(innerWidth > 639) {
         document.getElementById('toggle').click();
