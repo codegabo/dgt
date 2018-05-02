@@ -1,0 +1,33 @@
+.tags{
+  display: flex;
+  //justify-content:space-between;
+  flex-wrap: wrap;
+  margin:.2em -.1em;
+  &-item{
+    background: $color-1;
+    //font-weight:bold;
+    margin: .1em .2em;
+    padding: .2em;
+    border-radius: 7px;
+
+  }
+}
+.container-supreedit{
+  display: flex;
+  width: 50%;
+  flex-wrap: wrap;
+
+}
+.input-item-edit{
+  display: inline;
+  //width: 5%;
+  background: $color-3;
+  //font-weight:bold;
+  margin: 1em auto;
+  padding: .2em;
+  border-radius: 7px;
+}
+.edits {
+  display: block;
+  //width: 100%;
+}
