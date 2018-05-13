@@ -19,12 +19,13 @@
 }
 .top-data{
   //outline: 1px solid red;
+  display: flex;
   background: $color-1;
   position: relative;
+  height: 10em;
+  overflow: hidden;
   .design-img{
-    display: block;
-    height: 10em;
-    margin:auto;
+    height: 15em;
   }
   .edit-design{
     position: absolute;
@@ -40,6 +41,7 @@
   background: $color-3;
   //outline: 1px solid blue;
   padding: .3em;
+  //height: 7.7em;
 }
 .tools{
   display: flex;

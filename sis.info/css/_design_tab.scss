@@ -38,10 +38,11 @@
     font-size:$fz-320 - 8;
     width: 30%;
     margin: 1em;
+    height: 12.2em;
   }
   @include medias(1024px) {
     width: 20%;
-    height: 15em;
+    height: 13em;
     margin:1em 1em;
   }
     &:hover .edit{
@@ -72,87 +73,22 @@
     &-title{
       border-bottom:.2em solid $color-3;
       text-align: center;
-      padding-top:1.8em;
-      padding-bottom:1em;
+      padding-top:2.2em;
+      padding-bottom:1.3em;
       @include medias(1024px) {
         padding-top:2.5em;
         padding-bottom:1.2em;
       }
     }
   }
-  .edit{
+  .edit, .edit-design{
     display: none;
   }
+.top-data:hover .edit-design{
+  display: flex;
+}
   .design-image{
     display: block;
     height: 100%;
     margin:auto;
   }
-
-.container-border{
-  //justify-content:space-between;
-  display: flex;
-  width: 100%;
-  position: absolute;
-  top: 10.1em;
-  border-bottom: 3px solid $color-2;
-  //outline:3px solid orange;
-  @include medias(1024px) {
-    top: 12.1em;
-  }
-  .border-1, .border-2{
-    width: 100%;
-    border-style: solid;
-    border-color: orange transparent $color-2 transparent;
-    border-width: 0 13em 15px 0;
-    @media screen and(max-width: 320px) {
-      border-width: 0 12em 20px 0;
-    }
-    @include medias(330px) {
-      border-width: 0 15em 20px 0;
-    }
-    @include medias(400px) {
-      border-width: 0 10em 20px 0;
-    }
-    @include medias(480px) {
-      border-width: 0 12em 20px 0;
-    }
-    @include medias(640px) {
-      border-width: 0 15em 20px 0;
-    }
-
-    //&::after{
-    //  content: '';
-    //  position: absolute;
-    //  top: 11em;
-    //  left: 0;
-    //  width: 0;
-    //  height: 0;
-    //  border-style: solid;
-    //  border-color: transparent transparent transparent transparent;
-    //  border-width: 70px 50px 0 50px;
-    //}
-  }
-  .border-2{
-    border-width: 0 0 20px 14em;
-    @include medias(330px) {
-      border-width: 0 0 20px 15em;
-    }
-    @include medias(400px) {
-        border-width: 0 0 20px 20em;
-      }
-    @include medias(480px) {
-      border-width: 0 0 20px 10em;
-    }
-    //@include medias(320px) {
-    //  border-width: 0 0 25px 220px;
-    //  border-color: transparent transparent $color-2 transparent;
-    //  left: 50%;
-    //}
-    //@include medias(480px) {
-    //  border-color: transparent transparent $color-2 transparent;
-    //  border-width: 0 0 25px 220px;
-    //  left:25%;
-    //}
-  }
-}
