@@ -1,7 +1,6 @@
 .all-content-container{
   width: 100%;
   margin:auto;
-  //outline:1px solid red;
   height: 100vh;
 }
 input[type="file"] {
@@ -10,12 +9,8 @@ input[type="file"] {
 .PDFupload{
   display: block;
   width: 90%;
-  //outline:1px solid black;
-  //padding: 0;
-  //color: $color-1;
   margin:auto;
   &-form{
-    //outline:1px solid blue;
     display: flex;
     padding: .3em .2em;
     width: 8.1em;
@@ -43,20 +38,28 @@ input[type="file"] {
     &-item{
       margin: auto;
       width: 80%;
-      outline:1px solid orange;
-      //width: 10%;
     }
   }
 }
-.files{
-  //outline:1px solid red;
-  //height: 100vh;
+.files, .pdf-viewer-container{
   width:100%;
-  margin: 1em auto;
+  overflow: auto;
+  margin:1em auto;
   background: $color-1;
   padding: 1em .1em;
+  @include medias(480px){
+    width: 90%;
+  }
   @include medias(768px) {
-    max-width:$max-width-1024;
+    //max-width:$max-width-320;
+    width: 30%;
+    font-size: 13px;
+
+
+  }
+  @include medias(1024px) {
+    //margin: 0;
+    //width: 25%;
   }
   @include medias(1440px) {
     max-width:$max-width-plus1024;
@@ -65,29 +68,81 @@ input[type="file"] {
 }
 .container-list-files{
   display: block;
-  padding: .2em 0;
+  padding: .5em 0;
   width: 95%;
-  margin:.3em auto;
+  margin:.5em auto;
   border-radius: 3px;
   background: $color-2;
   &-title{
     font-size:$fz-320 * 1.3;
     font-weight: bold;
+    margin-left:.5em;
+    @include medias(768px){
+      font-size:$fz-320;
+    }
+    &-big{
+
+    }
   }
   &-text{
     margin: 1em;
+    @include medias(768px){
+      margin: .4em;
+    }
   }
 }
 .pdf-iframe{
   width: 100%;
   height: 40vh;
-  padding-top:1em;
+  padding-top:.5em;
   @include medias(480px) {
     height: 60vh;
   }
+  @include medias(1024px){
+    padding-top:0;
+    height:80vh;
+  }
 }
 .preview-icon{
-  margin:.1em 1em;
+  margin:.5em 1em;
   align-content:flex-end;
   cursor: pointer;
+}
+summary{
+  display: flex;
+  cursor: pointer;
+  justify-content:space-between;
+}
+summary::-webkit-details-marker {
+  display: none;
+}
+summary:after {
+  content: "▼";
+  color: $color-4;
+  margin: auto 1em;
+  font-size:$fz-320 - 4;
+}
+details[open] summary:after {
+  content: "▲";
+}
+.section-container{
+  @include medias(768px){
+    width: 90%;
+    display: flex;
+    margin:auto;
+    height: 90vh;
+  }
+}
+.pdf-viewer-container{
+  display: none;
+  @include medias(768px){
+    display: block;
+    overflow: inherit;
+    width: 100%;
+  }
+}
+.iframe-responsive{
+  @include medias(768px){
+    display: none;
+  }
 }
