@@ -1,113 +1,184 @@
-
-
-.main_action_panel{
-  display: flex;
-  outline:1px solid black;
-  width: 80%;
-  justify-content:space-between;
-  //max-width: 90%;
-  height:35em;
-  //min-height: 40%;
-  margin:auto;
-  .other-designs{
-    outline:4px solid yellow;
-  }
-  .preview, .full_design {
-    outline:4px solid blue;
-    //margin: auto;
-    height: 100%;
-    //max-height:50%;
-    display: flex;
-    background: #000;
-    position: relative;
-    overflow: hidden;
-    .design{
-      //position: absolute;
-      z-index:10;
-      //margin-top:10%;
-      outline:1px solid blue;
-      display: block;
-      border:0;
-      justify-content:center;
-      //transition: all .3s;
-    }
-    .clothes{
-      position: absolute;
-      outline:1px solid green;
-      //height: 100%;
-      border:0;
-      display: block;
-      //left: 25%;
-      //top: 10%;
-      //margin: -9em auto 0;
-      z-index:20;
-      //margin:auto;
-    }
-  }
-  .all-clothes{
-    display: flex;
-    width: 35%;
-    //height: 100%;
-    flex-wrap: wrap;
-    justify-content:space-around;
-    outline: 4px solid red;
-    overflow: scroll;
-    //margin:0 1em;
-    &-item{
-      margin:.1em 0;
-      //outline: 1px solid green;
-      //border:6px solid #eaeaea;
-      //margin: .4em;
-      height: 8.5em;
-
-    }
-  }
+*{
+  //outline:1px solid red;
 }
-
-#botones{
-  display: flex;
-  //flex-wrap: wrap;
-  //width: 20%;
-  justify-content: flex-end;
-  outline:1px solid red;
-  margin: 1em 0;
-  #text{
-    font-size: 15px;
+.container-main{
+    //outline:1px solid orange;
   }
-}
-.zoom-button{
-  background: white;
-  color: black;
-  border:1px solid black;
-  padding: 1em;
-  border-radius: 1em;
-  outline:0;
-  &:active{
-    outline:0;
-    padding: .9em;
-  }
-}
-.block-zoom-button{
-  background: gray;
-  color: darkgray;
-  border:0;
-  outline:0;
-  border-radius: 1em;
-  pointer-events:none;
-  &:active{
-    outline:0;
-  }
-}
-.multiple-design{
-  display: flex;
-  width: 80%;
-  justify-content:flex-end;
-  margin:auto;
-  outline: 2px solid brown;
-  img{
-    height:10em;
-  }
-}
-.content-container{
+.container-left{
   //outline:1px solid blue;
+  display: flex;
+  flex-wrap: wrap;
+  }
+.designs, .variants{
+  //outline:1px solid #162a36;
+  overflow: auto;
+  display: flex;
+  &-img{
+    //outline:1px solid purple;
+    height: 7em;
+    margin: 0 .2em;
+  }
 }
+.right-side{
+  display: flex;
+  width: 100%;
+  flex-wrap:wrap;
+  outline:1px solid red;
+}
+.live-preview{
+  margin:auto;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  //outline:1px solid brown;
+  &-current{
+    display: block;
+    //outline:1px solid black;
+    margin: .5em auto;
+    height: 25em;
+  }
+}
+.button-dropdown-clothes{
+  position: absolute;
+  bottom: 5em;
+  right: 1em;
+  font-size: 1.5em;
+  padding: .1em;
+
+}
+.zoomButtons-container{
+  position: absolute;
+  bottom: 1em;
+  right: 1em;
+  display: flex;
+  .button-more, .button-less{
+    margin:0 .1em;
+    display: flex;
+    background: $color-1;
+    border:.1px solid $color-2;
+    padding: .1em;
+    font-size: 1.5em;
+  }
+}
+.container-right{
+  //outline:1px solid red;
+}
+
+
+
+
+
+
+// PRIMERA MAQUETACIÓN
+
+//.main_action_panel{
+//  display: flex;
+//  outline:1px solid black;
+//  width: 80%;
+//  justify-content:space-between;
+//  //max-width: 90%;
+//  height:35em;
+//  //min-height: 40%;
+//  margin:auto;
+//  .other-designs{
+//    outline:4px solid yellow;
+//  }
+//  .preview, .full_design {
+//    outline:4px solid blue;
+//    //margin: auto;
+//    height: 100%;
+//    //max-height:50%;
+//    display: flex;
+//    background: #000;
+//    position: relative;
+//    overflow: hidden;
+//    .design{
+//      //position: absolute;
+//      z-index:10;
+//      //margin-top:10%;
+//      outline:1px solid blue;
+//      display: block;
+//      border:0;
+//      justify-content:center;
+//      //transition: all .3s;
+//    }
+//    .clothes{
+//      position: absolute;
+//      outline:1px solid green;
+//      //height: 100%;
+//      border:0;
+//      display: block;
+//      //left: 25%;
+//      //top: 10%;
+//      //margin: -9em auto 0;
+//      z-index:20;
+//      //margin:auto;
+//    }
+//  }
+//  .all-clothes{
+//    display: flex;
+//    width: 35%;
+//    //height: 100%;
+//    flex-wrap: wrap;
+//    justify-content:space-around;
+//    outline: 4px solid red;
+//    overflow: scroll;
+//    //margin:0 1em;
+//    &-item{
+//      margin:.1em 0;
+//      //outline: 1px solid green;
+//      //border:6px solid #eaeaea;
+//      //margin: .4em;
+//      height: 8.5em;
+//
+//    }
+//  }
+//}
+//
+//#botones{
+//  display: flex;
+//  //flex-wrap: wrap;
+//  //width: 20%;
+//  justify-content: flex-end;
+//  outline:1px solid red;
+//  margin: 1em 0;
+//  #text{
+//    font-size: 15px;
+//  }
+//}
+//.zoom-button{
+//  background: white;
+//  color: black;
+//  border:1px solid black;
+//  padding: 1em;
+//  border-radius: 1em;
+//  outline:0;
+//  &:active{
+//    outline:0;
+//    padding: .9em;
+//  }
+//}
+//.block-zoom-button{
+//  background: gray;
+//  color: darkgray;
+//  border:0;
+//  outline:0;
+//  border-radius: 1em;
+//  pointer-events:none;
+//  &:active{
+//    outline:0;
+//  }
+//}
+//.multiple-design{
+//  display: flex;
+//  width: 80%;
+//  justify-content:flex-end;
+//  margin:auto;
+//  outline: 2px solid brown;
+//  img{
+//    height:10em;
+//  }
+//}
+//.content-container{
+//  //outline:1px solid blue;
+//}
