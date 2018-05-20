@@ -1,3 +1,6 @@
+.display-none{
+  //visibility: hidden;
+}
 *{
   //outline:1px solid red;
 }
@@ -88,7 +91,7 @@
     transition: all .1s;
   }
   &-close{
-    position: fixed;
+    position: absolute;
     top:.5em;
     right: .9em;
     z-index: 11;
@@ -98,14 +101,12 @@
     border:.1px solid $color-2;
     padding: .5em;
     font-size:2em;
-
     &::after{
       content: 'x';
       //position: absolute;
     }
   }
 }
-
 
 
 

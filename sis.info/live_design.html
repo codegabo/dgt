@@ -145,10 +145,12 @@
         containerRight.classList.toggle('container-right-active');
         containerRight.appendChild(closeContainerRight).classList.add("container-right-close");
     });
+//    let closeContainerRightID = containerRight.id = "container-right-close";
    closeContainerRight.addEventListener('click', () =>{
        containerRight.classList.remove('container-right-active');
+//       containerRight.classList.add('display-none');
 //       containerRight.classList.remove('container-right-close');
-       containerRight.style.position = "absolute"
+//       containerRight.style.position = "absolute"
 
    })
 </script>
