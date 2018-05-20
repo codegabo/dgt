@@ -23,7 +23,7 @@
   display: flex;
   width: 100%;
   flex-wrap:wrap;
-  outline:1px solid red;
+  //outline:1px solid red;
 }
 .live-preview{
   margin:auto;
@@ -40,11 +40,14 @@
 }
 .button-dropdown-clothes{
   position: absolute;
-  bottom: 5em;
-  right: 1em;
-  font-size: 1.5em;
+  top:.5em;
+  right: .9em;
+  margin:0 .1em;
+  display: flex;
+  background: $color-1;
+  border:.1px solid $color-2;
   padding: .1em;
-
+  font-size:2em;
 }
 .zoomButtons-container{
   position: absolute;
@@ -61,7 +64,46 @@
   }
 }
 .container-right{
+  display: flex;
   //outline:1px solid red;
+  flex-wrap: wrap;
+  justify-content:space-around;
+  z-index: 10;
+  top:0;
+  width: 0;
+  height: 100vh;
+  overflow:scroll;
+  background: rgba($color-4, .8);
+  position: fixed;
+  padding:1em 0;
+  transition: all .1s;
+  &-img{
+    border-radius: 5px;
+    background:$color-2;
+    margin: .3em;
+    height: 10em;
+  }
+  &-active{
+    width: 100%;
+    transition: all .1s;
+  }
+  &-close{
+    position: fixed;
+    top:.5em;
+    right: .9em;
+    z-index: 11;
+    //margin:0 .1em;
+    display: flex;
+    background: $color-1;
+    border:.1px solid $color-2;
+    padding: .5em;
+    font-size:2em;
+
+    &::after{
+      content: 'x';
+      //position: absolute;
+    }
+  }
 }
 
 

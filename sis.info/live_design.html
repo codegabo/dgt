@@ -33,8 +33,8 @@
       </div>
       <div class="right-side">
          <div class="live-preview">
-            <img src="img/clothes_png/LEGINS.png" alt="" class="live-preview-current" id="">
-            <button class="button-dropdown-clothes icon-clothes"></button>
+            <img src="img/clothes_png/POLO.png" alt="" class="live-preview-current" id="">
+            <button class="button-dropdown-clothes icon-clothes" id="button-dropdown-clothes" ></button>
             <div class="zoomButtons-container">
                <button class="button-more icon-plus"></button>
                <button class="button-less icon-minus"></button>
@@ -53,7 +53,20 @@
          </div>
       </div>
    </section>
-   <section class="container-right"></section>
+   <section class="container-right" id="container-right">
+      <img src="img/clothes_png/POLO.png"  class="container-right-img" alt="">
+      <img src="img/clothes_png/LEGINS.png"  class="container-right-img" alt="">
+      <img src="img/clothes_png/TSHIRT.png"  class="container-right-img" alt="">
+      <img src="img/clothes_png/VESTIDO.png"  class="container-right-img" alt="">
+      <img src="img/clothes_png/BLUSA.png"  class="container-right-img" alt="">
+      <img src="img/clothes_png/TOP.png"  class="container-right-img" alt="">
+      <img src="img/clothes_png/TSHIRT%20FEMENINA.png"  class="container-right-img" alt="">
+      <img src="img/clothes_png/FALDA%20FEMENINO.png"  class="container-right-img" alt="">
+      <img src="img/clothes_png/CAMISA%20HOMBRE.png"  class="container-right-img" alt="">
+      <img src="img/clothes_png/PANTALONETA%20HOMBRE.png"  class="container-right-img" alt="">
+      <img src="img/clothes_png/VESTIDO%20DE%20BAÑO-FEMENINO.png"  class="container-right-img" alt="">
+      <img src="img/clothes_png/VESTIDO%20-FEMENINO.png"  class="container-right-img" alt="">
+   </section>
 </main>
 
 
@@ -121,21 +134,22 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </body>
 <script src="js/js.js"></script>
+<script>
+    let buttonDropdownClothes = document.getElementById('button-dropdown-clothes'),
+        containerRight = document.getElementById('container-right'),
+        closeContainerRight = document.createElement('BUTTON');
+
+    buttonDropdownClothes.addEventListener('click', () => {
+        containerRight.classList.toggle('container-right-active');
+        containerRight.appendChild(closeContainerRight).classList.add("container-right-close");
+    });
+   closeContainerRight.addEventListener('click', () =>{
+       containerRight.classList.remove('container-right-active');
+//       containerRight.classList.remove('container-right-close');
+       containerRight.style.position = "absolute"
+
+   })
+</script>
 </html>
