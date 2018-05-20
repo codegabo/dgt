@@ -67,6 +67,19 @@ const resize = () => {
     if(innerWidth > 639) {
         document.getElementById('toggle').click();
     }
+    if(innerWidth <= 639) {
+        let toggleMenu = document.getElementById('toggle');
+
+        mainnav.addEventListener('click', () => {
+            toggleMenu.click();
+        });
+
+        mainnav.addEventListener('mouseleave', () => {
+            toggleMenu.click();
+        });
+        //            toggleMenu.click();
+
+    }
 };
 addEventListener('resize', resize);
 addEventListener('DOMContentLoaded', resize);
