@@ -13,10 +13,6 @@ function previewpdf(){
         }
         if (event.target.className === "preview-icon" && innerWidth >= 1024){
             previewsection.innerHTML = '<iframe src="http://docs.google.com/gview?url=https://www.digitalglobaltextiles.com/recibo.pdf&embedded=true" class="pdf-iframe" id="pdf-iframe" frameborder="0"></iframe>';
-            // preview.outerHTML = "look for a PDF document";
-            // let newIframe = document.getElementById("pdf-iframe");
-            // newIframe.parentNode.removeChild(newIframe);
-            // return false;
         }
 
     })

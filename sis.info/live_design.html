@@ -33,12 +33,16 @@
       </div>
       <div class="right-side">
          <div class="live-preview">
-            <img src="img/clothes_png/BLUSA.png" alt="" class="live-preview-current" id="">
+            <img src="img/clothes_png/BLUSA.png" alt="" class="live-preview-current" id="live-preview-current">
             <button class="button-dropdown-clothes icon-clothes" id="button-dropdown-clothes" ></button>
             <div class="zoomButtons-container">
                <button class="button-more icon-plus"></button>
                <button class="button-less icon-minus"></button>
             </div>
+         </div>
+         <div class="current-design">
+            <h1 class="current-design-title">Flores</h1>
+            <h4 class="current-design-subtitle">FL 0031</h4>
          </div>
          <div class="variants">
             <img src="img/clothes_designs/DIBUJO%20CO-0001/CO-0001.jpg" alt="" class="variants-img">
@@ -151,7 +155,6 @@
     let buttonDropdownClothes = document.getElementById('button-dropdown-clothes'),
         containerRight = document.getElementById('container-right'),
         closeContainerRight = document.getElementById('container-right-close');
-
     buttonDropdownClothes.addEventListener('click', () => {
         containerRight.classList.toggle('container-right-active');
         closeContainerRight.classList.add('posi-fix');
@@ -160,5 +163,7 @@
        containerRight.classList.remove('container-right-active');
        closeContainerRight.classList.remove('posi-fix');
    });
+
+
 </script>
 </html>

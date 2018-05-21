@@ -2,24 +2,29 @@
   //outline:1px solid red;
 }
 .container-main{
-  //display: flex;
-    @include medias(768px){
-      display: flex;
-      width: 100%;
-      margin:auto;
-      flex-wrap: nowrap;
-    }
+  @include medias(768px){
+    display: flex;
+    width: 100%;
+    margin:auto;
+    flex-wrap: nowrap;
+  }
+  @include medias(900px){
+    width: 80%;
+    max-width: 80%;
+  }
   }
 .container-left{
-
   display: flex;
   flex-wrap: wrap;
-  @include medias(768px){
-    width: 50%;
-    //margin: auto;
-    //
-    //margin: 0;
-}
+    @include medias(768px){
+      width: 55%;
+      //margin: auto;
+      //
+      //margin: 0;
+    }
+    @include medias(900px){
+      width: 60%;
+    }
   }
 .designs, .variants{
   overflow: auto;
@@ -36,8 +41,11 @@
 .designs{
   @include medias(768px){
     flex-wrap: wrap;
-    width: 25%;
+    width: 22%;
     height: 100vh;
+    @include medias(900px){
+      width: 22%;
+    }
   }
 }
 .variants{
@@ -66,7 +74,7 @@
   overflow: hidden;
   position: relative;
   @include medias(768px){
-    display: flex;
+    display: block;
     margin: 0;
   }
   &-current{
@@ -80,9 +88,34 @@
       height: 40em;
     }
     @include medias(768px){
-      height: 22em;
+      height: 24.5em;
       margin: 0 auto;
     }
+    @include medias(1024px){
+       height: 26em;
+     }
+    //@include medias(820px){
+    //  height: 28em;
+    //}
+    //@include medias(900px){
+    //  height: 30em;
+    //}
+  }
+}
+.current-design{
+  background: $color-1;
+  padding: 1em;
+  margin:.1em auto .3em;
+  width: 100%;
+  overflow: auto;
+  @include medias(768px){
+    padding: .5em;
+  }
+  &-title{
+    font-size: 1em;
+  }
+  &-subtitle{
+    font-size: .8em;
   }
 }
 .button-dropdown-clothes, .container-right-close{
@@ -108,7 +141,7 @@
   @include medias(768px){
     top: 0;
     z-index:15;
-    right: 46%;
+    right: 44%;
     position: fixed;
     display: flex;
     align-content:space-between;
@@ -117,6 +150,12 @@
     flex-wrap: wrap;
     width:1.2em;
     height:15em;
+  }
+  @include medias(900px){
+    right: 41%;
+  }
+  @include medias(1024px){
+    right: 43%;
   }
   .button-more, .button-less{
     border-radius: 5px;
@@ -152,7 +191,7 @@
   padding:1em 0;
   transition: all .1s;
   @include medias(768px){
-    margin-left:3em;
+    margin-left:1em;
     width: 50%;
     overflow: auto;
     justify-content:space-between;
@@ -160,15 +199,27 @@
     background: $color-2;
     padding: 0;
   }
+  @include medias(900px){
+    width: 40%;
+  }
   &-img{
     border-radius: 5px;
     background:$color-2;
     margin: .2em;
     height: 10em;
     @include medias(768px){
-      height: 8em;
+      height: 9em;
       margin: 0;
       border-radius: 0;
+    }
+    //@include medias(px){
+    //  height: 2em;
+    //}
+    @include medias(960px){
+      height: 8.6em;
+    }
+    @include medias(1024px){
+      height: 7.5em;
     }
   }
   &-active{
@@ -183,7 +234,16 @@
 .posi-fix{
   position: fixed;
 }
-
+.container-main, .container-left, .container-right, .designs{
+  @media (min-width: 768px) and (min-height: 616px) {
+    height: 45vh;
+    margin:auto;
+  }
+  @media (min-width: 1366px) and (min-height: 1024px) {
+    height: 55vh;
+    margin:auto;
+  }
+}
 
 
 
