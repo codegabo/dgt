@@ -66,6 +66,7 @@
       <img src="img/clothes_png/PANTALONETA%20HOMBRE.png"  class="container-right-img" alt="">
       <img src="img/clothes_png/VESTIDO%20DE%20BAÑO-FEMENINO.png"  class="container-right-img" alt="">
       <img src="img/clothes_png/VESTIDO%20-FEMENINO.png"  class="container-right-img" alt="">
+      <div class="container-right-close icon-close" id="container-right-close"></div>
    </section>
 </main>
 
@@ -139,19 +140,15 @@
 <script>
     let buttonDropdownClothes = document.getElementById('button-dropdown-clothes'),
         containerRight = document.getElementById('container-right'),
-        closeContainerRight = document.createElement('BUTTON');
+        closeContainerRight = document.getElementById('container-right-close');
 
     buttonDropdownClothes.addEventListener('click', () => {
         containerRight.classList.toggle('container-right-active');
-        containerRight.appendChild(closeContainerRight).classList.add("container-right-close");
+        closeContainerRight.classList.add('posi-fix');
     });
-//    let closeContainerRightID = containerRight.id = "container-right-close";
    closeContainerRight.addEventListener('click', () =>{
        containerRight.classList.remove('container-right-active');
-//       containerRight.classList.add('display-none');
-//       containerRight.classList.remove('container-right-close');
-//       containerRight.style.position = "absolute"
-
+       closeContainerRight.classList.remove('posi-fix');
    })
 </script>
 </html>

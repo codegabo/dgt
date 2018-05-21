@@ -1,6 +1,4 @@
-.display-none{
-  //visibility: hidden;
-}
+
 *{
   //outline:1px solid red;
 }
@@ -41,7 +39,8 @@
     height: 25em;
   }
 }
-.button-dropdown-clothes{
+.button-dropdown-clothes, .container-right-close{
+  border-radius: 5px;
   position: absolute;
   top:.5em;
   right: .9em;
@@ -58,6 +57,7 @@
   right: 1em;
   display: flex;
   .button-more, .button-less{
+    border-radius: 5px;
     margin:0 .1em;
     display: flex;
     background: $color-1;
@@ -91,23 +91,13 @@
     transition: all .1s;
   }
   &-close{
-    position: absolute;
-    top:.5em;
-    right: .9em;
-    z-index: 11;
-    //margin:0 .1em;
-    display: flex;
-    background: $color-1;
-    border:.1px solid $color-2;
-    padding: .5em;
-    font-size:2em;
-    &::after{
-      content: 'x';
-      //position: absolute;
-    }
+    right: .3em;
+    box-shadow: 0px 0px 5px 0px rgba($color-4,1);
   }
 }
-
+.posi-fix{
+  position: fixed;
+}
 
 
 
