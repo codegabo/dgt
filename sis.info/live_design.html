@@ -33,7 +33,7 @@
       </div>
       <div class="right-side">
          <div class="live-preview">
-            <img src="img/clothes_png/POLO.png" alt="" class="live-preview-current" id="">
+            <img src="img/clothes_png/BLUSA.png" alt="" class="live-preview-current" id="">
             <button class="button-dropdown-clothes icon-clothes" id="button-dropdown-clothes" ></button>
             <div class="zoomButtons-container">
                <button class="button-more icon-plus"></button>
@@ -138,6 +138,16 @@
 </body>
 <script src="js/js.js"></script>
 <script>
+
+//    const resize = () => {
+//        if(innerWidth < 1024) {
+//            document.getElementById('toggle').click();
+//        }
+//
+//    };
+
+
+
     let buttonDropdownClothes = document.getElementById('button-dropdown-clothes'),
         containerRight = document.getElementById('container-right'),
         closeContainerRight = document.getElementById('container-right-close');
@@ -149,6 +159,6 @@
    closeContainerRight.addEventListener('click', () =>{
        containerRight.classList.remove('container-right-active');
        closeContainerRight.classList.remove('posi-fix');
-   })
+   });
 </script>
 </html>

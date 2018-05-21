@@ -1,22 +1,51 @@
-
 *{
   //outline:1px solid red;
 }
 .container-main{
-    //outline:1px solid orange;
+  //display: flex;
+    @include medias(768px){
+      display: flex;
+      width: 100%;
+      margin:auto;
+      flex-wrap: nowrap;
+    }
   }
 .container-left{
-  //outline:1px solid blue;
+
   display: flex;
   flex-wrap: wrap;
+  @include medias(768px){
+    width: 50%;
+    //margin: auto;
+    //
+    //margin: 0;
+}
   }
 .designs, .variants{
-  //outline:1px solid #162a36;
   overflow: auto;
-  display: flex;
+  display:flex;
+  //width: 100%;
   &-img{
-    //outline:1px solid purple;
     height: 7em;
+    margin: 0 .2em;
+    @include medias(768px){
+      height: 5em;
+    }
+  }
+}
+.designs{
+  @include medias(768px){
+    flex-wrap: wrap;
+    width: 25%;
+    height: 100vh;
+  }
+}
+.variants{
+  @include medias(768px){
+    height: 6em;
+    //margin:0 .5em;
+  }
+  &-img{
     margin: 0 .2em;
   }
 }
@@ -24,19 +53,36 @@
   display: flex;
   width: 100%;
   flex-wrap:wrap;
-  //outline:1px solid red;
+  //background: #000;
+  @include medias(768px){
+    width: 75%;
+    margin: 0;
+  }
 }
 .live-preview{
   margin:auto;
+  //background: #000;
   width: 100%;
   overflow: hidden;
   position: relative;
-  //outline:1px solid brown;
+  @include medias(768px){
+    display: flex;
+    margin: 0;
+  }
   &-current{
     display: block;
-    //outline:1px solid black;
     margin: .5em auto;
     height: 25em;
+    @include medias(480px){
+      height: 30em;
+    }
+    @include medias(640px){
+      height: 40em;
+    }
+    @include medias(768px){
+      height: 22em;
+      margin: 0 auto;
+    }
   }
 }
 .button-dropdown-clothes, .container-right-close{
@@ -50,12 +96,28 @@
   border:.1px solid $color-2;
   padding: .1em;
   font-size:2em;
+  @include medias(768px){
+    display: none;
+  }
 }
 .zoomButtons-container{
   position: absolute;
   bottom: 1em;
   right: 1em;
   display: flex;
+  @include medias(768px){
+    top: 0;
+    z-index:15;
+    right: 46%;
+    position: fixed;
+    display: flex;
+    align-content:space-between;
+    //justify-content:space-between;
+    background: rgba($color-3, .3);
+    flex-wrap: wrap;
+    width:1.2em;
+    height:15em;
+  }
   .button-more, .button-less{
     border-radius: 5px;
     margin:0 .1em;
@@ -64,11 +126,20 @@
     border:.1px solid $color-2;
     padding: .1em;
     font-size: 1.5em;
+    @include medias(768px){
+      border-radius: 0;
+      color:$color-3;
+      margin: 0;
+      padding: .1em;
+      //width: 1em;
+      height: 1em;
+      display: block;
+      font-size: 1em;
+    }
   }
 }
 .container-right{
   display: flex;
-  //outline:1px solid red;
   flex-wrap: wrap;
   justify-content:space-around;
   z-index: 10;
@@ -80,11 +151,25 @@
   position: fixed;
   padding:1em 0;
   transition: all .1s;
+  @include medias(768px){
+    margin-left:3em;
+    width: 50%;
+    overflow: auto;
+    justify-content:space-between;
+    position: inherit;
+    background: $color-2;
+    padding: 0;
+  }
   &-img{
     border-radius: 5px;
     background:$color-2;
-    margin: .3em;
+    margin: .2em;
     height: 10em;
+    @include medias(768px){
+      height: 8em;
+      margin: 0;
+      border-radius: 0;
+    }
   }
   &-active{
     width: 100%;
@@ -106,7 +191,7 @@
 
 //.main_action_panel{
 //  display: flex;
-//  outline:1px solid black;
+
 //  width: 80%;
 //  justify-content:space-between;
 //  //max-width: 90%;
@@ -114,10 +199,10 @@
 //  //min-height: 40%;
 //  margin:auto;
 //  .other-designs{
-//    outline:4px solid yellow;
+
 //  }
 //  .preview, .full_design {
-//    outline:4px solid blue;
+
 //    //margin: auto;
 //    height: 100%;
 //    //max-height:50%;
@@ -129,7 +214,7 @@
 //      //position: absolute;
 //      z-index:10;
 //      //margin-top:10%;
-//      outline:1px solid blue;
+
 //      display: block;
 //      border:0;
 //      justify-content:center;
@@ -137,7 +222,7 @@
 //    }
 //    .clothes{
 //      position: absolute;
-//      outline:1px solid green;
+
 //      //height: 100%;
 //      border:0;
 //      display: block;
@@ -154,12 +239,12 @@
 //    //height: 100%;
 //    flex-wrap: wrap;
 //    justify-content:space-around;
-//    outline: 4px solid red;
+
 //    overflow: scroll;
 //    //margin:0 1em;
 //    &-item{
 //      margin:.1em 0;
-//      //outline: 1px solid green;
+
 //      //border:6px solid #eaeaea;
 //      //margin: .4em;
 //      height: 8.5em;
@@ -173,7 +258,7 @@
 //  //flex-wrap: wrap;
 //  //width: 20%;
 //  justify-content: flex-end;
-//  outline:1px solid red;
+
 //  margin: 1em 0;
 //  #text{
 //    font-size: 15px;
@@ -185,9 +270,9 @@
 //  border:1px solid black;
 //  padding: 1em;
 //  border-radius: 1em;
-//  outline:0;
+
 //  &:active{
-//    outline:0;
+
 //    padding: .9em;
 //  }
 //}
@@ -195,11 +280,11 @@
 //  background: gray;
 //  color: darkgray;
 //  border:0;
-//  outline:0;
+
 //  border-radius: 1em;
 //  pointer-events:none;
 //  &:active{
-//    outline:0;
+
 //  }
 //}
 //.multiple-design{
@@ -207,11 +292,11 @@
 //  width: 80%;
 //  justify-content:flex-end;
 //  margin:auto;
-//  outline: 2px solid brown;
+
 //  img{
 //    height:10em;
 //  }
 //}
 //.content-container{
-//  //outline:1px solid blue;
+
 //}
