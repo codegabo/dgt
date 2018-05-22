@@ -32,8 +32,7 @@
 
     }
   }
-
-.users-search{
+.users-search, .create-user-input, .create-user-select{
   //outline:1px solid red;
   padding: 0 0 0 2em;
   margin: 0;
@@ -140,4 +139,46 @@ tr td{
   border:.4em solid $color-1;
   outline: 1px solid $color-1;
   border-radius: 15px;
+}
+.container-create_user{
+  background: $color-2;
+  padding: 0;
+  display: none;
+  //display: flex;
+  flex-wrap: wrap;
+  justify-content:space-between;
+}
+.container-create_user-active{
+  display: flex;
+  height: 100vh;
+  overflow: scroll;
+  position: fixed;
+  margin: 0;
+  padding: 1em 0;
+  transition: all .1s;
+}
+.create-user-label{
+  width: 100%;
+  margin: .2em 0;
+  display: flex;
+  flex-wrap: wrap;
+  &-text {
+    font-size: 1em;
+    color: $color-4;
+    background: $color-3;
+    margin: .2em 0;
+    border-radius: 5px;
+    padding: .4em .3em .2em;
+    //font-weight:bold;
+  }
+}
+.create-user-input, .create-user-select{
+  //position: inherit;
+  padding: 0 1em;
+  margin: .2em 0;
+  background: $color-1;
+}
+.birth{
+  line-height: inherit;
+  //height: 4em;
 }

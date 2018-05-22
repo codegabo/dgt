@@ -17,7 +17,7 @@
          <input type="search" class="users-search" id="users-search">
          <img src="img/icons/search-icon.png" class="users-search-icon" alt="">
       </label>
-      <button class="add-users">
+      <button class="add-users" id="add-users">
          <img  src="img/icons/add-icon.png" class="add-users-icon"/><p>AGREGAR</p>
       </button>
    </header>
@@ -65,6 +65,59 @@
             </tr>
          </table>
    </main>
+   <section class="container-create_user" id="container-create_user">
+      <label for="create-user-input-name" class="create-user-label">
+         <h2 class="create-user-label-text">Nombre</h2>
+         <input type="text" id="create-user-input-name" class="create-user-input">
+      </label>
+      <label for="create-user-input-lastName" class="create-user-label">
+         <h2 class="create-user-label-text">Apellido</h2>
+         <input type="text" id="create-user-input-lastName" class="create-user-input">
+      </label>
+      <label for="create-user-input-pass" class="create-user-label">
+         <h2 class="create-user-label-text">Género</h2>
+         <select class="create-user-select">
+            <option value="Masculino">Masculino</option>
+            <option value="Femenino">Femenino</option>
+         </select>
+      </label>
+      <label for="create-user-input-lastName" class="create-user-label">
+         <h2 class="create-user-label-text">Fecha de nacimiento</h2>
+         <input type="date" id="create-user-input-birth" class="create-user-input birth">
+      </label>
+      <label for="create-user-input-user" class="create-user-label">
+         <h2 class="create-user-label-text">Usuario</h2>
+         <input type="text" id="create-user-input-user" class="create-user-input">
+      </label>
+      <label for="create-user-input-pass" class="create-user-label">
+         <h2 class="create-user-label-text">Contraseña</h2>
+         <input type="password" id="create-user-input-pass" class="create-user-input">
+      </label>
+      <label for="create-user-input-pass" class="create-user-label">
+         <h2 class="create-user-label-text">Cargo</h2>
+         <select class="create-user-select">
+            <option value="Administrador">Administrador</option>
+            <option value="Asesor">Asesor</option>
+         </select>
+      </label>
+      <div class="container-right-close icon-close" id="close-create-user"></div>
+   </section>
 </div>
 </body>
+<script>
+    let buttonDropdownUsers = document.getElementById('add-users'),
+        containerRightUsers = document.getElementById('container-create_user'),
+        closeContainerRightUsers = document.getElementById('close-create-user');
+
+    buttonDropdownUsers.addEventListener('click', () => {
+        containerRightUsers.classList.add('container-create_user-active');
+        console.log(document.getElementById('container-create_user'));
+        console.log(document.getElementById('add-users') )
+      });
+
+    closeContainerRightUsers.addEventListener('click', () =>{
+        containerRightUsers.classList.remove('container-create_user-active');
+
+    });
+</script>
 </html>
