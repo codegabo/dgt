@@ -185,7 +185,7 @@
     width: 50%;
     max-height:34em;
     overflow: auto;
-    justify-content:space-between;
+    justify-content:space-around;
     position: inherit;
     background: $color-2;
     padding: 0;
@@ -193,8 +193,14 @@
   &-img{
     border-radius: 5px;
     background:$color-2;
-    //margin: .2em;
-    height: 10em;
+    margin: .2em;
+    justify-content:space-around;
+    height: 8em;
+    @include medias(320px){
+      justify-content:space-between;
+      margin: .5em;
+      height: 11em;
+    }
     @include medias(768px){
       height: 8em;
       margin: 0;
