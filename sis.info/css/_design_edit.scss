@@ -12,6 +12,7 @@
   }
 }
 .container-supreedit{
+  margin: .5em 0;
   display: flex;
   flex-wrap: wrap;
   //outline:1px solid blue;
@@ -19,10 +20,18 @@
     max-width:25em;
     margin:auto;
   }
-  @include medias(1024px) {
+  @include medias(768px) {
     max-width:40em;
     margin:auto;
   }
+  @include medias(1024px) {
+    max-width:100%;
+    margin:auto;
+  }
+  //@include medias(1024px) {
+  //  max-width:40em;
+  //  margin:auto;
+  //}
 }
 .clarification{
   font-size:$fz-320 - 3;
@@ -74,11 +83,14 @@
  }
 .design-img{
   margin:auto;
+  @include medias(768px){
+    height: 20em;
+  }
 }
 .img-edit-container:hover .edit-design{
   display: flex;
   position: absolute;
-  top: 1em;
+  bottom:1em;
   justify-content:center;
   left: 85%;
   background: $color-3;
@@ -101,6 +113,12 @@
   width: 45%;
   margin:auto;
   //outline:1px solid blue;
+  @include medias(768px){
+    width: 30%;
+  }
+  @include medias(1024px){
+    width: 20%;
+  }
   & img{
     //outline:1px solid yellow;
     display: block;

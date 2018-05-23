@@ -140,28 +140,58 @@ tr td{
   outline: 1px solid $color-1;
   border-radius: 15px;
 }
-.container-create_user{
-  background: $color-2;
-  padding: 0;
-  display: none;
-  //display: flex;
+.user-fieldset{
+  @include medias(480px){
+    margin:auto;
+  }
+  @include medias(480px){
+    margin:0 auto;
+  }
+  @include medias(768px){
+    width: 100%;
+    margin:.1em;
+  }
+}
+.user-form{
+  display: flex;
   flex-wrap: wrap;
   justify-content:space-between;
 }
-.container-create_user-active{
-  display: flex;
-  height: 100vh;
-  overflow: scroll;
-  position: fixed;
-  margin: 0;
-  padding: 1em 0;
-  transition: all .1s;
+.container-create_user {
+  background: $color-2;
+  padding: 0;
+  display: none;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  &-active {
+    display: flex;
+    height: 100vh;
+    overflow: auto;
+    position: fixed;
+    margin: 0;
+    padding: 1em .5em;
+    transition: all .1s;
+    border:2px solid $color-1;
+    @include medias(480px){
+      width: 100%;
+    }
+    @include medias(768px){
+      position: relative;
+      height: 21em;
+      flex-wrap: nowrap;
+    }
+  }
 }
 .create-user-label{
   width: 100%;
   margin: .2em 0;
   display: flex;
   flex-wrap: wrap;
+  @include medias(768px){
+    width: 30%;
+    margin:auto;
+    display: block;
+  }
   &-text {
     font-size: 1em;
     color: $color-4;
@@ -181,4 +211,10 @@ tr td{
 .birth{
   line-height: inherit;
   //height: 4em;
+}
+.user-form-button{
+  display: block;
+  background: $color-3;
+  padding: 1em 0;
+  margin: 1em 0;
 }

@@ -6,30 +6,27 @@
     display: flex;
     width: 100%;
     margin:auto;
+    max-height:34em;
     flex-wrap: nowrap;
   }
-  @include medias(900px){
-    width: 80%;
-    max-width: 80%;
+  @include medias(1024px){
+    max-width:80%;
   }
+  @include medias(1200px){
+    max-width:50em;
   }
+}
 .container-left{
   display: flex;
   flex-wrap: wrap;
     @include medias(768px){
       width: 55%;
-      //margin: auto;
-      //
-      //margin: 0;
-    }
-    @include medias(900px){
-      width: 60%;
+      //height:45vh;
     }
   }
 .designs, .variants{
   overflow: auto;
   display:flex;
-  //width: 100%;
   &-img{
     height: 7em;
     margin: 0 .2em;
@@ -42,15 +39,13 @@
   @include medias(768px){
     flex-wrap: wrap;
     width: 22%;
-    height: 100vh;
-    @include medias(900px){
-      width: 22%;
-    }
+    overflow: scroll;
+    //height: 50%;
   }
 }
 .variants{
   @include medias(768px){
-    height: 6em;
+    //height: 6em;
     //margin:0 .5em;
   }
   &-img{
@@ -64,6 +59,7 @@
   //background: #000;
   @include medias(768px){
     width: 75%;
+    max-height: 34em;
     margin: 0;
   }
 }
@@ -75,30 +71,24 @@
   position: relative;
   @include medias(768px){
     display: block;
+    //height: 80%;
     margin: 0;
   }
   &-current{
     display: block;
     margin: .5em auto;
-    height: 25em;
-    @include medias(480px){
-      height: 30em;
-    }
-    @include medias(640px){
-      height: 40em;
-    }
-    @include medias(768px){
-      height: 24.5em;
-      margin: 0 auto;
-    }
-    @include medias(1024px){
-       height: 26em;
-     }
-    //@include medias(820px){
-    //  height: 28em;
-    //}
-    //@include medias(900px){
+    height: 24em;
+    background: #000;
+    //@include medias(480px){
     //  height: 30em;
+    //}
+    //@include medias(640px){
+    //  height: 40em;
+    //}
+    //@include medias(768px){
+    //  height: 70vh;
+    //  background: #000;
+    //  margin: 0 auto;
     //}
   }
 }
@@ -151,12 +141,12 @@
     width:1.2em;
     height:15em;
   }
-  @include medias(900px){
-    right: 41%;
-  }
-  @include medias(1024px){
-    right: 43%;
-  }
+  //@include medias(900px){
+  //  right: 41%;
+  //}
+  //@include medias(1024px){
+  //  right: 43%;
+  //}
   .button-more, .button-less{
     border-radius: 5px;
     margin:0 .1em;
@@ -193,33 +183,22 @@
   @include medias(768px){
     margin-left:1em;
     width: 50%;
+    max-height:34em;
     overflow: auto;
     justify-content:space-between;
     position: inherit;
     background: $color-2;
     padding: 0;
   }
-  @include medias(900px){
-    width: 40%;
-  }
   &-img{
     border-radius: 5px;
     background:$color-2;
-    margin: .2em;
+    //margin: .2em;
     height: 10em;
     @include medias(768px){
-      height: 9em;
+      height: 8em;
       margin: 0;
       border-radius: 0;
-    }
-    //@include medias(px){
-    //  height: 2em;
-    //}
-    @include medias(960px){
-      height: 8.6em;
-    }
-    @include medias(1024px){
-      height: 7.5em;
     }
   }
   &-active{
@@ -234,16 +213,16 @@
 .posi-fix{
   position: fixed;
 }
-.container-main, .container-left, .container-right, .designs{
-  @media (min-width: 768px) and (min-height: 616px) {
-    height: 45vh;
-    margin:auto;
-  }
-  @media (min-width: 1366px) and (min-height: 1024px) {
-    height: 55vh;
-    margin:auto;
-  }
-}
+//.container-main, .container-left, .container-right, .designs{
+//  @media (min-width: 768px) and (min-height: 616px) {
+//    height: 45vh;
+//    margin:auto;
+//  }
+//  @media (min-width: 1366px) and (min-height: 1024px) {
+//    height: 55vh;
+//    margin:auto;
+//  }
+//}
 
 
 
