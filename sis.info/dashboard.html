@@ -21,9 +21,8 @@
          <li class="dashboard-menu-list-item" id="data">REGISTROS</li>
       </ul>
    </nav>
-   <button class="button-dropdown-clothes icon-clothes live-all-files-available" id="live-all-files-available" ></button>
    <main class="content-container" id="content-container">
-      <iframe src="live_design.html" frameborder="0" class="live-preview-iframe"></iframe>
+      <iframe src="live_design.html" frameborder="0" class="live-preview-iframe" id="live-preview-iframe"></iframe>
    </main>
 </body>
 <script>
@@ -43,22 +42,39 @@
              document.getElementById("content-container").innerHTML = event.target.firstChild.data;
              if(event.target.id === 'design'){
                  document.getElementById("content-container").innerHTML =
-                 '<iframe src="categories.html" class="content-container-items"></iframe>';
+                 '<a href=""><button class="button-dropdown-clothes icon-clothes live-all-files-available" id="live-all-files-available" ></button></a>' +
+                 '<iframe src="categories.html" class="content-container-items" id="content-container-items"></iframe>';
+
+//                 document.getElementById("live-all-files-available").addEventListener('click', () => {
+//                 document.getElementById("content-container-items").innerHTML = '<iframe src="live_design.html" frameborder="0" class="live-preview-iframe" id="live-preview-iframe"></iframe>';
+//                 })
              }
              if(event.target.id === 'last'){
                  document.getElementById("content-container").innerHTML =
-                     '<div class="content-container-items">' +
-                     '<iframe src="news.html" class="content-container-items"></iframe>';
+                     '<a href=""><button class="button-dropdown-clothes icon-clothes live-all-files-available" id="live-all-files-available" ></button></a>' +
+                     '<iframe src="news.html" class="content-container-items" id="content-container-items"></iframe>';
+
+//                 document.getElementById("live-all-files-available").addEventListener('click', () => {
+//                 document.getElementById("content-container-items").innerHTML = '<iframe src="live_design.html" frameborder="0" class="live-preview-iframe" id="live-preview-iframe"></iframe>';
+//                 })
              }
              if(event.target.id === 'users'){
                  document.getElementById("content-container").innerHTML =
-                     '<div class="content-container-items">' +
-                     '<iframe src="users.html" class="content-container-items"></iframe>';
+                     '<a href=""><button class="button-dropdown-clothes icon-clothes live-all-files-available" id="live-all-files-available" ></button></a>' +
+                     '<iframe src="users.html" class="content-container-items" id="content-container-items"></iframe>';
+
+//                 document.getElementById("live-all-files-available").addEventListener('click', () => {
+//                 document.getElementById("content-container-items").innerHTML = '<iframe src="live_design.html" frameborder="0" class="live-preview-iframe" id="live-preview-iframe"></iframe>';
+//                 })
              }
              if(event.target.id === 'data'){
                  document.getElementById("content-container").innerHTML =
-                     '<div class="content-container-items">' +
-                     '<iframe src="data.html" class="content-container-items"></iframe>';
+                     '<a href=""><button class="button-dropdown-clothes icon-clothes live-all-files-available" id="live-all-files-available" ></button></a>' +
+                     '<iframe src="data.html" class="content-container-items" id="content-container-items"></iframe>';
+
+//                 document.getElementById("live-all-files-available").addEventListener('click', () => {
+//                 document.getElementById("content-container-items").innerHTML = '<iframe src="live_design.html" frameborder="0" class="live-preview-iframe" id="live-preview-iframe"></iframe>';
+//                 })
              }
          }
         }
@@ -80,11 +96,12 @@ const resize = () => {
         mainnav.addEventListener('mouseleave', () => {
             toggleMenu.click();
         });
-        //            toggleMenu.click();
-
     }
 };
+
+
 addEventListener('resize', resize);
 addEventListener('DOMContentLoaded', resize);
+
 </script>
 </html>

@@ -219,6 +219,14 @@
 .posi-fix{
   position: fixed;
 }
+.live-all-files-available{
+  top: 5em;
+  right: 0;
+  font-size:3em;
+  @include medias(768px){
+    display: flex;
+  }
+}
 //.container-main, .container-left, .container-right, .designs{
 //  @media (min-width: 768px) and (min-height: 616px) {
 //    height: 45vh;
