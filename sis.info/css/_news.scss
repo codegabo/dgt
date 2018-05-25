@@ -6,40 +6,78 @@
 input[type="file"] {
   display: none;
 }
-.PDFupload{
-  display: block;
-  width: 90%;
+.PDFupload-form{
+  width: 100%;
   margin:auto;
-  &-form{
+  display: flex;
+  flex-wrap: wrap;
+  @include medias(768px){
+    max-width:60%;
+  }
+  &-label{
+    width: 90%;
     display: flex;
-    padding: .3em .2em;
-    width: 8.1em;
-    border-radius:5px;
-    align-items:center;
-    justify-content:space-between;
-    flex-wrap: nowrap;
-    margin: auto;
-    background: $color-3;
+    flex-wrap: wrap;
+    margin:.4em auto;
+  }
+  &-item{
+    padding: 0 0 0 2em;
+    margin: .3em 0;
+    position: relative;
+    line-height:0;
+    height: 2em;
+    width: 100%;
+    border:none;
+    border-radius: 5px;
+    @include medias(480px){
+      padding: 0 0 0 2.5em;
+    }
+    @include medias(640px){
+      padding: 0 0 0 3em;
+    }
     &-label{
-      color:$color-1;
-      font-weight: bold;
-      cursor: pointer;
-      display: flex;
-    }
-    &-icon{
-      display: flex;
-      align-items:center;
-      margin:auto .7em auto .3em;
-      padding: .1em .3em .1em .4em;
-      background: $color-1;
-      border-radius: 5px;
-      //outline:1px solid green;
-    }
-    &-item{
-      margin: auto;
-      width: 80%;
+      width: 100%;
+      @include medias(768px){
+        width: 50%;
+      }
     }
   }
+}
+.PDFupload-form-label-file{
+  padding: .3em .2em;
+  width: 8.1em;
+  border-radius:5px;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap: nowrap;
+  margin: auto;
+  background: $color-3;
+  color:$color-1;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  &-icon{
+    display: flex;
+    align-items:center;
+    margin:auto .7em auto .3em;
+    padding: .1em .3em .1em .4em;
+    background: $color-1;
+    border-radius: 5px;
+    //outline:1px solid green;
+  }
+}
+.more-form, .user-form-button-pdf {
+  display: none;
+  width: 100%;
+  &-active{
+    display: block;
+  }
+}
+.PDFupload-form-item-description{
+  line-height:1;
+  padding: .8em;
+  height: 8em;
+
 }
 .files, .pdf-viewer-container{
   width:100%;
@@ -91,7 +129,7 @@ input[type="file"] {
     }
   }
 }
-.pdf-iframe{
+.pdf-iframe {
   width: 100%;
   height: 40vh;
   padding-top:.5em;
@@ -145,4 +183,12 @@ details[open] summary:after {
   @include medias(768px){
     display: none;
   }
+}
+.user-form-button-pdf-active{
+  padding: .5em 1em;
+  width: 90%;
+  margin:.8em auto;
+  background: $color-3;
+  color: $color-1;
+  border:none;
 }

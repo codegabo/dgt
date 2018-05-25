@@ -10,7 +10,7 @@
    <meta http-equiv="X-UA-Compatible" content="ie=edge">
    <link rel="stylesheet" href="css/estilos.css">
 </head>
-<body>
+<body onmousedown="elemento(event);">
 <!--<div id="botones">-->
    <!--<button id="mas" class="zoom-button">Más ZOOM +2%</button>-->
    <!--<button id="menos" class="zoom-button">Menos  ZOOM -2%</button>-->
@@ -140,7 +140,7 @@
 
 
 </body>
-<script src="js/js.js"></script>
+
 <script>
 
 //    const resize = () => {
@@ -149,21 +149,22 @@
 //        }
 //
 //    };
+let buttonDropdownClothes = document.getElementById('button-dropdown-clothes'),
+    containerRight = document.getElementById('container-right'),
+    closeContainerRight = document.getElementById('container-right-close');
 
 
-
-    let buttonDropdownClothes = document.getElementById('button-dropdown-clothes'),
-        containerRight = document.getElementById('container-right'),
-        closeContainerRight = document.getElementById('container-right-close');
     buttonDropdownClothes.addEventListener('click', () => {
         containerRight.classList.toggle('container-right-active');
         closeContainerRight.classList.add('posi-fix');
     });
-   closeContainerRight.addEventListener('click', () =>{
-       containerRight.classList.remove('container-right-active');
-       closeContainerRight.classList.remove('posi-fix');
-   });
+    closeContainerRight.addEventListener('click', () => {
+        containerRight.classList.remove('container-right-active');
+        closeContainerRight.classList.remove('posi-fix');
+    });
+
 
 
 </script>
+<script src="js/js.js"></script>
 </html>
