@@ -19,6 +19,37 @@
    <div class="design-image" style="background: url('/img/clothes_designs/DIBUJO FL-0047/FL 0047.jpg');" >
    </div>
 </div>
+<button class="add-users add-users-design " id="add-users-design">
+   <img  src="img/icons/add-icon.png" class="add-users-icon"/><p>Agregar diseño</p>
+</button>
+<fieldset class="design-fieldset" id="design-fieldset">
+   <form action="" class="design-form">
+      <label for="PDFuploadfile" class="PDFupload-form-label PDFupload-form-label-file" id="PDFupload-form-label-file">
+         <div class="PDFupload-form-label-file-icon">
+            <img src="img/icons/load_file-icon.png" alt="">
+         </div>
+         Nuevo diseño
+      </label>
+      <input type="file" id="PDFuploadfile" class="PDFupload-form-item">
+      <label for="" class="create-user-label">
+         <h2 class="create-user-label-text create-user-label-text-newCategorie">Nombre</h2>
+         <input type="text" id="" class="create-user-input">
+      </label>
+      <label for="" class="create-user-label">
+         <h2 class="create-user-label-text create-user-label-text-newCategorie">Diseñador</h2>
+         <input type="text" id="" class="create-user-input">
+      </label>
+      <label for="" class="create-user-label">
+         <h2 class="create-user-label-text create-user-label-text-newCategorie">Caracteristicas</h2>
+         <input type="text" id="" class="create-user-input">
+      </label>
+      <label for="" class="create-user-label">
+         <h2 class="create-user-label-text create-user-label-text-newCategorie">Etiquetas</h2>
+         <input type="text" id="" class="create-user-input">
+      </label>
+      <input type="submit" class="user-form-button-newCategorie user-form-button-newCategorie-designs" id="user-form-button-pdf" value="Crear">
+   </form>
+</fieldset>
 <main class="data-container">
    <div class="data-container-item">
       <div class="top-data">
@@ -582,30 +613,20 @@
 </body>
 <script>
     $(document).ready(function( $ ) {
-
         $(".tags").dotdotdot({
             callback: function( isTruncated ) {},
-            /* Function invoked after truncating the text.
-               Inside this function, "this" refers to the wrapper. */
             ellipsis: " \u2026 ",
-            /* The text to add as ellipsis. */
             height: 80,
-            /* The (max-)height for the wrapper:
-               null: measure the CSS (max-)height ones;
-               a number: sets a specific height in pixels;
-               "watch": re-measures the CSS (max-)height in the "watch". */
             keep: null,
-            /* jQuery-selector for elements to keep after the ellipsis. */
             tolerance: 0,
-            /* Deviation for the measured wrapper height. */
             truncate: "letter",
-            /* How to truncate the text: By "node", "word" or "letter". */
             watch: "window",
-            /* Whether to update the ellipsis:
-               true: Monitors the wrapper width and height;
-               "window": Monitors the window width and height. */
         });
 
     });
+
+    document.getElementById('add-users-design').addEventListener('click', () => {
+        document.getElementById('design-fieldset').classList.add('design-fieldset-active')
+    })
 </script>
 </html>

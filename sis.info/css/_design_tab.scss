@@ -92,3 +92,32 @@
     height: 100%;
     margin:auto;
   }
+.newCategorie-fieldset{
+  display: none;
+  &-active{
+    display: flex;
+    margin:auto;
+    text-align: center;
+    width: 100%;
+    @include medias(480px){
+      max-width:80%;
+    }
+  }
+}
+.add-users-categorie{
+  width: 80%;
+}
+.create-user-label > .create-user-input{
+  width: 100%;
+}
+.create-user-label-text-newCategorie{
+  width: 100%;
+}
+.user-form-button-newCategorie{
+  padding: .5em 1em;
+  width: 100%;
+  margin:.8em auto;
+  background: $color-3;
+  color: $color-1;
+  border:none;
+}

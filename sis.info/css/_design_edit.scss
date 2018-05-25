@@ -56,6 +56,8 @@
   margin:0;
   padding:.2em .3em;
   border-radius: 4px;
+  align-items:center;
+  align-content:center;
 }
 .variant-form{
   display: block;
@@ -64,11 +66,17 @@
   width: 9em;
 }
 .variant-icon > img {
-  height: 1.6em;
+  height:2em;
+  background:$color-1;
+  padding:.1em;
+  margin:auto .1em;
 }
 .variant-label{
-  padding: .2em;
+  border-radius:5px;
+  color:$color-1;
+  padding: .2em .3em .1em .8em;
   font-size:$fz-320 - 5;
+  background: $color-3;
   align-items:center;
 }
 .variant-upload{
@@ -130,4 +138,23 @@
     margin: .5em 0 1em;
     text-align: center;
   }
+}
+.user-form-button-newCategorie-designs{
+  max-width: 90%;
+  margin:auto;
+  display: block;
+  @include medias(768px){
+    max-width:20%;
+    margin: 1em auto;
+  }
+}
+.design-fieldset{
+  display: none;
+  &-active{
+    margin: 1em;
+    display: block;
+  }
+}
+.add-users-design{
+  margin:auto;
 }
