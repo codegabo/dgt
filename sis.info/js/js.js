@@ -1,5 +1,5 @@
 //
-let img = document.getElementById('live-preview-current-variant'),
+var img = document.getElementById('live-preview-current-variant'),
     more = document.getElementById('button-more'),
     less = document.getElementById('button-less'),
     previewcontainer = document.getElementById('live-preview'),
@@ -13,13 +13,13 @@ let img = document.getElementById('live-preview-current-variant'),
 
 
 more.addEventListener('click', () => {
-    img.style.height = img.offsetHeight + img.offsetHeight * 2 / 100 + 'px';
-    img.style.width = img.offsetWidth + img.offsetWidth * 2 / 100 + 'px';
-    console.log('Alto ↑ ' + img.offsetHeight);
-    console.log('Ancho ↑' + img.offsetWidth);
+    document.getElementById('live-preview-current-variant').style.height = document.getElementById('live-preview-current-variant').offsetHeight + document.getElementById('live-preview-current-variant').offsetHeight * 2 / 100 + 'px';
+    document.getElementById('live-preview-current-variant').style.width = document.getElementById('live-preview-current-variant').offsetWidth + document.getElementById('live-preview-current-variant').offsetWidth * 2 / 100 + 'px';
+    console.log('Alto ↑ ' + document.getElementById('live-preview-current-variant').offsetHeight);
+    console.log('Ancho ↑' + document.getElementById('live-preview-current-variant').offsetWidth);
     // previewcontainer.appendChild(element);
     // document.getElementsByClassName("textSize").innerHTML = "Aumentado a " + img.style.height;
-    if(img.offsetHeight >= 600){
+    if(document.getElementById('live-preview-current-variant').offsetHeight >= 600){
         // more.classList.remove("zoom-button");
         // document.getElementById("text").innerHTML = "sobrepasaste el limite de 1000px (actualmente "+img.style.height+")";
         more.classList.add("block-zoom-button");
@@ -32,12 +32,12 @@ more.addEventListener('click', () => {
     }
 });
 less.addEventListener('click', () => {
-    img.style.height = img.offsetHeight - img.offsetHeight * 2 / 100 + 'px';
-    img.style.width = img.offsetWidth - img.offsetWidth * 2 / 100 + 'px';
-    console.log('Alto ↓ ' + img.offsetHeight);
-    console.log('Ancho ↓ ' + img.offsetWidth);
+    document.getElementById('live-preview-current-variant').style.height = document.getElementById('live-preview-current-variant').offsetHeight - document.getElementById('live-preview-current-variant').offsetHeight * 2 / 100 + 'px';
+    document.getElementById('live-preview-current-variant').style.width = document.getElementById('live-preview-current-variant').offsetWidth - document.getElementById('live-preview-current-variant').offsetWidth * 2 / 100 + 'px';
+    console.log('Alto ↓ ' + document.getElementById('live-preview-current-variant').offsetHeight);
+    console.log('Ancho ↓ ' + document.getElementById('live-preview-current-variant').offsetWidth);
     // document.getElementById("text").innerHTML = "Disminuido a " + img.style.height;
-    if(img.offsetHeight <= 350){
+    if(document.getElementById('live-preview-current-variant').offsetHeight <= 350){
         less.classList.remove("zoom-button");
         // document.getElementById("text").innerHTML = "Llegaste al minimo de 567px (actualmente " + img.style.height + ")";
         less.classList.add("block-zoom-button");
@@ -73,27 +73,37 @@ function elemento(e){
         tag = e.target;
     }
     if(tag.tagName == "IMG" && tag.className == "container-right-img"){
+        //*****************************************************
         // alert("El elemento selecionado ha sido " + tag);
-        document.getElementById("live-preview").innerHTML = '' +
-            '<img src="' + e.target.src + '" alt=""  class="live-preview-current" id="live-preview-current">' +
-            '<button class="button-dropdown-clothes icon-clothes" id="button-dropdown-clothes"></button>' +
-            '<div class="zoomButtons-container">' +
-            '   <button class="button-more icon-plus" id="button-more"></button>' +
-            '   <button class="button-less icon-minus" id="button-less"></button>' +
-            '</div>';
+        //*****************************************************
+        // document.getElementById("live-preview").innerHTML = '' +
+        //     '<img src="' + e.target.src + '" alt=""  class="live-preview-current" id="live-preview-current">' +
+        //     '<button class="button-dropdown-clothes icon-clothes" id="button-dropdown-clothes"></button>' +
+        //     '<div class="zoomButtons-container">' +
+        //     '   <button class="button-more icon-plus" id="button-more"></button>' +
+        //     '   <button class="button-less icon-minus" id="button-less"></button>' +
+        //     '</div>';
     }
     else if(tag.tagName == "IMG" && tag.className == "variants-img"){
-        // alert("El elemento selecionado ha sido " + tag);
-        document.getElementById("live-preview").innerHTML =
-            '<div class="variants-container live-preview-current">' +
-            '<img src="' + e.target.src + '" alt=""  class="current-design" id="live-preview-current">' +
-            '<img src="' + e.target.src + '" alt=""  class="live-preview-current" id="live-preview-current">' +
-            '</div>' +
-            '<button class="button-dropdown-clothes icon-clothes" id="button-dropdown-clothes"></button>' +
-            '<div class="zoomButtons-container">' +
-            '   <button class="button-more icon-plus" id="button-more"></button>' +
-            '   <button class="button-less icon-minus" id="button-less"></button>' +
-            '</div>';
+        let variantContainer = document.getElementById("variants-container"),
+            currentModel = document.getElementById("live-preview-current"),
+            imgVariantContainer = document.createElement("img"),
+        firstChildContainer = variantContainer.firstChild;
+                                        // console.log(currentModel.src);
+        imgVariantContainer.src = tag.src;
+        imgVariantContainer.className = "live-preview-current-variant";
+        imgVariantContainer.id = "live-preview-current-variant";
+
+        if(variantContainer.hasChildNodes()) {
+
+            variantContainer.removeChild(variantContainer.childNodes[0]);
+                // variantContainer.appendChild(imgVariantContainer[0]);
+            variantContainer.prepend(imgVariantContainer);
+            if(variantContainer.childNodes[3]){
+                variantContainer.removeChild(variantContainer.childNodes[0]);
+            }
+            var img = document.getElementById('live-preview-current-variant');
+                }
     }
 
 }
