@@ -33,7 +33,10 @@
       </div>
       <div class="right-side">
          <div class="live-preview" id="live-preview">
-            <img src="img/clothes_png/BLUSA.png" alt="" class="live-preview-current" id="live-preview-current">
+            <div class="variants-container live-preview-current">
+               <img src="img/clothes_designs/DIBUJO%20CO-0001/CO-0001-A.jpg" alt="" class="live-preview-current-variant" id="live-preview-current-variant">
+               <img src="img/clothes_png/BLUSA.png" alt="" class="live-preview-current" id="live-preview-current">
+            </div>
             <button class="button-dropdown-clothes icon-clothes" id="button-dropdown-clothes"></button>
             <div class="zoomButtons-container">
                <button class="button-more icon-plus" id="button-more"></button>
@@ -45,7 +48,7 @@
             <h4 class="current-design-subtitle">FL 0031</h4>
          </div>
          <div class="variants">
-            <img src="img/clothes_designs/DIBUJO%20CO-0001/CO-0001.jpg" alt="" class="variants-img">
+            <img src="img/clothes_designs/DIBUJO%20CO-0001/CO-0001-A.jpg" alt="" class="variants-img">
             <img src="img/clothes_designs/DIBUJO%20CO-0001/CO-0001-2.jpg" alt="" class="variants-img">
             <img src="img/clothes_designs/DIBUJO%20CO-0001/CO-0001-3.jpg" alt="" class="variants-img">
             <img src="img/clothes_designs/DIBUJO%20CO-0001/CO-0001.jpg" alt="" class="variants-img">
@@ -74,81 +77,11 @@
    </section>
 </main>
 
-
-
-
-
-
-
-
-
-
-
-
-<!--PRIMERA MAQUETACIÓN-->
-
-
-
-
-<!--<div class="main_action_panel">-->
-   <!--<div class="other-designs">-->
-      <!--<img src="img/clothes_designs/DIBUJO%20FL-0047/FL%200047-3.jpg" alt="">-->
-   <!--</div>-->
-   <!--<div class="preview" id="preview">-->
-      <!--<div class="full_design" id="full_design">-->
-         <!--<img src="img/clothes_designs/DIBUJO%20CO-0001/CO-0001PRENDA.jpg" alt="" id="design" class="design">-->
-         <!--&lt;!&ndash;<div class="clothes-container clothes" id="clothes-container">&ndash;&gt;-->
-            <!--<img src="img/clothes_png/TOP.png" alt="" class="clothes">-->
-         <!--&lt;!&ndash;</div>&ndash;&gt;-->
-      <!--</div>-->
-      <!--<div class="zoom-section">-->
-         <!--<div id="botones">-->
-            <!--<button id="mas" class="zoom-button">+</button>-->
-            <!--<button id="menos" class="zoom-button">-</button>-->
-            <!--<p id="text"></p>-->
-         <!--</div>-->
-      <!--</div>-->
-   <!--</div>-->
-   <!--<div class="all-clothes">-->
-      <!--<img src="img/clothes_png/TOP.png" alt="" class="all-clothes-item" id="1">-->
-      <!--<img src="img/clothes_png/BLUSA.png" alt="" class="all-clothes-item" id="2">-->
-      <!--<img src="img/clothes_png/LEGINS.png" alt="" class="all-clothes-item" id="3">-->
-      <!--<img src="img/clothes_png/POLO.png" alt="" class="all-clothes-item" id="4">-->
-      <!--<img src="img/clothes_png/TSHIRT.png" alt="" class="all-clothes-item" id="5">-->
-      <!--<img src="img/clothes_png/VESTIDO.png" alt="" class="all-clothes-item" id="6">-->
-      <!--<img src="img/clothes_png/CAMISA%20HOMBRE.png" alt="" class="all-clothes-item" id="7">-->
-      <!--<img src="img/clothes_png/VESTIDO%20-FEMENINO.png" alt="" class="all-clothes-item" id="8">-->
-      <!--<img src="img/clothes_png/VESTIDO%20DE%20BAÑO-FEMENINO.png" alt="" class="all-clothes-item" id="9">-->
-      <!--<img src="img/clothes_png/PANTALONETA%20HOMBRE.png" alt="" class="all-clothes-item" id="10">-->
-      <!--<img src="img/clothes_png/CAMISA%20HOMBRE.png" alt="" class="all-clothes-item" id="11">-->
-      <!--<img src="img/clothes_png/FALDA%20FEMENINO.png" alt="" class="all-clothes-item" id="12">-->
-      <!--<img src="img/clothes_png/TSHIRT%20FEMENINA.png" alt="" class="all-clothes-item" id="13">-->
-   <!--</div>-->
-<!--</div>-->
-<!--<div class="multiple-design">-->
-   <!--<img src="img/clothes_designs/DIBUJO%20CO-0001/CO-0001.jpg" alt="">-->
-   <!--<img src="img/clothes_designs/DIBUJO%20CO-0001/CO-0001-2.jpg" alt="">-->
-   <!--<img src="img/clothes_designs/DIBUJO%20CO-0001/CO-0001-3.jpg" alt="">-->
-<!--</div>-->
-
-
-
-
-
-
-
-
-
 </body>
 
 <script>
 
-//    const resize = () => {
-//        if(innerWidth < 1024) {
-//            document.getElementById('toggle').click();
-//        }
-//
-//    };
+
 let buttonDropdownClothes = document.getElementById('button-dropdown-clothes'),
     containerRight = document.getElementById('container-right'),
     closeContainerRight = document.getElementById('container-right-close');

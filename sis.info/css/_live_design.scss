@@ -68,16 +68,31 @@
   width: 100%;
   overflow: hidden;
   position: relative;
+  outline:1px solid blue;
   @include medias(768px){
     display: block;
     margin: 0;
   }
   &-current{
     display: block;
-    margin: .5em auto;
+    position: relative;
+    margin:auto;
     height: 24em;
-    background: #000;
+    outline:1px solid red;
+    //background: #000;
+    &-variant{
+      display: block;
+      position: absolute;
+      //top: 5em;
+      left: 2em;
+    }
   }
+}
+.variants-container{
+  width: 20em;
+  position: relative;
+  overflow: hidden;
+  outline:1px solid purple;
 }
 .current-design{
   background: $color-1;

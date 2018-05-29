@@ -1,5 +1,5 @@
 //
-let img = document.getElementById('live-preview-current'),
+let img = document.getElementById('live-preview-current-variant'),
     more = document.getElementById('button-more'),
     less = document.getElementById('button-less'),
     previewcontainer = document.getElementById('live-preview'),
@@ -19,7 +19,7 @@ more.addEventListener('click', () => {
     console.log('Ancho ↑' + img.offsetWidth);
     // previewcontainer.appendChild(element);
     // document.getElementsByClassName("textSize").innerHTML = "Aumentado a " + img.style.height;
-    if(img.offsetHeight >= 450){
+    if(img.offsetHeight >= 600){
         // more.classList.remove("zoom-button");
         // document.getElementById("text").innerHTML = "sobrepasaste el limite de 1000px (actualmente "+img.style.height+")";
         more.classList.add("block-zoom-button");
@@ -37,7 +37,7 @@ less.addEventListener('click', () => {
     console.log('Alto ↓ ' + img.offsetHeight);
     console.log('Ancho ↓ ' + img.offsetWidth);
     // document.getElementById("text").innerHTML = "Disminuido a " + img.style.height;
-    if(img.offsetHeight <= 200){
+    if(img.offsetHeight <= 350){
         less.classList.remove("zoom-button");
         // document.getElementById("text").innerHTML = "Llegaste al minimo de 567px (actualmente " + img.style.height + ")";
         less.classList.add("block-zoom-button");
@@ -70,7 +70,7 @@ function elemento(e){
         tag = e.srcElement;
     }
     else if (e.target) {
-        tag = e.targe;
+        tag = e.target;
     }
     if(tag.tagName == "IMG" && tag.className == "container-right-img"){
         // alert("El elemento selecionado ha sido " + tag);
@@ -84,8 +84,11 @@ function elemento(e){
     }
     else if(tag.tagName == "IMG" && tag.className == "variants-img"){
         // alert("El elemento selecionado ha sido " + tag);
-        document.getElementById("live-preview").innerHTML = '' +
+        document.getElementById("live-preview").innerHTML =
+            '<div class="variants-container live-preview-current">' +
+            '<img src="' + e.target.src + '" alt=""  class="current-design" id="live-preview-current">' +
             '<img src="' + e.target.src + '" alt=""  class="live-preview-current" id="live-preview-current">' +
+            '</div>' +
             '<button class="button-dropdown-clothes icon-clothes" id="button-dropdown-clothes"></button>' +
             '<div class="zoomButtons-container">' +
             '   <button class="button-more icon-plus" id="button-more"></button>' +
