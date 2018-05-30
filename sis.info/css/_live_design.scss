@@ -68,7 +68,7 @@
   width: 100%;
   overflow: hidden;
   position: relative;
-  outline:1px solid blue;
+  //outline:1px solid blue;
   @include medias(768px){
     display: block;
     margin: 0;
@@ -78,7 +78,7 @@
     position: relative;
     margin:auto;
     height: 24em;
-    outline:1px solid red;
+    //outline:1px solid red;
     //background: #000;
     &-variant{
       display: block;
@@ -92,7 +92,7 @@
   width: 20em;
   position: relative;
   overflow: hidden;
-  outline:1px solid purple;
+  //outline:1px solid purple;
 }
 .current-design{
   background: $color-1;

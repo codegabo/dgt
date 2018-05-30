@@ -186,9 +186,21 @@ details[open] summary:after {
 }
 .user-form-button-pdf-active{
   padding: .5em 1em;
-  width: 90%;
-  margin:.8em auto;
+  width: 60%;
+  border-radius: 5px;
+  margin:.8em 5em;
   background: $color-3;
   color: $color-1;
   border:none;
+  @include medias(480px){
+    margin:.8em 10em ;
+  }
+  @include medias(1200px){
+    width: 40%;
+    margin:.8em 15em ;
+  }
+  @include medias(1400px){
+    width: 30%;
+    margin:.8em 20em ;
+  }
 }

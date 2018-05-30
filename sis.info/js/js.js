@@ -62,8 +62,10 @@ less.addEventListener('click', () => {
 
 
 
-
-
+function clickCurrentImage() {
+    console.log(document.getElementById('container-right').firstChild);
+}
+clickCurrentImage();
 
 function elemento(e){
     if (e.srcElement) {
@@ -95,12 +97,13 @@ function elemento(e){
         imgVariantContainer.id = "live-preview-current-variant";
 
         if(variantContainer.hasChildNodes()) {
-
             variantContainer.removeChild(variantContainer.childNodes[0]);
-                // variantContainer.appendChild(imgVariantContainer[0]);
+
             variantContainer.prepend(imgVariantContainer);
             if(variantContainer.childNodes[3]){
                 variantContainer.removeChild(variantContainer.childNodes[0]);
+
+
             }
             var img = document.getElementById('live-preview-current-variant');
                 }

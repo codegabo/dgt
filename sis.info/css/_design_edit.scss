@@ -157,4 +157,13 @@
 }
 .add-users-design{
   margin:auto;
+  @include medias(640px){
+    margin:auto 1em;
+    width: 30%;
+  }
+}
+.title-edit-container{
+  @include medias(640px){
+    display: flex;
+  }
 }

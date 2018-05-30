@@ -1,21 +1,31 @@
 .data-container{
   //outline:1px solid red;
-  width:$max-width-320;
+  width:100%;
   margin:auto;
   display: flex;
   flex-wrap: wrap;
-  @include medias(768px){
-    width:100%;
+  justify-content:flex-start;
+  @include medias(480px){
+    width: auto;
   }
   @include medias(1024px){
-    max-width:$max-width-1024;
+    width: 100%;
+    margin: 0;
   }
 }
 .data-container-item{
-  width: 10em;
-  //height: 3em;
-  //outline:1px solid black;
-  margin: 1em auto;
+  width: 12em;
+  margin:.5em auto;
+  align-items:flex-start;
+  @include medias(480px){
+    margin: .5em 1.5em;
+  }
+  @include medias(640px){
+    margin: .5em 1em;
+  }
+  @include medias(768px){
+    margin: .5em .5em;
+  }
 }
 .top-data{
   //outline: 1px solid red;
