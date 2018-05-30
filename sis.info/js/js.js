@@ -19,7 +19,7 @@ more.addEventListener('click', () => {
     console.log('Ancho ↑' + document.getElementById('live-preview-current-variant').offsetWidth);
     // previewcontainer.appendChild(element);
     // document.getElementsByClassName("textSize").innerHTML = "Aumentado a " + img.style.height;
-    if(document.getElementById('live-preview-current-variant').offsetHeight >= 600){
+    if(document.getElementById('live-preview-current-variant').offsetHeight >= 1000){
         // more.classList.remove("zoom-button");
         // document.getElementById("text").innerHTML = "sobrepasaste el limite de 1000px (actualmente "+img.style.height+")";
         more.classList.add("block-zoom-button");
@@ -97,15 +97,16 @@ function elemento(e){
         imgVariantContainer.id = "live-preview-current-variant";
 
         if(variantContainer.hasChildNodes()) {
-            variantContainer.removeChild(variantContainer.childNodes[0]);
-
-            variantContainer.prepend(imgVariantContainer);
             if(variantContainer.childNodes[3]){
                 variantContainer.removeChild(variantContainer.childNodes[0]);
-
-
+                variantContainer.prepend(imgVariantContainer);
+                variantContainer.removeChild(variantContainer.childNodes[1]);
             }
-            var img = document.getElementById('live-preview-current-variant');
+            else {
+                variantContainer.removeChild(variantContainer.childNodes[0]);
+                variantContainer.prepend(imgVariantContainer);
+            }
+            // var img = document.getElementById('live-preview-current-variant');
                 }
     }
 
