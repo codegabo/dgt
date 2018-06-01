@@ -1,3 +1,13 @@
+<?php 
+$id=$_GET['id'];
+include("funcion/conectarse.php");
+
+
+$query="SELECT * FROM user where codigo='$id'";
+$resultado=$conexion->query($query);
+$row=$resultado->fetch_assoc();
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -13,104 +23,75 @@
 <body>
 <div class="all-container-users">
    <header class="users-actions">
+       <!--
       <label for="users-search" class="users-search-label">
          <input type="search" class="users-search" id="users-search">
          <img src="img/icons/search-icon.png" class="users-search-icon" alt="">
       </label>
+      
       <button class="add-users" id="add-users">
          <img  src="img/icons/add-icon.png" class="add-users-icon"/><p>AGREGAR</p>
       </button>
+      -->
    </header>
-   <section class="container-create_user" id="container-create_user">
+   <section>
    <fieldset class="user-fieldset">
       <legend class="legend-user-form"><h1>Nuevo usuario</h1></legend>
-      <form action="" class="user-form">
+      <form action="editando_usuario.php" class="user-form"  method="post" enctype="multipart/form-data">
+      <input value="<?php echo $row['codigo'];?>" type="text" name="codigo" id="create-user-input-name" class="create-user-input">
+
          <label for="create-user-input-name" class="create-user-label">
             <h2 class="create-user-label-text">Nombres</h2>
-            <input type="text" id="create-user-input-name" class="create-user-input">
+            <input value="<?php echo $row['nombre_use'];?>" type="text" name="nombre" id="create-user-input-name" class="create-user-input">
          </label>
+
          <label for="create-user-input-lastName" class="create-user-label">
             <h2 class="create-user-label-text">Apellidos</h2>
-            <input type="text" id="create-user-input-lastName" class="create-user-input">
+            <input value="<?php echo $row['apellido_use'];?>" type="text"name="apellido" id="create-user-input-lastName" class="create-user-input">
          </label>
+
          <label for="create-user-input-gen" class="create-user-label">
             <h2 class="create-user-label-text">Género</h2>
-            <select class="create-user-select" id="create-user-input-gen">
-               <option value="Masculino">Masculino</option>
+            <select  name="genero" class="create-user-select" id="create-user-input-gen">
+                <option value="<?php echo $row['genero_use'];?>"><?php echo $row['genero_use'];?></option>  
+            <option value="Masculino">Masculino</option>
                <option value="Femenino">Femenino</option>
             </select>
          </label>
+
          <label for="create-user-input-birth" class="create-user-label">
             <h2 class="create-user-label-text">Fecha de nacimiento</h2>
-            <input type="date" id="create-user-input-birth" class="create-user-input birth">
+            <input value="<?php echo $row['fechanaci'];?>" type="date" name="nacimiento" id="create-user-input-birth" class="create-user-input birth">
          </label>
+
          <label for="create-user-input-rol" class="create-user-label">
             <h2 class="create-user-label-text">Cargo - Rol</h2>
-            <select class="create-user-select" id="create-user-input-rol">
-               <option value="Administrador">Administrador</option>
+            <select name="cargo" class="create-user-select" id="create-user-input-rol">
+               <option value="<?php echo $row['cargo_use'];?>"><?php echo $row['cargo_use'];?></option>
+            <option value="Administrador">Administrador</option>
                <option value="Asesor">Asesor</option>
             </select>
          </label>
+
          <label for="create-user-input-user" class="create-user-label">
             <h2 class="create-user-label-text">Usuario</h2>
-            <input type="text" id="create-user-input-user" class="create-user-input">
+            <input  value="<?php echo $row['usuario_use'];?>" name="usuario" type="text" id="create-user-input-user" class="create-user-input">
          </label>
+
          <label for="create-user-input-pass" class="create-user-label">
             <h2 class="create-user-label-text">Contraseña</h2>
-            <input type="password" id="create-user-input-pass" class="create-user-input">
+            <input value="<?php echo $row['contra_use'];?>" required  name="contra" type="text" id="create-user-input-pass" class="create-user-input">
          </label>
-         <input type="submit" class="user-form-button create-user-input" value="Agregar">
+
+         <input type="submit"class="user-form-button create-user-input" value="Editar">
          <div class="container-right-close icon-close" id="close-create-user"></div>
       </form>
    </fieldset>
 </section>
-   <main class="users-container">
-         <table class="users">
-            <tr>
-               <th>Código</th>
-               <th>Nombres</th>
-               <th>Apellidos</th>
-               <th>Cargo</th>
-               <th>Usuario</th>
-               <th>Contraseña</th>
-            </tr>
-            <tr class="table-content">
-               <td>001</td>
-               <td>Dumar Noel</td>
-               <td>Hoyos</td>
-               <td>Admin</td>
-               <td>dumhoyos</td>
-               <td>*************</td>
-            </tr>
-            <tr class="table-content">
-               <td>002</td>
-               <td>Dumar Noel</td>
-               <td>Hoyos</td>
-               <td>Admin</td>
-               <td>dumhoyos</td>
-               <td>*************</td>
-            </tr>
-            <tr class="table-content">
-               <td>003</td>
-               <td>Dumar Noel</td>
-               <td>Hoyos</td>
-               <td>Admin</td>
-               <td>dumhoyos</td>
-               <td>*************</td>
-            </tr>
-            <tr class="table-content">
-               <td>004</td>
-               <td>Dumar Noel</td>
-               <td>Hoyos</td>
-               <td>Admin</td>
-               <td>dumhoyos</td>
-               <td>*************</td>
-            </tr>
-         </table>
-   </main>
-
+  
 </div>
 </body>
+<!--
 <script>
     let buttonDropdownUsers = document.getElementById('add-users'),
         containerRightUsers = document.getElementById('container-create_user'),
@@ -126,4 +107,5 @@
         closeContainerRightUsers.classList.remove('posi-fix');
     });
 </script>
+-->
 </html>

@@ -19,6 +19,7 @@
          <li class="dashboard-menu-list-item" id="last">LO ÚLTIMO</li>
          <li class="dashboard-menu-list-item" id="users">USUARIOS</li>
          <li class="dashboard-menu-list-item" id="data">REGISTROS</li>
+         <li class="dashboard-menu-list-item" id="close"><a href="cerrarsesion.php">CERRAR SESION</a></li>
       </ul>
    </nav>
    <main class="content-container" id="content-container">
@@ -43,7 +44,7 @@
              if(event.target.id === 'design'){
                  document.getElementById("content-container").innerHTML =
                  '<a href=""><button class="button-dropdown-clothes icon-clothes live-all-files-available" id="live-all-files-available" ></button></a>' +
-                 '<iframe src="categories.html" class="content-container-items" id="content-container-items"></iframe>';
+                 '<iframe src="categories.php" class="content-container-items" id="content-container-items"></iframe>';
 
 //                 document.getElementById("live-all-files-available").addEventListener('click', () => {
 //                 document.getElementById("content-container-items").innerHTML = '<iframe src="live_design.html" frameborder="0" class="live-preview-iframe" id="live-preview-iframe"></iframe>';
@@ -61,7 +62,7 @@
              if(event.target.id === 'users'){
                  document.getElementById("content-container").innerHTML =
                      '<a href=""><button class="button-dropdown-clothes icon-clothes live-all-files-available" id="live-all-files-available" ></button></a>' +
-                     '<iframe src="users.html" class="content-container-items" id="content-container-items"></iframe>';
+                     '<iframe src="users.php" class="content-container-items" id="content-container-items"></iframe>';
 
 //                 document.getElementById("live-all-files-available").addEventListener('click', () => {
 //                 document.getElementById("content-container-items").innerHTML = '<iframe src="live_design.html" frameborder="0" class="live-preview-iframe" id="live-preview-iframe"></iframe>';

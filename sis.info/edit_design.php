@@ -11,16 +11,7 @@
    <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
-<div class="design">
-   <h1 class="design-title">Animal Print</h1>
-   <div class="icon icon-pencil edit"></div>
-   <div class="container-border">
-      <div class="border-1"></div>
-      <div class="border-2"></div>
-   </div>
-   <div class="design-image" style="background: url('/img/clothes_designs/DIBUJO FL-0047/FL 0047.jpg');" >
-   </div>
-</div>
+
 <div class="container-supreedit">
    <p class="input-item-edit">Nombre</p> <span class="clarification">Diseño Representativo</span>
    <div class="img-edit-container">
@@ -43,7 +34,7 @@
          <p class="tags-item">Camuflados</p>
       </div>
       <img src="img/clothes_designs/DIBUJO%20CO-0001/CO-0001-3PRENDA.jpg" alt="" class="design-img edits">
-      <a href="edit_design.html">
+      <a href="edit_design.php">
          <div class="icon icon-pencil edit-design"></div>
       </a>
    </div>
@@ -51,41 +42,52 @@
       <p class="input-item-edit">Variantes</p>
       <fieldset class="PDFupload variant-upload">
          <form action="" class="PDFupload-form variant-form">
-            <label for="PDFuploadfile" class="PDFupload-form-label variant-label">
-               <div class="PDFupload-form-icon variant-icon">
-                  <img src="img/icons/load_file-icon.png" alt="">
-               </div>
-               CARGAR ARCHIVO
-            </label>
+               <label for="PDFuploadfile" class="PDFupload-form-label PDFupload-form-label-file" id="PDFupload-form-label-file">
+                  <div class="PDFupload-form-label-file-icon">
+                     <img src="img/icons/load_file-icon.png" alt="">
+                  </div>
+                  Large Size
+               </label>
+               <input type="file" id="PDFuploadfile" class="PDFupload-form-item">
+               <label for="PDFuploadfile" class="PDFupload-form-label PDFupload-form-label-file" id="PDFupload-form-label-file">
+                  <div class="PDFupload-form-label-file-icon">
+                     <img src="img/icons/load_file-icon.png" alt="">
+                  </div>
+                  Thumb Size
+               </label>
             <input type="file" id="PDFuploadfile" class="PDFupload-form-item">
+
          </form>
       </fieldset>
    </div>
    <section class="variant-list">
       <div class="variant-card">
-         <img src="img/clothes_designs/DIBUJO%20CO-0001/CO-0001-2.jpg">
+         <img src="img/clothes_designs/DIBUJO%20CO-0001/CO-0001-3-thumb.jpg">
          <p class="clarification">Nombre de variante de diseño</p>
+         <div class="tools">
+            <div class="icon icon-pencil items-tools"></div>
+            <div class="icon icon-delete items-tools"></div>
+         </div>
       </div>
+
       <div class="variant-card">
-         <img src="img/clothes_designs/DIBUJO%20CO-0001/CO-0001-3.jpg">
+         <img src="img/clothes_designs/DIBUJO%20CO-0001/CO-0001-3-thumb.jpg">
          <p class="clarification">Nombre de variante de diseño</p>
+         <div class="tools">
+            <div class="icon icon-pencil items-tools"></div>
+            <div class="icon icon-delete items-tools"></div>
+         </div>
       </div>
+
       <div class="variant-card">
-         <img src="img/clothes_designs/DIBUJO%20CO-0001/CO-0001-2.jpg">
+         <img src="img/clothes_designs/DIBUJO%20CO-0001/CO-0001-3-thumb.jpg">
          <p class="clarification">Nombre de variante de diseño</p>
+         <div class="tools">
+            <div class="icon icon-pencil items-tools"></div>
+            <div class="icon icon-delete items-tools"></div>
+         </div>
       </div>
-      <div class="variant-card">
-         <img src="img/clothes_designs/DIBUJO%20CO-0001/CO-0001-3.jpg">
-         <p class="clarification">Nombre de variante de diseño</p>
-      </div>
-      <div class="variant-card">
-         <img src="img/clothes_designs/DIBUJO%20CO-0001/CO-0001-2.jpg">
-         <p class="clarification">Nombre de variante de diseño</p>
-      </div>
-      <div class="variant-card">
-         <img src="img/clothes_designs/DIBUJO%20CO-0001/CO-0001-3.jpg">
-         <p class="clarification">Nombre de variante de diseño</p>
-      </div>
+
    </section>
 </div>
 </body>
