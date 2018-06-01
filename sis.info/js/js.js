@@ -12,6 +12,83 @@ var img = document.getElementById('live-preview-current-variant'),
 
 
 
+
+
+
+//
+// let previewClothes = document.getElementsByClassName("container-right-img")[0];
+// previewClothes.addEventListener("click", () => {
+//     document.body.getElementsByClassName('live-preview').appendChild(element);
+// });
+
+
+
+
+
+function clickCurrentImage() {
+    console.log(document.getElementById('container-right').firstChild);
+}
+clickCurrentImage();
+
+
+
+let variantContainer = document.getElementById("variants-container"),
+    imgVariantContainer = document.createElement("img"),
+    currentVariantDesign = document.getElementById("live-preview-current-variant"),
+    imgCurrentModel = document.createElement("img");
+
+
+function elemento(e){
+    if (e.srcElement) {
+        tag = e.srcElement;
+    }
+    else if (e.target) {
+        tag = e.target;
+    }
+
+
+    if(tag.tagName == "IMG" && tag.className == "variants-img"){
+        imgVariantContainer.src = tag.src.replace("thumb", "large");
+        imgVariantContainer.className = "live-preview-current-variant";
+        imgVariantContainer.id = "live-preview-current-variant";
+
+        if(variantContainer.hasChildNodes()) {
+            if(variantContainer.childNodes[3]){
+                variantContainer.removeChild(variantContainer.childNodes[0]);
+                variantContainer.prepend(imgVariantContainer);
+                variantContainer.removeChild(variantContainer.childNodes[1]);
+            }
+            else {
+                variantContainer.removeChild(variantContainer.childNodes[0]);
+                variantContainer.prepend(imgVariantContainer);
+            }
+            console.log(tag.src);
+            // var img = document.getElementById('live-preview-current-variant');
+        }
+    }
+    else if(tag.tagName == "IMG" && tag.className == "container-right-img"){
+    //*****************************************************
+    // alert("El elemento selecionado ha sido " + tag);
+    //*****************************************************
+    imgCurrentModel.src = tag.src;
+    imgCurrentModel.className = "live-preview-current";
+    imgCurrentModel.id = "live-preview-current";
+
+// console.log(imgCurrentModel);
+//         variantContainer.removeChild(variantContainer.childNodes[2]);
+
+    variantContainer.removeChild(variantContainer.childNodes[2]);
+    document.getElementById("live-preview-current-variant").after(imgCurrentModel);
+    // variantContainer.removeChild(variantContainer.childNodes[2]);
+
+    //*****************************************************
+    }
+}
+
+
+
+
+
 more.addEventListener('click', () => {
     document.getElementById('live-preview-current-variant').style.height = document.getElementById('live-preview-current-variant').offsetHeight + document.getElementById('live-preview-current-variant').offsetHeight * 2 / 100 + 'px';
     document.getElementById('live-preview-current-variant').style.width = document.getElementById('live-preview-current-variant').offsetWidth + document.getElementById('live-preview-current-variant').offsetWidth * 2 / 100 + 'px';
@@ -19,7 +96,7 @@ more.addEventListener('click', () => {
     console.log('Ancho ↑' + document.getElementById('live-preview-current-variant').offsetWidth);
     // previewcontainer.appendChild(element);
     // document.getElementsByClassName("textSize").innerHTML = "Aumentado a " + img.style.height;
-    if(document.getElementById('live-preview-current-variant').offsetHeight >= 1000){
+    if(document.getElementById('live-preview-current-variant').offsetHeight >= 800){
         // more.classList.remove("zoom-button");
         // document.getElementById("text").innerHTML = "sobrepasaste el limite de 1000px (actualmente "+img.style.height+")";
         more.classList.add("block-zoom-button");
@@ -49,70 +126,8 @@ less.addEventListener('click', () => {
         })
     }
 });
-
-
-
-//
-// let previewClothes = document.getElementsByClassName("container-right-img")[0];
-// previewClothes.addEventListener("click", () => {
-//     document.body.getElementsByClassName('live-preview').appendChild(element);
-// });
-
-
-
-
-
-function clickCurrentImage() {
-    console.log(document.getElementById('container-right').firstChild);
-}
-clickCurrentImage();
-
-function elemento(e){
-    if (e.srcElement) {
-        tag = e.srcElement;
-    }
-    else if (e.target) {
-        tag = e.target;
-    }
-    if(tag.tagName == "IMG" && tag.className == "container-right-img"){
-        //*****************************************************
-        // alert("El elemento selecionado ha sido " + tag);
-        //*****************************************************
-        // document.getElementById("live-preview").innerHTML = '' +
-        //     '<img src="' + e.target.src + '" alt=""  class="live-preview-current" id="live-preview-current">' +
-        //     '<button class="button-dropdown-clothes icon-clothes" id="button-dropdown-clothes"></button>' +
-        //     '<div class="zoomButtons-container">' +
-        //     '   <button class="button-more icon-plus" id="button-more"></button>' +
-        //     '   <button class="button-less icon-minus" id="button-less"></button>' +
-        //     '</div>';
-    }
-    else if(tag.tagName == "IMG" && tag.className == "variants-img"){
-        let variantContainer = document.getElementById("variants-container"),
-            currentModel = document.getElementById("live-preview-current"),
-            imgVariantContainer = document.createElement("img"),
-        firstChildContainer = variantContainer.firstChild;
-                                        // console.log(currentModel.src);
-        imgVariantContainer.src = tag.src;
-        imgVariantContainer.className = "live-preview-current-variant";
-        imgVariantContainer.id = "live-preview-current-variant";
-
-        if(variantContainer.hasChildNodes()) {
-            if(variantContainer.childNodes[3]){
-                variantContainer.removeChild(variantContainer.childNodes[0]);
-                variantContainer.prepend(imgVariantContainer);
-                variantContainer.removeChild(variantContainer.childNodes[1]);
-            }
-            else {
-                variantContainer.removeChild(variantContainer.childNodes[0]);
-                variantContainer.prepend(imgVariantContainer);
-            }
-            // var img = document.getElementById('live-preview-current-variant');
-                }
-    }
-
-}
-console.log('Alto ' + img.offsetHeight);
-console.log('Ancho ' + img.offsetWidth);
+console.log('Alto ' + document.getElementById('live-preview-current-variant').offsetHeight);
+console.log('Ancho ' + document.getElementById('live-preview-current-variant').offsetWidth);
 
 
 
