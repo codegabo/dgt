@@ -14,7 +14,7 @@ function previewpdf(){
                 labelPreview.innerHTML = '<iframe src="http://docs.google.com/gview?url=https://www.digitalglobaltextiles.com/pdf/archivos/' + event.target.value + '&embedded=true" class="pdf-iframe iframe-responsive" id="pdf-iframe" frameborder="0"></iframe>';
         }
         if (event.target.id === "preview-icon" && innerWidth >= 1024){
-            previewsection.innerHTML = '<iframe src="http://docs.google.com/gview?url=https://www.digitalglobaltextiles.com/pdf/archivos/' + event.target.value + '&embedded=true" class="pdf-iframe iframe-responsive" id="pdf-iframe" frameborder="0"></iframe>';
+            previewsection.innerHTML = '<iframe src="http://docs.google.com/gview?url=https://www.digitalglobaltextiles.com/pdf/archivos/' + event.target.value + '&embedded=true" class="pdf-iframe" id="pdf-iframe" frameborder="0"></iframe>';
         }
 
     })
