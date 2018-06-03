@@ -1,19 +1,22 @@
 let labelPreview =  document.getElementById('label-preview-icon'),
     previewsection = document.getElementById('pdf-viewer-container'),
     iframePDF = document.createElement("IFRAME"),
-idDocument  = document.getElementById('id_documento');
+    idDocument  = document.getElementById('id_documento'),
+    viewIframe = document.createElement("iframe");
 
 labelPreview.addEventListener('click',previewpdf);
 
 function previewpdf(){
     document.addEventListener("click",function(event) {
-        if (event.target.id === "preview-icon" && innerWidth < 1024){
-            console.log(event.target.value);
-                // esto es para llamr el id traido desde la base de datos con PHP, la otra linea se deja mientrastanto para hacer pruebas de front end
-                // preview.innerHTML = '<iframe src="http://docs.google.com/gview?url=https://www.digitalglobaltextiles.com/' + event.target.id + 'recibo.pdf&embedded=true" class="pdf-iframe" frameborder="0"></iframe>';
-                labelPreview.innerHTML = '<iframe src="http://docs.google.com/gview?url=https://www.digitalglobaltextiles.com/pdf/archivos/' + event.target.value + '&embedded=true" class="pdf-iframe iframe-responsive" id="pdf-iframe" frameborder="0"></iframe>';
+        viewIframe.src = "http://docs.google.com/gview?url=https://www.digitalglobaltextiles.com/pdf/archivos/" + event.target.value + "&embedded=true";
+        viewIframe.className = "pdf-iframe iframe-responsive";
+        viewIframe.id = "pdf-iframe";
+        viewIframe.frameBorder = "0";
+        if (event.target.id === "preview-icon" && innerWidth < 768){
+
+            event.target.parentElement.prepend(viewIframe);
         }
-        if (event.target.id === "preview-icon" && innerWidth >= 1024){
+        if (event.target.id === "preview-icon" && innerWidth >= 768){
             previewsection.innerHTML = '<iframe src="http://docs.google.com/gview?url=https://www.digitalglobaltextiles.com/pdf/archivos/' + event.target.value + '&embedded=true" class="pdf-iframe" id="pdf-iframe" frameborder="0"></iframe>';
         }
 

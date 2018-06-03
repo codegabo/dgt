@@ -71,17 +71,18 @@ while($row1=$resultado->fetch_assoc()) {
 
 <main class="all-content-container" id="all-content-container">
       <fieldset class="PDFupload">
-         <form method="post" action="" enctype="multipart/form-data"class="PDFupload-form">
+         <form method="post" action="" enctype="multipart/form-data"class="PDFupload-form" autocomplete="off" >
             <div class="more-form" id="more-form">
                <label for="PDFtitle" class="PDFupload-form-label">
                   <h2 class="create-user-label-text pdftext">Titulo</h2>
-                  <input name="titulo" type="text" id="PDFtitle" class="PDFupload-form-item">
+                  <input name="titulo" type="text" id="PDFtitle" class="PDFupload-form-item" required>
                </label>
                <label for="PDFdescription" class="PDFupload-form-label">
                   <h2 class="create-user-label-text pdftext">Descripción</h2>
-                  <textarea  name="descripcion" type="text" id="PDFdescription" class="PDFupload-form-item PDFupload-form-item-description">
+                  <textarea  name="descripcion" type="text" id="PDFdescription" class="PDFupload-form-item PDFupload-form-item-description" required>
                   </textarea>
                </label>
+               <p>Recuerda: Los nombres de los archivos .PDF no deben contener espacios ni caracteres especiales</p>
             </div>
             <label for="PDFuploadfile" class="PDFupload-form-label PDFupload-form-label-file" id="PDFupload-form-label-file">
                <div class="PDFupload-form-label-file-icon">
@@ -89,7 +90,7 @@ while($row1=$resultado->fetch_assoc()) {
                </div>
                CARGAR ARCHIVO
             </label>
-            <input type="file" name="archivo" id="PDFuploadfile" class="PDFupload-form-item" accept=" application/pdf">
+            <input type="file" name="archivo" id="PDFuploadfile" class="PDFupload-form-item" accept=" application/pdf" required>
             <input  name ="subir"type="submit" class="user-form-button-pdf" id="user-form-button-pdf" value="Subir PDF">
          </form>
       </fieldset>
@@ -107,11 +108,11 @@ while($row1=$resultado->fetch_assoc()) {
                       <h5 class="title-big"><?php echo $datos['titulo'];?></h5>
                    </summary>
                    <label for="preview-icon" id="label-preview-icon" class="label-preview-icon">
-                     <input id="preview-icon" class="preview-icon" value="<?php echo $datos['nombre_archivo'];?>"/>
+                     <input id="preview-icon" class="preview-icon" value="<?php echo $datos['nombre_archivo'];?>" readonly/>
                    </label>
                       <!--<input type="button" value="Abrir pdf" onclick="window.open('https://www.digitalglobaltextiles.com/recibo.pdf')" />--><!--<a href="#" onclick="window.open('https://www.digitalglobaltextiles.com/recibo.pdf')">Abrir archivo pdf</a>--><!--<img src="img/icons/view-icon.png" alt="" class="preview-icon">--><!--<iframe src="btn-comentario.php?id='.$data['codigo_est'].'" name="window" marginwidth="0" scrolling="yes" style="border:0px solid transparent;width:70%;height:50%;margin-left:15%;"></iframe>--><!--<iframe src="http://docs.google.com/gview?url=https://www.digitalglobaltextiles.com/recibo.pdf&embedded=true" class="pdf-iframe" frameborder="0"></iframe>-->
 
-                   <p id="hola" class="container-list-files-text"><?php echo $datos['descripcion']; ?></p>
+                   <p class="container-list-files-text"><?php echo $datos['descripcion']; ?></p>
                 </details>
 
              <?php } ?>
