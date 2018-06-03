@@ -68,7 +68,6 @@
   width: 100%;
   overflow: hidden;
   position: relative;
-  //outline:1px solid blue;
   @include medias(768px){
     display: block;
     margin: 0;
@@ -78,12 +77,9 @@
     position: relative;
     margin:auto;
     height: 24em;
-    //outline:1px solid red;
-    //background: #000;
     &-variant{
       display: block;
       position: absolute;
-      //top: 5em;
       left: 2em;
     }
   }
@@ -133,11 +129,10 @@
   @include medias(768px){
     top: 0;
     z-index:15;
-    right: 44%;
+    left: 50%;
     position: fixed;
     display: flex;
     align-content:space-between;
-    //justify-content:space-between;
     background: rgba($color-3, .3);
     flex-wrap: wrap;
     width:1.2em;

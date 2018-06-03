@@ -18,22 +18,7 @@ $query = $db->execute($sql);
    <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
-<!--<button class="add-users add-users-categorie " id="button-newCategorie">-->
-<!--   <img  src="img/icons/add-icon.png" class="add-users-icon"/><p>Crear nueva categoria</p>-->
-<!--</button>-->
-<!--<fieldset class="newCategorie-fieldset" id="newCategorie-fieldset">-->
-<!--   <form action="fun_categoria.php" class="newCategorie-form" method="POST" enctype="multipart/form-data">-->
-<!--      <label for="newCategorie-form-input-imagen" class="create-user-label">-->
-<!--         <h2 class="create-user-label-text create-user-label-text-newCategorie">Imagen</h2>-->
-<!--         <input type="file" id="newCategorie-form-input-imagen" class="create-user-input" name="Imagen" accept=" image/png">-->
-<!--      </label>-->
-<!--      <label for="newCategorie-form-input-titulo" class="create-user-label">-->
-<!--         <h2 class="create-user-label-text create-user-label-text-newCategorie">Titulo</h2>-->
-<!--         <input type="text" id="newCategorie-form-input-titulo" class="create-user-input" name="titulo">-->
-<!--      </label>-->
-<!--      <input type="submit" class="user-form-button-newCategorie" id="user-form-button-pdf" value="Crear" name="crear">-->
-<!--   </form>-->
-<!--</fieldset>-->
+
 <main class="container-designer">
 
 
@@ -47,7 +32,7 @@ $query = $db->execute($sql);
       </div>
    </a>
     <?php } ?>
-   <button class="add-users add-users-categorie " id="button-newCategorie">
+   <button class="add-users design add-users-categorie" id="button-newCategorie">
       <img  src="img/icons/add-icon.png" class="add-users-icon"/><p>Crear nueva categoria</p>
    </button>
    <fieldset class="newCategorie-fieldset" id="newCategorie-fieldset">

@@ -162,8 +162,41 @@
     width: 30%;
   }
 }
+.add-categorie{
+  margin: 0;
+  padding: 0;
+  @include medias(640px){
+    margin:.5em 0;
+    width: 30%;
+  }
+}
 .title-edit-container{
   @include medias(640px){
     display: flex;
   }
+}
+.edit-name-category{
+  border: none;
+  border-radius: 5px;
+  padding: .5em;
+  width: 95%;
+  background: $color-1;
+}
+.form-category{
+  position: relative;
+}
+.edit-category-card{
+  display: flex;
+  position: absolute;
+  top: .5em;
+  justify-content:center;
+  left: 88%;
+  background: $color-3;
+  padding: .4em;
+  font-size: $fz-320 + 1.5;
+  color: $color-1;
+  border-radius: 3px;
+}
+.design-seller{
+  height: 2em;
 }

@@ -24,20 +24,20 @@ $row=$resultado->fetch_assoc();
 <body>
 <div class="title-edit-container">
    <div class="design">
-      <form method="post" action="fun_categoria.php" enctype="multipart/form-data">
+      <form method="post" action="fun_categoria.php" enctype="multipart/form-data" class="form-category">
          <h1 class="design-title" >
-            <input type="text" value="<?php echo $row['titulo']; ?>" name="titulo">
+            <input type="text" value="<?php echo $row['titulo']; ?>" name="titulo" class="edit-name-category">
          </h1>
          <input type="hidden" name="id" value="<?php echo $row['id_imagen']; ?>">
          <button class="icon icon-pencil edit-design-card" id="button-newCategorie" type="submit" name="Editar_cat" ></button>
-         <div class="design-image" >
+         <div class="design-image" style="height:100%;">
             <img src=" <?php echo $row['ruta'] ?>"/>
          </div>
       </form>
    </div>
 
 
-   <button class="add-users add-users-design " id="add-users-design">
+   <button class="add-users add-categorie" id="add-users-design">
       <img  src="img/icons/add-icon.png" class="add-users-icon"/><p>Agregar diseño</p>
    </button>
 </div>
@@ -83,25 +83,24 @@ $row=$resultado->fetch_assoc();
       <input type="submit" class="user-form-button-newCategorie user-form-button-newCategorie-designs" id="user-form-button-pdf" value="Crear">
    </form>
 </fieldset>
+<main class="data-container">
 <?php
-
-
 $query2="SELECT * FROM disenos order by nombre_dis";
 $resultado2=$conexion->query($query2);
 while($row2=$resultado2->fetch_assoc()){
 ?>
-<main class="data-container">
+
    <div class="data-container-item">
       <div class="top-data">
-         <img src="<?php echo $row2['ruta'] ?>" alt="" class="design-img">
+         <img src="<?php echo $row2['ruta'] ?>" alt="" class="design-img" >
          <a href="edit_design.php">
             <div class="icon icon-pencil edit-design"></div>
          </a>
       </div>
       <div class="bottom-data">
-         <p class="design-name">Nombre: <?php echo $row2['nombre_dis']; ?></p>
-         <p class="design-designfor">Diseñado por: <?php echo $row2['disenador']; ?> </p>
-         <p class="design-seller">Caracteristicas: <?php echo $row2['caracteristicas']; ?></p>
+         <p class="design-name"><?php echo $row2['nombre_dis']; ?></p>
+         <p class="design-designfor"><?php echo $row2['disenador']; ?> </p>
+         <p class="design-seller"><?php echo $row2['caracteristicas']; ?></p>
          <div class="tags" id="tags">
             <p class="tags-item"><?php echo $row2['etiquetas']; ?></p>
          </div>
