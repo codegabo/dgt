@@ -1,4 +1,5 @@
 <?php
+error_reporting(0);
 include("funcion/conectarse.php");
 require_once("sesion.class.php");
 
@@ -11,8 +12,12 @@ if( $usuario == false )
 }
 else
 {
+    $id=$_GET['id'];
 
 
+    $query="SELECT * FROM categoria";
+    $resultado=$conexion->query($query);
+    $row=$resultado->fetch_assoc();
     ?>
    <!DOCTYPE html>
    <html lang="es">
@@ -38,18 +43,18 @@ else
    <section class="container-left">
    <div class="designs">
     <?php require("funcion/conectarse.php");
-    $consulta="SELECT * FROM categoria ORDER BY id_imagen DESC";
+    $consulta="SELECT * FROM categoria";
     $resultado=$conexion->query($consulta);
     while($row1=$resultado->fetch_assoc()) {
-//echo $row1['nombre_use']
         ?>
-       <img src="<?php echo $row1["ruta"]; ?>" alt="" class="designs-img">
+       <a href="live_design.php?id=<?php echo $row1['id_imagen']; ?>" class="send-category"><img src="<?php echo $row1["ruta"]; ?>" alt="" class="designs-img" id="<?php echo $row1["id_imagen"]; ?>"></a>
+<!--       <a href="editar.php?id=--><?PHP //echo $row['codigo']; ?><!--">Editar</a>-->
 <?php } ?>
        </div>
        <div class="right-side">
           <div class="live-preview" id="live-preview">
              <div class="variants-container live-preview-current" id="variants-container">
-                <img src="img/clothes_designs/DIBUJO%20CO-0001/#" alt="" class="live-preview-current-variant" id="live-preview-current-variant">
+                <img src="#" alt="" class="live-preview-current-variant" id="live-preview-current-variant">
                 <img src="img/clothes_png/BLUSA.png" alt="" class="live-preview-current" id="live-preview-current">
              </div>
              <button class="button-dropdown-clothes icon-clothes" id="button-dropdown-clothes"></button>
@@ -63,9 +68,13 @@ else
              <h4 class="current-design-subtitle">FL 0031</h4>
           </div>
           <div class="variants">
-             <img src="img/clothes_designs/DIBUJO%20CO-0001/CO-0001-1-thumb.jpg" alt="" class="variants-img">
-             <img src="img/clothes_designs/DIBUJO%20CO-0001/CO-0001-2-thumb.jpg" alt="" class="variants-img">
-             <img src="img/clothes_designs/DIBUJO%20CO-0001/CO-0001-3-thumb.jpg" alt="" class="variants-img">
+    <?php
+    $consulta2="SELECT * FROM disenos WHERE id_categoria = '$id'";
+    $resultado2=$conexion->query($consulta2);
+    while($row2=$resultado2->fetch_assoc()) {
+        ?>
+             <img src="<?php echo $row2["ruta"]; ?>" alt="" class="variants-img" id="<?php echo $row2["id_diseno"]; ?>">
+            <?php } ?>
           </div>
        </div>
        </section>
@@ -89,9 +98,13 @@ else
        </body>
 
        <script>
+
+
            let buttonDropdownClothes = document.getElementById('button-dropdown-clothes'),
                containerRight = document.getElementById('container-right'),
                closeContainerRight = document.getElementById('container-right-close');
+
+
            buttonDropdownClothes.addEventListener('click', () => {
                containerRight.classList.toggle('container-right-active');
                closeContainerRight.classList.add('posi-fix');

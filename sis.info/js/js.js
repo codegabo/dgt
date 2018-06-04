@@ -1,27 +1,10 @@
-//
+
 var img = document.getElementById('live-preview-current-variant'),
     more = document.getElementById('button-more'),
     less = document.getElementById('button-less'),
     previewcontainer = document.getElementById('live-preview'),
     element = document.createElement("DIV"),
     textSize = document.createTextNode("Size");
-// function actualSize() {
-//     console.log("Tamaño actual en Pixeles: " + img.offsetHeight);
-// }
-// actualSize();
-
-
-
-
-
-
-//
-// let previewClothes = document.getElementsByClassName("container-right-img")[0];
-// previewClothes.addEventListener("click", () => {
-//     document.body.getElementsByClassName('live-preview').appendChild(element);
-// });
-
-
 
 
 
@@ -62,26 +45,18 @@ function elemento(e){
                 variantContainer.removeChild(variantContainer.childNodes[0]);
                 variantContainer.prepend(imgVariantContainer);
             }
-            console.log(tag.src);
-            // var img = document.getElementById('live-preview-current-variant');
         }
     }
     else if(tag.tagName == "IMG" && tag.className == "container-right-img"){
-    //*****************************************************
-    // alert("El elemento selecionado ha sido " + tag);
-    //*****************************************************
     imgCurrentModel.src = tag.src;
     imgCurrentModel.className = "live-preview-current";
     imgCurrentModel.id = "live-preview-current";
-
-// console.log(imgCurrentModel);
-//         variantContainer.removeChild(variantContainer.childNodes[2]);
-
     variantContainer.removeChild(variantContainer.childNodes[2]);
     document.getElementById("live-preview-current-variant").after(imgCurrentModel);
-    // variantContainer.removeChild(variantContainer.childNodes[2]);
+    }
 
-    //*****************************************************
+    if(tag.tagName == "IMG" && tag.className == "designs-img"){
+        console.log(tag.id, tag.src);
     }
 }
 
@@ -94,11 +69,7 @@ more.addEventListener('click', () => {
     document.getElementById('live-preview-current-variant').style.width = document.getElementById('live-preview-current-variant').offsetWidth + document.getElementById('live-preview-current-variant').offsetWidth * 2 / 100 + 'px';
     console.log('Alto ↑ ' + document.getElementById('live-preview-current-variant').offsetHeight);
     console.log('Ancho ↑' + document.getElementById('live-preview-current-variant').offsetWidth);
-    // previewcontainer.appendChild(element);
-    // document.getElementsByClassName("textSize").innerHTML = "Aumentado a " + img.style.height;
     if(document.getElementById('live-preview-current-variant').offsetHeight >= 800){
-        // more.classList.remove("zoom-button");
-        // document.getElementById("text").innerHTML = "sobrepasaste el limite de 1000px (actualmente "+img.style.height+")";
         more.classList.add("block-zoom-button");
         more.disabled = true;
         less.addEventListener('click', () => {
@@ -113,10 +84,8 @@ less.addEventListener('click', () => {
     document.getElementById('live-preview-current-variant').style.width = document.getElementById('live-preview-current-variant').offsetWidth - document.getElementById('live-preview-current-variant').offsetWidth * 2 / 100 + 'px';
     console.log('Alto ↓ ' + document.getElementById('live-preview-current-variant').offsetHeight);
     console.log('Ancho ↓ ' + document.getElementById('live-preview-current-variant').offsetWidth);
-    // document.getElementById("text").innerHTML = "Disminuido a " + img.style.height;
     if(document.getElementById('live-preview-current-variant').offsetHeight <= 350){
         less.classList.remove("zoom-button");
-        // document.getElementById("text").innerHTML = "Llegaste al minimo de 567px (actualmente " + img.style.height + ")";
         less.classList.add("block-zoom-button");
         less.disabled = true;
         more.addEventListener('click', () => {
