@@ -6,20 +6,13 @@ var img = document.getElementById('live-preview-current-variant'),
     element = document.createElement("DIV"),
     textSize = document.createTextNode("Size");
 
-
-
-function clickCurrentImage() {
-    console.log(document.getElementById('container-right').firstChild);
-}
-clickCurrentImage();
-
-
-
 let variantContainer = document.getElementById("variants-container"),
     imgVariantContainer = document.createElement("img"),
     currentVariantDesign = document.getElementById("live-preview-current-variant"),
-    imgCurrentModel = document.createElement("img");
-
+    imgCurrentModel = document.createElement("img"),
+    currentdesign = document.getElementById("current-design"),
+    h1titleDesign = document.createElement("h1"),
+    el = document.createElement("p");
 
 function elemento(e){
     if (e.srcElement) {
@@ -28,36 +21,65 @@ function elemento(e){
     else if (e.target) {
         tag = e.target;
     }
-
+    let h1content = document.createTextNode(" " + tag.alt);
 
     if(tag.tagName == "IMG" && tag.className == "variants-img"){
         imgVariantContainer.src = tag.src.replace("thumb", "large");
         imgVariantContainer.className = "live-preview-current-variant";
         imgVariantContainer.id = "live-preview-current-variant";
+        imgVariantContainer.alt = tag.alt;
+
+        h1titleDesign.className = "current-design-title";
+        h1titleDesign.id = "current-design-title";
+        h1titleDesign.appendChild(h1content);
+
+
+            // h1titleDesign.appendChild(h1content);
+            // console.log(h1titleDesign.innerHTML);
+
+
+
+        var content = h1titleDesign.innerHTML;
+        var firstWord = content.split(" ").splice(-1);
+      console.log(firstWord);
+
+
+        h1titleDesign.innerHTML = " " + firstWord;
+
+
+
+
+
+
 
         if(variantContainer.hasChildNodes()) {
+            // console.log(imgVariantContainer.alt);
             if(variantContainer.childNodes[3]){
                 variantContainer.removeChild(variantContainer.childNodes[0]);
                 variantContainer.prepend(imgVariantContainer);
                 variantContainer.removeChild(variantContainer.childNodes[1]);
+                currentdesign.prepend(h1titleDesign);
+                // console.log(imgVariantContainer.alt);
             }
             else {
                 variantContainer.removeChild(variantContainer.childNodes[0]);
                 variantContainer.prepend(imgVariantContainer);
+                // console.log(imgVariantContainer.alt);
+                currentdesign.prepend(h1titleDesign);
             }
         }
     }
     else if(tag.tagName == "IMG" && tag.className == "container-right-img"){
-    imgCurrentModel.src = tag.src;
-    imgCurrentModel.className = "live-preview-current";
-    imgCurrentModel.id = "live-preview-current";
-    variantContainer.removeChild(variantContainer.childNodes[2]);
-    document.getElementById("live-preview-current-variant").after(imgCurrentModel);
+        imgCurrentModel.src = tag.src;
+        imgCurrentModel.className = "live-preview-current";
+        imgCurrentModel.id = "live-preview-current";
+        variantContainer.removeChild(variantContainer.childNodes[2]);
+        document.getElementById("live-preview-current-variant").after(imgCurrentModel);
     }
 
-    if(tag.tagName == "IMG" && tag.className == "designs-img"){
-        console.log(tag.id, tag.src);
-    }
+    // if(tag.tagName == "IMG" && tag.className == "designs-img"){
+    //     console.log(imgVariantContainer.alt)
+    // }
 }
 
 

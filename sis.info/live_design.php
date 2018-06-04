@@ -63,9 +63,9 @@ else
                 <button class="button-less icon-minus" id="button-less"></button>
              </div>
           </div>
-          <div class="current-design">
-             <h1 class="current-design-title">Flores</h1>
-             <h4 class="current-design-subtitle">FL 0031</h4>
+          <div class="current-design" id="current-design">
+<!--             <h1 class="current-design-title">Flores</h1>-->
+<!--             <h4 class="current-design-subtitle">FL 0031</h4>-->
           </div>
           <div class="variants">
     <?php
@@ -73,7 +73,7 @@ else
     $resultado2=$conexion->query($consulta2);
     while($row2=$resultado2->fetch_assoc()) {
         ?>
-             <img src="<?php echo $row2["ruta"]; ?>" alt="" class="variants-img" id="<?php echo $row2["id_diseno"]; ?>">
+             <img src="<?php echo $row2["ruta"]; ?>" alt="<?php echo $row2["nombre_dis"]; ?>" class="variants-img" id="<?php echo $row2["id_diseno"]; ?>">
             <?php } ?>
           </div>
        </div>
