@@ -108,7 +108,7 @@
   border-radius: 3px;
 }
 .variant-list{
-  margin:1em auto;
+  margin:1em 0;
   display: flex;
   flex-wrap: wrap;
   //outline:1px solid red;
@@ -116,10 +116,17 @@
   justify-content:space-between;
 }
 .variant-card{
+  background: rgba($color-4,.1);
+  padding: .5em 0;
+  border-radius: 5px;
   display: block;
   overflow: hidden;
   width: 45%;
-  margin:auto;
+  margin:1em 0;
+  & > img {
+    //width: 100%;
+    height: 10em;
+  }
   //outline:1px solid blue;
   @include medias(768px){
     width: 30%;
@@ -137,15 +144,6 @@
     //outline:1px solid red;
     margin: .5em 0 1em;
     text-align: center;
-  }
-}
-.user-form-button-newCategorie-designs{
-  max-width: 90%;
-  margin:auto;
-  display: block;
-  @include medias(768px){
-    max-width:20%;
-    margin: 1em auto;
   }
 }
 .design-fieldset{
@@ -199,4 +197,7 @@
 }
 .design-seller{
   height: 2em;
+}
+.design-designfor{
+  color: $color-1;
 }

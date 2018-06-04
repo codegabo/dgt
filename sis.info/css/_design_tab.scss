@@ -16,8 +16,6 @@
   }
 }
 .design{
-  //position: relative;
-  //outline:1px solid blue;
   text-decoration: none;
   display: block;
   background: $color-1;
@@ -27,7 +25,6 @@
   font-weight: bold;
   font-size:$fz-320 - 4;
   width: 100%;
-  //margin:auto;
   overflow: hidden;
   border: none;
   color: #000;
@@ -77,7 +74,7 @@
     &-title{
       border-bottom:.2em solid $color-3;
       text-align: center;
-      padding:2em .5em .5em;
+      padding:2em .5em 1em;
     }
   }
 .edit-design-card{
@@ -146,4 +143,19 @@
   background: $color-3;
   color: $color-1;
   border:none;
+}
+
+.user-form-button-newCategorie-designs{
+  padding: .5em 1em;
+  width: 100%;
+  border-radius: 5px;
+  margin:.8em auto;
+  background: $color-3;
+  color: $color-1;
+  border:none;
+  @include medias(480px){
+    max-width:20%;
+    display: block;
+    margin: 1em auto;
+  }
 }

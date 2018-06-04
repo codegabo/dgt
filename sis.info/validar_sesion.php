@@ -15,7 +15,7 @@
    {     
      $sesion->set("usuario",$usuario);
      
-     header("location: dashboard.html");
+     header("location: dashboard.php");
    }
    
  }

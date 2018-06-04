@@ -60,15 +60,6 @@ if (isset($_POST['subir'])) {
    <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
-<?php require("funcion/conectarse.php");
-$consulta="SELECT * FROM user where usuario_use = '$usuario'";
-$resultado=$conexion->query($consulta);
-while($row1=$resultado->fetch_assoc()) {
-
-?>
-
-<?php echo $row1['nombre_use'] ?>
-
 <main class="all-content-container" id="all-content-container">
       <fieldset class="PDFupload">
          <form method="post" action="" enctype="multipart/form-data"class="PDFupload-form" autocomplete="off" >
@@ -156,5 +147,4 @@ while($row1=$resultado->fetch_assoc()) {
 
 </script>
 </html>
-<?php }
-} ?>
+<?php } ?>

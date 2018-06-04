@@ -1,12 +1,25 @@
 <?php
-$id=$_GET['id'];
 include("funcion/conectarse.php");
+require_once("sesion.class.php");
+
+$sesion = new sesion();
+$usuario = $sesion->get("usuario");
+
+if( $usuario == false )
+{
+    header("Location: cerrarsesion.php");
+}
+else
+{
+
+    $id=$_GET['id'];
 
 
-$query="SELECT * FROM categoria where id_imagen='$id'";
-$resultado=$conexion->query($query);
-$row=$resultado->fetch_assoc();
-?>
+
+    $query="SELECT * FROM categoria where id_imagen='$id'";
+    $resultado=$conexion->query($query);
+    $row=$resultado->fetch_assoc();
+    ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -22,6 +35,13 @@ $row=$resultado->fetch_assoc();
    <script src="js/dotdotdot.js" type="text/javascript"> </script>
 </head>
 <body>
+<?php require("funcion/conectarse.php");
+$consulta="SELECT * FROM user where usuario_use = '$usuario'";
+$resultado=$conexion->query($consulta);
+   while($row1=$resultado->fetch_assoc()) {
+      echo $row1['nombre_use']
+       ?>
+
 <div class="title-edit-container">
    <div class="design">
       <form method="post" action="fun_categoria.php" enctype="multipart/form-data" class="form-category">
@@ -42,50 +62,52 @@ $row=$resultado->fetch_assoc();
    </button>
 </div>
 <fieldset class="design-fieldset" id="design-fieldset">
-   <form action="" class="design-form">
+   <form method="post" action="fun_categoria.php" enctype="multipart/form-data" class="design-form" autocomplete="off">
       <label for="PDFuploadfile" class="PDFupload-form-label PDFupload-form-label-file" id="PDFupload-form-label-file">
          <div class="PDFupload-form-label-file-icon">
             <img src="img/icons/load_file-icon.png" alt="">
          </div>
-        Large Size
+         Large size
       </label>
-      <input type="file" id="PDFuploadfile" class="PDFupload-form-item">
+      <input type="file" id="PDFuploadfile" class="PDFupload-form-item" name="Img">
       <label for="PDFuploadfile" class="PDFupload-form-label PDFupload-form-label-file" id="PDFupload-form-label-file">
          <div class="PDFupload-form-label-file-icon">
             <img src="img/icons/load_file-icon.png" alt="">
          </div>
-         Thumb Size
+         Thumb size
       </label>
-      <input type="file" id="PDFuploadfile" class="PDFupload-form-item">
+      <input type="file" id="PDFuploadfile" class="PDFupload-form-item" name="Img2">
       <label for="" class="create-user-label">
          <h2 class="create-user-label-text create-user-label-text-newCategorie">Nombre</h2>
-         <input type="text" id="" class="create-user-input">
+         <input type="text" id="" class="create-user-input" name="nombre">
       </label>
       <label for="" class="create-user-label">
          <h2 class="create-user-label-text create-user-label-text-newCategorie">Diseñador</h2>
-         <input type="text" id="" class="create-user-input">
+         <input type="text" id="" class="create-user-input" name="disenador">
       </label>
       <label for="" class="create-user-label">
          <h2 class="create-user-label-text create-user-label-text-newCategorie">Caracteristicas</h2>
-         <input type="text" id="" class="create-user-input">
+         <input type="text" id="" class="create-user-input" name="caracteristicas">
       </label>
+
       <label for="" class="create-user-label">
          <h2 class="create-user-label-text create-user-label-text-newCategorie">Etiquetas</h2>
-         <input type="text" id="" class="create-user-input">
+         <input type="text" id="" class="create-user-input" name="etiquetas">
       </label>
-      <!--         id categoria-->
-      <label for="" class="create-user-label">
-         <input type="hidden" name="id" value="<?php echo $row['id_imagen']; ?>" id="">
-      </label>
-      <label for="" class="create-user-label">
-         <input type="hidden" id="" class="create-user-input" value="diseno">
-      </label>
-      <input type="submit" class="user-form-button-newCategorie user-form-button-newCategorie-designs" id="user-form-button-pdf" value="Crear">
+
+      <!--      <label for="" class="create-user-label">        -->
+      <!--        <h2> <input type="hidden" id="" class="create-user-input" value="diseno" name="diseno"></h2>-->
+      <!--      </label>-->
+
+      <input type="hidden" name="categoria" value="<?php echo $row['id_imagen']; ?>">
+      <input type="hidden" name="tipo" value="design">
+
+      <input type="submit" class="user-form-button-newCategorie user-form-button-newCategorie-designs" id="user-form-button-pdf" name="Crear_diseno" value="Crear">
    </form>
 </fieldset>
 <main class="data-container">
 <?php
-$query2="SELECT * FROM disenos order by nombre_dis";
+$query2="SELECT * FROM disenos WHERE id_categoria = '$id' ORDER BY id_diseno desc";
 $resultado2=$conexion->query($query2);
 while($row2=$resultado2->fetch_assoc()){
 ?>
@@ -93,12 +115,12 @@ while($row2=$resultado2->fetch_assoc()){
    <div class="data-container-item">
       <div class="top-data">
          <img src="<?php echo $row2['ruta'] ?>" alt="" class="design-img" >
-         <a href="edit_design.php">
+         <a href="edit_design.php?id=<?php echo $row2['id_diseno'] ?>">
             <div class="icon icon-pencil edit-design"></div>
          </a>
       </div>
       <div class="bottom-data">
-         <p class="design-name"><?php echo $row2['nombre_dis']; ?></p>
+         <p class="design-name"><strong><?php echo $row2['nombre_dis']; ?></strong></p>
          <p class="design-designfor"><?php echo $row2['disenador']; ?> </p>
          <p class="design-seller"><?php echo $row2['caracteristicas']; ?></p>
          <div class="tags" id="tags">
@@ -128,3 +150,5 @@ while($row2=$resultado2->fetch_assoc()){
     })
 </script>
 </html>
+   <?php }
+}?>

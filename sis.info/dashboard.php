@@ -1,3 +1,19 @@
+<?php
+include("funcion/conectarse.php");
+require_once("sesion.class.php");
+
+$sesion = new sesion();
+$usuario = $sesion->get("usuario");
+
+if( $usuario == false )
+{
+    header("Location: cerrarsesion.php");
+}
+else
+{
+
+
+    ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -12,6 +28,13 @@
 
 </head>
 <body>
+<?php require("funcion/conectarse.php");
+$consulta="SELECT * FROM user where usuario_use = '$usuario'";
+$resultado=$conexion->query($consulta);
+while($row1=$resultado->fetch_assoc()) {
+?>
+   <div><p><?php echo $row1['nombre_use']; ?></p> <a href="cerrarsesion.php">Cerrar sesión</a></div>
+
    <nav class="dashboard-menu">
       <div class="icon icon-menu burguer-menu" id="toggle"></div>
       <ul class="dashboard-menu-list" id="dashboard-menu-list">
@@ -19,11 +42,10 @@
          <li class="dashboard-menu-list-item" id="last">LO ÚLTIMO</li>
          <li class="dashboard-menu-list-item" id="users">USUARIOS</li>
          <li class="dashboard-menu-list-item" id="data">REGISTROS</li>
-         <li class="dashboard-menu-list-item" id="close"><a href="cerrarsesion.php">CERRAR SESION</a></li>
       </ul>
    </nav>
    <main class="content-container" id="content-container">
-      <iframe src="live_design.html" frameborder="0" class="live-preview-iframe" id="live-preview-iframe"></iframe>
+      <iframe src="live_design.php" frameborder="0" class="live-preview-iframe" id="live-preview-iframe"></iframe>
    </main>
 </body>
 <script>
@@ -106,3 +128,4 @@ addEventListener('DOMContentLoaded', resize);
 
 </script>
 </html>
+<?php }} ?>
