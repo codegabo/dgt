@@ -20,7 +20,7 @@ if ($resultado>0){
     <head>
     <meta http-equiv='refresh' content='0; url=users.php'>
     <script>
-    alert('Usuario Editado Con Exito');
+    alert('Información actualizada');
     </script>
     </head>
     </html>";

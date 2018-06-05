@@ -12,30 +12,34 @@
    <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
+<div  class="tools">
+   <a href="reporteExcel.php"><div class="icon icon-down items-tools"> Descargar reporte</div></a>
+</div>
 <main class="data-container">
     <?php
-    include("funcion/conectarse.php");
-    $query2="SELECT * FROM data_disenos";
-    $resultado2=$conexion->query($query2);
-    while($row2=$resultado2->fetch_assoc()){
-    ?>
+    include ("funcion/conectarse.php");
+
+    $query="SELECT * FROM data_disenos order by id_data";
+    $resultado=$conexion->query($query);
+    while($row=$resultado->fetch_assoc()){
+        ?>
+
    <div class="data-container-item">
       <div class="top-data">
-         <img src="<?php echo $row2['diseno'] ?>" alt="" class="design-img">
-         <div class="icon icon-pencil edit-design"></div>
+         <img src="<?php echo $row['diseno'] ?>" alt="" class="design-img">
       </div>
       <div class="bottom-data">
-         <p class="design-name"><?php echo $row2['nombre'] ?></p>
-         <p class="design-designfor">Diseñado por <?php echo $row2['asesor'] ?></p>
-         <p class="design-zoom"><?php echo $row2['width'] ?></p>
-         <p class="design-seller"><?php echo $row2['asesor'] ?></p>
-         <div class="tools">
-            <div class="icon icon-down items-tools"></div>
-            <div class="icon icon-pencil items-tools"></div>
-            <div class="icon icon-delete items-tools"></div>
+            <p class="design-name"><?php echo $row['nombre'] ?></p>
+            <p class="design-designfor">Diseñado por <?php echo $row['asesor'] ?></p>
+            <p class="design-zoom"><?php echo $row['width'] ?></p>
+            <p class="design-seller"><?php echo $row['asesor']; ?></p>
+         <div  class="tools">
+            <a href="update_data.php?id=<?php echo $row['id_data'] ?>" class="data-edit"><div class="icon icon-pencil items-tools"></div></a>
+<!--            <div class="icon icon-delete items-tools"></div>-->
          </div>
       </div>
    </div>
+
    <?php } ?>
 
 </main>

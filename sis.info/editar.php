@@ -83,7 +83,7 @@ $row=$resultado->fetch_assoc();
             <input value="<?php echo $row['contra_use'];?>" required  name="contra" type="text" id="create-user-input-pass" class="create-user-input">
          </label>
 
-         <input type="submit"class="user-form-button create-user-input" value="Editar">
+         <input type="submit" class="user-form-button create-user-input" value="Editar">
          <div class="container-right-close icon-close" id="close-create-user"></div>
       </form>
    </fieldset>
