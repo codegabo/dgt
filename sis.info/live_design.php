@@ -1,4 +1,10 @@
 <?php
+include_once 'pdf/config.inc.php';
+$db=new Conect_MySql();
+$sql = "select*from data_disenos";
+$query = $db->execute($sql);
+?>
+<?php
 error_reporting(0);
 include("funcion/conectarse.php");
 require_once("sesion.class.php");
@@ -54,7 +60,7 @@ else
        <div class="right-side">
           <div class="live-preview" id="live-preview">
              <div class="variants-container live-preview-current" id="variants-container">
-                <img src="#" alt="" class="live-preview-current-variant" id="live-preview-current-variant">
+                <img src="#" alt="" class="live-preview-current-variant" id="live-preview-current-variant" style="width:330px;height:500px;">
                 <img src="img/clothes_png/BLUSA.png" alt="" class="live-preview-current" id="live-preview-current">
              </div>
              <button class="button-dropdown-clothes icon-clothes" id="button-dropdown-clothes"></button>
@@ -65,6 +71,7 @@ else
           </div>
           <div class="current-design" id="current-design">
 <!--             <h1 class="current-design-title">Flores</h1>-->
+             <button class="watchPreview" id="watchPreview">Verificar</button>
 <!--             <h4 class="current-design-subtitle">FL 0031</h4>-->
           </div>
           <div class="variants">
@@ -94,16 +101,43 @@ else
           <div class="container-right-close icon-close" id="container-right-close"></div>
        </section>
        </main>
+   <div class="fullview-conatainer" id="fullview-conatainer">
+      <div class="variants-container live-preview-current" id="live-preview-current-variant-fullview">
 
+      </div>
+      <div class="buttons">
+         <button class="cotinue-design" id="cotinue-design">Continuar diseño</button>
+
+          <?php require("funcion/conectarse.php");
+          $consulta="SELECT * FROM user where usuario_use = '$usuario'";
+          $resultado=$conexion->query($consulta);
+          while($row1=$resultado->fetch_assoc()) {
+          ?>
+   <form action="fun_livepreview.php" class="send-data" id="send-data" method="POST" enctype="multipart/form-data">
+<!--       --><?php
+//       $consulta3="SELECT * FROM disenos WHERE id_categoria = '$id'";
+//       $resultado3=$conexion->query($consulta3);
+//       while($row3=$resultado3->fetch_assoc()) {
+//           ?>
+<!--          <input type="text" id="nombrediseno-input" name="nombre" value="nombre --><?php //echo $row3["nombre_dis"]; ?><!--" >-->
+<!--       --><?php //} ?>
+            <input type="hidden" class="asesor-input" name="asesor" value="<?php echo $row1['nombre_use']; } ?>">
+            <button type="submit" class="save-design" id="cotinue-design">Guardar</button>
+         </form>
+      </div>
+   </div>
        </body>
 
        <script>
 
-
            let buttonDropdownClothes = document.getElementById('button-dropdown-clothes'),
                containerRight = document.getElementById('container-right'),
-               closeContainerRight = document.getElementById('container-right-close');
-
+               closeContainerRight = document.getElementById('container-right-close'),
+               watchPreview = document.getElementById('watchPreview'),
+               cotinueDesign = document.getElementById('cotinue-design'),
+               fullviewC = document.getElementById('fullview-conatainer'),
+               moreToClick = document.getElementById('button-more'),
+               lessToClick = document.getElementById('button-less');
 
            buttonDropdownClothes.addEventListener('click', () => {
                containerRight.classList.toggle('container-right-active');
@@ -112,6 +146,15 @@ else
            closeContainerRight.addEventListener('click', () => {
                containerRight.classList.remove('container-right-active');
                closeContainerRight.classList.remove('posi-fix');
+           });
+
+           watchPreview.addEventListener('click', () => {
+//               moreToClick.click();
+//               lessToClick .click();
+               fullviewC.classList.toggle('fullview-conatainer-active');
+           });
+           cotinueDesign.addEventListener('click', () => {
+               fullviewC.classList.remove('fullview-conatainer-active');
            });
        </script>
        <script src="js/js.js"></script>

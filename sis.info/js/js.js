@@ -12,9 +12,19 @@ let variantContainer = document.getElementById("variants-container"),
     imgCurrentModel = document.createElement("img"),
     currentdesign = document.getElementById("current-design"),
     h1titleDesign = document.createElement("h1"),
-    el = document.createElement("p");
+    imageFull = document.createElement("img"),
+    fullViewContainer = document.getElementById("live-preview-current-variant-fullview"),
+    modelFull = document.getElementById('live-preview-current'),
+    formData = document.getElementById('send-data'),
+    inputWidth = document.createElement("input"),
+    inputHeight = document.createElement("input"),
+    inputimgdesign = document.createElement("input"),
+    inputimgModel = document.createElement("input"),
+    inputDesignName = document.createElement("input"),
+    modelFullContainer = document.getElementById('live-preview-current-variant-fullview');
 
-function elemento(e){
+
+    function elemento(e){
     if (e.srcElement) {
         tag = e.srcElement;
     }
@@ -29,47 +39,91 @@ function elemento(e){
         imgVariantContainer.id = "live-preview-current-variant";
         imgVariantContainer.alt = tag.alt;
 
+
+        imageFull.src = document.getElementById('live-preview-current-variant').src;
+        imageFull.className = "live-preview-current-variant";
+        imageFull.id = "live-preview-current-variant";
+        imageFull.alt = tag.alt;
+        imageFull.style.width = document.getElementById('live-preview-current-variant').style.width;
+        imageFull.style.height = document.getElementById('live-preview-current-variant').style.height;
+        fullViewContainer.prepend(imageFull);
+
+
+
+
+        inputWidth.type = "hidden";
+        inputWidth.name = "width";
+        inputWidth.id= "inputWidth";
+        inputWidth.value = document.getElementById('live-preview-current-variant').style.width;
+        formData.prepend(inputWidth);
+
+        inputHeight.type = "hidden";
+        inputHeight.name = "height";
+        inputHeight.id= "inputHeight";
+        inputHeight.value = document.getElementById('live-preview-current-variant').style.height;
+        formData.prepend(inputHeight);
+
+        inputimgdesign.type = "hidden";
+        inputimgdesign.name = "diseno";
+        inputimgdesign.id = "inputImgDesign";
+        inputimgdesign.value = document.getElementById('live-preview-current-variant').src;
+        formData.prepend(inputimgdesign);
+
+
+
+
+
+        console.log("alto var " + document.getElementById('live-preview-current-variant').style.height);
+        console.log("ancho var " + document.getElementById('live-preview-current-variant').style.width);
+
+
         h1titleDesign.className = "current-design-title";
         h1titleDesign.id = "current-design-title";
         h1titleDesign.appendChild(h1content);
-
-
-            // h1titleDesign.appendChild(h1content);
-            // console.log(h1titleDesign.innerHTML);
-
-
 
         var content = h1titleDesign.innerHTML;
         var firstWord = content.split(" ").splice(-1);
       console.log(firstWord);
 
-
         h1titleDesign.innerHTML = " " + firstWord;
 
-
-
-
+        inputDesignName.type = "hidden";
+        inputDesignName.name = "nombre";
+        inputDesignName.id = "inputDesignName";
+        inputDesignName.value = " " + firstWord;
+        formData.prepend(inputDesignName);
 
 
 
         if(variantContainer.hasChildNodes()) {
-            // console.log(imgVariantContainer.alt);
             if(variantContainer.childNodes[3]){
                 variantContainer.removeChild(variantContainer.childNodes[0]);
                 variantContainer.prepend(imgVariantContainer);
                 variantContainer.removeChild(variantContainer.childNodes[1]);
                 currentdesign.prepend(h1titleDesign);
-                // console.log(imgVariantContainer.alt);
             }
             else {
                 variantContainer.removeChild(variantContainer.childNodes[0]);
                 variantContainer.prepend(imgVariantContainer);
-                // console.log(imgVariantContainer.alt);
                 currentdesign.prepend(h1titleDesign);
             }
         }
     }
     else if(tag.tagName == "IMG" && tag.className == "container-right-img"){
+
+        modelFull.src = document.getElementById('live-preview-current').src;
+        modelFull.className = "live-preview-current";
+        modelFull.id = "live-preview-current";
+        modelFullContainer.prepend(modelFull);
+
+        inputimgModel.type = "hidden";
+        inputimgModel.name= "modelo";
+        inputimgModel.id= "inputImgModel";
+        inputimgModel.value = document.getElementById('live-preview-current').src;
+        formData.prepend(inputimgModel);
+
+
+
         imgCurrentModel.src = tag.src;
         imgCurrentModel.className = "live-preview-current";
         imgCurrentModel.id = "live-preview-current";

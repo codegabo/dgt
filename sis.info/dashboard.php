@@ -93,7 +93,7 @@ while($row1=$resultado->fetch_assoc()) {
              if(event.target.id === 'data'){
                  document.getElementById("content-container").innerHTML =
                      '<a href=""><button class="button-dropdown-clothes icon-clothes live-all-files-available" id="live-all-files-available" ></button></a>' +
-                     '<iframe src="data.html" class="content-container-items" id="content-container-items"></iframe>';
+                     '<iframe src="data.php" class="content-container-items" id="content-container-items"></iframe>';
 
 //                 document.getElementById("live-all-files-available").addEventListener('click', () => {
 //                 document.getElementById("content-container-items").innerHTML = '<iframe src="live_design.html" frameborder="0" class="live-preview-iframe" id="live-preview-iframe"></iframe>';

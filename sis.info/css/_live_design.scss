@@ -63,6 +63,10 @@
     margin: 0;
   }
 }
+.fullview-conatainer-active > img {
+  position: relative;
+  margin:1em auto;
+}
 .live-preview{
   margin:auto;
   width: 100%;
@@ -91,20 +95,34 @@
   //outline:1px solid purple;
 }
 .current-design{
+  display: flex;
+  justify-content:space-between;
   background: $color-1;
   padding: 1em;
   margin:.1em auto .3em;
   width: 100%;
   overflow: auto;
+  //outline:1px solid red;
   @include medias(768px){
     padding: .5em;
   }
   &-title{
+    display: block;
     font-size: 1em;
+    width: 50%;
+    //outline:1px solid yellow;
   }
   &-subtitle{
     font-size: .8em;
   }
+}
+.watchPreview{
+  align-content:flex-end;
+  border: none;
+  padding: .5em;
+  border-radius: 5px;
+  background: $color-2;
+  //outline:1px solid blue;
 }
 .button-dropdown-clothes, .container-right-close{
   border-radius: 5px;
@@ -225,111 +243,40 @@
   }
 }
 
+.fullview-conatainer{
+  display: none;
+  outline:1px solid red;
+  top: 0;
+  padding-top:1em;
+  position: fixed;
+  z-index:500;
+  overflow: auto;
+  width: 100%;
+  height: 100%;
+  background: rgba($color-4, .9);
+  &-active{
+    display: block;
+  }
+}
+.buttons{
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  width:100%;
+}
+.cotinue-design, .save-design{
+  background: transparent;
+  border:none;
+  border-radius: 5px;
+  color:#000000;
+  background: $color-1;
+  padding: .5em;
 
+}
+.live-preview-current-variant{
+  left: 0;
+}
 
-
-//.container-main, .container-left, .container-right, .designs{
-//  @media (min-width: 768px) and (min-height: 616px) {
-//    height: 45vh;
-//    margin:auto;
-//  }
-//  @media (min-width: 1366px) and (min-height: 1024px) {
-//    height: 55vh;
-//    margin:auto;
-//  }
-//}
-
-
-
-// PRIMERA MAQUETACIÓN
-
-//.main_action_panel{
-//  display: flex;
-
-//  width: 80%;
-//  justify-content:space-between;
-//  //max-width: 90%;
-//  height:35em;
-//  //min-height: 40%;
-//  margin:auto;
-//  .other-designs{
-
-//  }
-//  .preview, .full_design {
-
-//    //margin: auto;
-//    height: 100%;
-//    //max-height:50%;
-//    display: flex;
-//    background: #000;
-//    position: relative;
-//    overflow: hidden;
-//    .design{
-//      //position: absolute;
-//      z-index:10;
-//      //margin-top:10%;
-
-//      display: block;
-//      border:0;
-//      justify-content:center;
-//      //transition: all .3s;
-//    }
-//    .clothes{
-//      position: absolute;
-
-//      //height: 100%;
-//      border:0;
-//      display: block;
-//      //left: 25%;
-//      //top: 10%;
-//      //margin: -9em auto 0;
-//      z-index:20;
-//      //margin:auto;
-//    }
-//  }
-//  .all-clothes{
-//    display: flex;
-//    width: 35%;
-//    //height: 100%;
-//    flex-wrap: wrap;
-//    justify-content:space-around;
-
-//    overflow: scroll;
-//    //margin:0 1em;
-//    &-item{
-//      margin:.1em 0;
-
-//      //border:6px solid #eaeaea;
-//      //margin: .4em;
-//      height: 8.5em;
-//
-//    }
-//  }
-//}
-//
-//#botones{
-//  display: flex;
-//  //flex-wrap: wrap;
-//  //width: 20%;
-//  justify-content: flex-end;
-
-//  margin: 1em 0;
-//  #text{
-//    font-size: 15px;
-//  }
-//}
-//.zoom-button{
-//  background: white;
-//  color: black;
-//  border:1px solid black;
-//  padding: 1em;
-//  border-radius: 1em;
-
-//  &:active{
-
-//    padding: .9em;
-//  }
-//}
 .block-zoom-button{
   background: gray;
   color: darkgray;
@@ -341,16 +288,3 @@
 
   }
 }
-//.multiple-design{
-//  display: flex;
-//  width: 80%;
-//  justify-content:flex-end;
-//  margin:auto;
-
-//  img{
-//    height:10em;
-//  }
-//}
-//.content-container{
-
-//}
