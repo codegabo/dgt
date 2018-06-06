@@ -126,25 +126,6 @@ if (isset($_POST['subir'])) {
       boton1.classList.add("user-form-button-pdf-active");
    })
 
-//    const resizenews = () => {
-//        if(innerWidth > 1023) {
-//            let section = document.createElement("SECTION"),
-//                iframe = document.createTextNode('ht');
-//            function viewerPDF() {
-//                section.appendChild(iframe);
-//                document.getElementById('all-content-container').appendChild(section);
-//            }
-//            viewerPDF();
-////            document.getElementById('all-content-container').innerHTML =
-////                '<section class="pdf-view" id="pdf-view-container">' +
-////                '<iframe src="" frameborder="0" class="pdf-view-iframe"></iframe>' +
-////                '</section>';
-//        }
-//    };
-//
-//    addEventListener('resize', resizenews);
-//    addEventListener('DOMContentLoaded', resizenews);
-
 </script>
 </html>
 <?php } ?>

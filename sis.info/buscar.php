@@ -1,3 +1,19 @@
+<?php
+include("funcion/conectarse.php");
+require_once("sesion.class.php");
+
+$sesion = new sesion();
+$usuario = $sesion->get("usuario");
+
+if( $usuario == false )
+{
+    header("Location: cerrarsesion.php");
+}
+else
+{
+
+
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -15,7 +31,7 @@
    <header class="users-actions">
 
          <label for="users-search" class="users-search-label">
-          <form action="buscar.php" method="post" name="busqueda">
+          <form action="buscar.php" method="post" name="busqueda" autocomplete="off">
          <input type="text" name="busqueda"  class="users-search" id="users-search">
         
          <button  type="submit" value="Buscar"name="btn1" class="busc">
@@ -102,7 +118,7 @@
 
    
     
-    $query="SELECT * FROM user where usuario_use like '%$bus%'";
+    $query="SELECT * FROM user where usuario_use like '%$bus%' OR nombre_use like '%$bus%' OR apellido_use like '%$bus%'";
     $resultado=$conexion->query($query);
     while($row=$resultado->fetch_assoc()){
 ?>
@@ -112,7 +128,7 @@
              <td><?php echo $row['apellido_use'];?></td>
              <td><?php echo $row['cargo_use'];?></td>
              <td><?php echo $row['usuario_use'];?></td>
-             <td><?php echo $row['contra_use'];?></td>
+             <td>***********</td>
              <td><?php echo $row['genero_use'];?></td>
              <td><?php echo $row['fechanaci'];?></td>
              <td><a href="editar.php?id=<?PHP echo $row['codigo']; ?>">Editar</a></td>
@@ -143,3 +159,4 @@
 </script>
 
 </html>
+<?php } ?>

@@ -39,7 +39,6 @@ else
 $consulta="SELECT * FROM user where usuario_use = '$usuario'";
 $resultado=$conexion->query($consulta);
    while($row1=$resultado->fetch_assoc()) {
-      echo $row1['nombre_use']
        ?>
 
 <div class="title-edit-container">
@@ -61,53 +60,87 @@ $resultado=$conexion->query($consulta);
       <img  src="img/icons/add-icon.png" class="add-users-icon"/><p>Agregar diseño</p>
    </button>
 </div>
-<fieldset class="design-fieldset" id="design-fieldset">
-   <form method="post" action="fun_categoria.php" enctype="multipart/form-data" class="design-form" autocomplete="off">
-      <label for="PDFuploadfile" class="PDFupload-form-label PDFupload-form-label-file" id="PDFupload-form-label-file">
-         <div class="PDFupload-form-label-file-icon">
-            <img src="img/icons/load_file-icon.png" alt="">
-         </div>
-         Large size
-      </label>
-      <input type="file" id="PDFuploadfile" class="PDFupload-form-item" name="Img">
-      <label for="PDFuploadfile" class="PDFupload-form-label PDFupload-form-label-file" id="PDFupload-form-label-file">
-         <div class="PDFupload-form-label-file-icon">
-            <img src="img/icons/load_file-icon.png" alt="">
-         </div>
-         Thumb size
-      </label>
-      <input type="file" id="PDFuploadfile" class="PDFupload-form-item" name="Img2">
-      <label for="" class="create-user-label">
-         <h2 class="create-user-label-text create-user-label-text-newCategorie">Nombre</h2>
-         <input type="text" id="" class="create-user-input" name="nombre">
-      </label>
-      <label for="" class="create-user-label">
-         <h2 class="create-user-label-text create-user-label-text-newCategorie">Diseñador</h2>
-         <input type="text" id="" class="create-user-input" name="disenador">
-      </label>
-      <label for="" class="create-user-label">
-         <h2 class="create-user-label-text create-user-label-text-newCategorie">Caracteristicas</h2>
-         <input type="text" id="" class="create-user-input" name="caracteristicas">
-      </label>
 
-      <label for="" class="create-user-label">
-         <h2 class="create-user-label-text create-user-label-text-newCategorie">Etiquetas</h2>
-         <input type="text" id="" class="create-user-input" name="etiquetas">
-      </label>
 
-      <!--      <label for="" class="create-user-label">        -->
-      <!--        <h2> <input type="hidden" id="" class="create-user-input" value="diseno" name="diseno"></h2>-->
-      <!--      </label>-->
 
-      <input type="hidden" name="categoria" value="<?php echo $row['id_imagen']; ?>">
-      <input type="hidden" name="tipo" value="design">
+<div class="variant-container">
+   <fieldset class="design-fieldset" id="design-fieldset">
+       <?php
+       # definimos la carpeta destino
+       $carpetaDestino="img_disenos/";
+       # si hay algun archivo que subir
+       if(isset($_FILES["archivo"]) && $_FILES["archivo"]["name"][0])
+       {
+           # recorremos todos los arhivos que se han subido
+           for($i=0;$i<count($_FILES["archivo"]["name"]);$i++)
+           {
+               # si es un formato de imagen
+               if($_FILES["archivo"]["type"][$i]=="image/jpeg" || $_FILES["archivo"]["type"][$i]=="image/pjpeg" || $_FILES["archivo"]["type"][$i]=="image/gif" || $_FILES["archivo"]["type"][$i]=="image/png")
+               {
+                   # si exsite la carpeta o se ha creado
+                   if(file_exists($carpetaDestino) || @mkdir($carpetaDestino))
+                   {
+                       $origen=$_FILES["archivo"]["tmp_name"][$i];
+                       $destino=$carpetaDestino.$_FILES["archivo"]["name"][$i];
+                       # movemos el archivo
+                       if(@move_uploaded_file($origen, $destino))
+                       {
+                           echo "<br>".$_FILES["archivo"]["name"][$i]. " <p style='color: #52ff75;'>subida con exito</p>";
+                       }else{
+                           echo "<br><p style='color: red;'>No se ha podido subir el archivo: </p>".$_FILES["archivo"]["name"][$i];
+                       }
+                   }else{
+                       echo "<br><p style='color: red;'>No se ha podido crear la carpeta: </p>".$carpetaDestino;
+                   }
+               }else{
+                   echo "<br><p style='color: red;'><i style='color:black;'>".$_FILES["archivo"]["name"][$i]."</i> - NO es imagen con extensión .jpg, .png o .gif</p>";
+               }
+           }
+       }else{
+           echo "<br>No se ha subido ninguna diseño";
+       }
+       ?>
+         <form action="" method="post" enctype="multipart/form-data" name="inscripcion" autocomplete="off">
+            <small>Recuerda, solo se permite subir archivos de imagenes con extensión: .jpg, .png y .gif</small>
+            <label for="PDFuploadfile" class="PDFupload-form-label PDFupload-form-label-file" id="PDFupload-form-label-file">
+               <div class="PDFupload-form-label-file-icon">
+                  <img src="img/icons/load_file-icon.png" alt="">
+               </div>
+               Elegir diseño
+            </label>
+            <input type="file" id="PDFuploadfile" class="PDFupload-form-item" name="archivo[]">
+            <input type="submit" class="user-form-button-newCategorie user-form-button-newCategorie-designs" id="user-form-button-pdf" name="uploadImages" value="Subir">
+         </form>
 
-      <input type="submit" class="user-form-button-newCategorie user-form-button-newCategorie-designs" id="user-form-button-pdf" name="Crear_diseno" value="Crear">
-   </form>
-</fieldset>
+
+
+         <form action="fun_categoria.php" method="post" enctype="multipart/form-data" autocomplete="off" class="edit-form">
+               <label for="" class="create-user-label-design">
+                  <h2 class="create-user-label-text create-user-label-text-newCategorie">Nombre</h2>
+                  <input type="text" id="" class="create-user-input" name="nombre">
+               </label>
+               <label for="" class="create-user-label-design">
+                  <h2 class="create-user-label-text create-user-label-text-newCategorie">Diseñador</h2>
+                  <input type="text" id="" class="create-user-input" name="disenador">
+               </label>
+               <label for="" class="create-user-label-design">
+                  <h2 class="create-user-label-text create-user-label-text-newCategorie">Caracteristicas</h2>
+                  <input type="text" id="" class="create-user-input" name="caracteristicas">
+               </label>
+
+               <label for="" class="create-user-label-design">
+                  <h2 class="create-user-label-text create-user-label-text-newCategorie">Etiquetas</h2>
+                  <input type="text" id="" class="create-user-input" name="etiquetas">
+               </label>
+               <input type="hidden" name="categoria" value="<?php echo $row['id_imagen']; ?>">
+               <input type="hidden" name="tipo" value="design">
+               <input type="submit" class="user-form-button-newCategorie user-form-button-newCategorie-designs" id="user-form-button-pdf" name="Crear_diseno" value="Crear">
+         </form>
+   </fieldset>
+</div>
 <main class="data-container">
 <?php
-$query2="SELECT * FROM disenos WHERE id_categoria = '$id' ORDER BY id_diseno desc";
+$query2="SELECT * FROM disenos WHERE id_categoria = '$id' AND id_diseno_padre = '0' ORDER BY id_diseno desc";
 $resultado2=$conexion->query($query2);
 while($row2=$resultado2->fetch_assoc()){
 ?>

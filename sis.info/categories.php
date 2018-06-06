@@ -1,4 +1,20 @@
 <?php
+include("funcion/conectarse.php");
+require_once("sesion.class.php");
+
+$sesion = new sesion();
+$usuario = $sesion->get("usuario");
+
+if( $usuario == false )
+{
+    header("Location: cerrarsesion.php");
+}
+else
+{
+
+
+?>
+<?php
 include_once 'pdf/config.inc.php';
 $db=new Conect_MySql();
 $sql = "select*from categoria";
@@ -18,13 +34,8 @@ $query = $db->execute($sql);
    <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
-
 <main class="container-designer">
-
-
-
     <?php
-
     while($datos=$db->fetch_row($query)){ ?>
    <a href="edit_categories_&_own_designs.php?id=<?php echo $datos['id_imagen']; ?>" class="design">
       <h1 class="design-title"><?php echo $datos['titulo']; ?></h1>
@@ -36,10 +47,10 @@ $query = $db->execute($sql);
       <img  src="img/icons/add-icon.png" class="add-users-icon"/><p>Crear nueva categoria</p>
    </button>
    <fieldset class="newCategorie-fieldset" id="newCategorie-fieldset">
-      <form action="fun_categoria.php" class="newCategorie-form" method="POST" enctype="multipart/form-data">
+      <form action="fun_categoria.php" class="newCategorie-form" method="POST" enctype="multipart/form-data" autocomplete="off">
          <label for="newCategorie-form-input-imagen" class="create-user-label">
             <h2 class="create-user-label-text create-user-label-text-newCategorie">Imagen</h2>
-            <input type="file" id="newCategorie-form-input-imagen" class="create-user-input" name="Imagen" accept=" image/png">
+            <input type="file" id="newCategorie-form-input-imagen" class="create-user-input" name="Imagen" accept="image/png">
          </label>
          <label for="newCategorie-form-input-titulo" class="create-user-label">
             <h2 class="create-user-label-text create-user-label-text-newCategorie">Titulo</h2>
@@ -60,3 +71,4 @@ $query = $db->execute($sql);
 
 </script>
 </html>
+<?php } ?>

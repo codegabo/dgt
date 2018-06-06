@@ -1,3 +1,19 @@
+<?php
+include("funcion/conectarse.php");
+require_once("sesion.class.php");
+
+$sesion = new sesion();
+$usuario = $sesion->get("usuario");
+
+if( $usuario == false )
+{
+    header("Location: cerrarsesion.php");
+}
+else
+{
+
+
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -19,7 +35,7 @@
     <?php
     include ("funcion/conectarse.php");
 
-    $query="SELECT * FROM data_disenos order by id_data";
+    $query="SELECT * FROM data_disenos ORDER BY id_data DESC";
     $resultado=$conexion->query($query);
     while($row=$resultado->fetch_assoc()){
         ?>
@@ -35,6 +51,7 @@
          <p class="design-zoom"><small><i>Anchura:</i> <?php echo $row['width'] ?></small></p>
          <p class="design-zoom"><small><i>Altura:</i> <?php echo $row['height'] ?></small></p>
          <p class="design-seller"><small><i>Asesor:</i> <?php echo $row['asesor']; ?></small></p>
+         <p class="design-hour"><small><i class="design-hour"><?php echo $row['hora']; ?></i> </small></p>
          <div  class="tools">
             <a href="update_data.php?id=<?php echo $row['id_data'] ?>" class="data-edit"><div class="icon icon-pencil items-tools"></div></a>
 <!--            <div class="icon icon-delete items-tools"></div>-->
@@ -42,7 +59,7 @@
       </div>
    </div>
 
-   <?php } ?>
+   <?php } }?>
 
 </main>
 </body>

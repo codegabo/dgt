@@ -1,16 +1,30 @@
-<?PHP
-/*Requiere la conexion a la base de datos sisvose*/
-include ("funcion/conectarse.php");
-$id=$_GET['id'];
-/*Se eliminan los datos de usuario segun el id*/
+<?php
+include("funcion/conectarse.php");
+require_once("sesion.class.php");
 
-$query="DELETE FROM user WHERE codigo='$id'";
-$resultado=$conexion->query($query);
+$sesion = new sesion();
+$usuario = $sesion->get("usuario");
+
+if( $usuario == false )
+{
+    header("Location: cerrarsesion.php");
+}
+else {
 
 
-if ($resultado>0){
+    ?>
+    <?PHP
+    include("funcion/conectarse.php");
+    $id = $_GET['id'];
+    /*Se eliminan los datos de usuario segun el id*/
 
-    echo "
+    $query = "DELETE FROM user WHERE codigo='$id'";
+    $resultado = $conexion->query($query);
+
+
+    if ($resultado > 0) {
+
+        echo "
     <html>
     <head>
     <meta http-equiv='refresh' content='0; url=users.php'>
@@ -19,10 +33,9 @@ if ($resultado>0){
     </script>
     </head>
     </html>";
-}
-else{
+    } else {
 
-    echo "
+        echo "
     <html>
     <head>
     <meta http-equiv='refresh' content='0; url=users.php'>
@@ -31,9 +44,9 @@ else{
     </script>
     </head>
     </html>";
+    }
+
 }
-
-
 ?>
 
 

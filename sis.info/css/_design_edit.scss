@@ -92,7 +92,7 @@
 .design-img{
   margin:auto;
   @include medias(768px){
-    height: 20em;
+    height: 15em;
   }
 }
 .img-edit-container:hover .edit-design{
@@ -149,7 +149,7 @@
 .design-fieldset{
   display: none;
   &-active{
-    margin: 1em;
+    margin: 1em auto;
     display: block;
   }
 }
@@ -200,4 +200,7 @@
 }
 .bottom-data i{
   color: $color-1;
+}
+.design-hour{
+  color:$color-4;
 }

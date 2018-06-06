@@ -1,4 +1,19 @@
-<?php 
+<?php
+include("funcion/conectarse.php");
+require_once("sesion.class.php");
+
+$sesion = new sesion();
+$usuario = $sesion->get("usuario");
+
+if( $usuario == false )
+{
+    header("Location: cerrarsesion.php");
+}
+else
+{
+
+
+
 $id=$_GET['id'];
 include("funcion/conectarse.php");
 
@@ -38,7 +53,7 @@ $row=$resultado->fetch_assoc();
    <fieldset class="user-fieldset">
       <legend class="legend-user-form"><h1>Nuevo usuario</h1></legend>
       <form action="editando_usuario.php" class="user-form"  method="post" enctype="multipart/form-data">
-      <input value="<?php echo $row['codigo'];?>" type="text" name="codigo" id="create-user-input-name" class="create-user-input">
+      <input value="<?php echo $row['codigo'];?>" type="hidden" name="codigo" id="create-user-input-name" class="create-user-input">
 
          <label for="create-user-input-name" class="create-user-label">
             <h2 class="create-user-label-text">Nombres</h2>
@@ -80,7 +95,7 @@ $row=$resultado->fetch_assoc();
 
          <label for="create-user-input-pass" class="create-user-label">
             <h2 class="create-user-label-text">Contraseña</h2>
-            <input value="<?php echo $row['contra_use'];?>" required  name="contra" type="text" id="create-user-input-pass" class="create-user-input">
+            <input value="<?php echo $row['contra_use'];?>" required  name="contra" type="password" id="create-user-input-pass" class="create-user-input">
          </label>
 
          <input type="submit" class="user-form-button create-user-input" value="Editar">
@@ -109,3 +124,4 @@ $row=$resultado->fetch_assoc();
 </script>
 -->
 </html>
+<?php }  ?>
