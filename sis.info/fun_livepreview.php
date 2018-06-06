@@ -10,6 +10,7 @@ if ( !empty($_POST)) {
     $asesorError = null;
     $heightError = null;
     $nombreError = null;
+    $clienteError = null;
 
     $diseno = $_POST['diseno'];
     $modelo = $_POST['modelo'];
@@ -17,11 +18,12 @@ if ( !empty($_POST)) {
     $asesor = $_POST['asesor'];
     $height = $_POST['height'];
     $nombre = $_POST['nombre'];
+    $cliente= $_POST['cliente'];
 
     $valid = true;
 
     if ($valid) {
-        $sql = "INSERT INTO data_disenos (diseno,modelo,width,asesor,height,nombre) values('$diseno','$modelo','$width','$asesor','$height','$nombre')";
+        $sql = "INSERT INTO data_disenos (diseno,modelo,width,asesor,height,nombre,cliente) values('$diseno','$modelo','$width','$asesor','$height','$nombre','$cliente')";
         $resultado=$conexion->query($sql);
         if ($resultado>0) {
             echo "

@@ -106,22 +106,16 @@ else
 
       </div>
       <div class="buttons">
-         <button class="cotinue-design" id="cotinue-design">Continuar diseño</button>
+         <button class="cotinue-design" id="cotinue-design">Continuar</button>
 
           <?php require("funcion/conectarse.php");
           $consulta="SELECT * FROM user where usuario_use = '$usuario'";
           $resultado=$conexion->query($consulta);
           while($row1=$resultado->fetch_assoc()) {
           ?>
-   <form action="fun_livepreview.php" class="send-data" id="send-data" method="POST" enctype="multipart/form-data">
-<!--       --><?php
-//       $consulta3="SELECT * FROM disenos WHERE id_categoria = '$id'";
-//       $resultado3=$conexion->query($consulta3);
-//       while($row3=$resultado3->fetch_assoc()) {
-//           ?>
-<!--          <input type="text" id="nombrediseno-input" name="nombre" value="nombre --><?php //echo $row3["nombre_dis"]; ?><!--" >-->
-<!--       --><?php //} ?>
+         <form action="fun_livepreview.php" class="send-data" id="send-data" method="POST" enctype="multipart/form-data" autocomplete="off">
             <input type="hidden" class="asesor-input" name="asesor" value="<?php echo $row1['nombre_use']; } ?>">
+            <input type="text" class="edit-name-category"name="cliente" id="inputClient" placeholder="Cliente" required>
             <button type="submit" class="save-design" id="cotinue-design">Guardar</button>
          </form>
       </div>

@@ -29,13 +29,15 @@ $row=$resultado->fetch_assoc();
                 <img src="<?php echo $row['diseno'] ?>" alt="" class="design-img">
             </div>
             <div class="bottom-data">
-                <p class="design-name"><?php echo $row['nombre'] ?></p>
-                <p class="design-designfor">Diseñado por <?php echo $row['asesor'] ?></p>
-                <p class="design-zoom"><?php echo $row['width'] ?></p>
-                    <input  type="hidden" name="id_data" value="<?php echo $row['id_data']; ?>">
-                    <input class="design-seller edit-name-category" name="asesor" value="<?php echo $row['asesor']; ?>">
+               <p class="design-name"><small><i>Diseño:</i> <?php echo $row['nombre'] ?></small></p>
+               <p class="design-name"><small><i>Cliente:</i> <?php echo $row['cliente'] ?></small></p>
+               <p class="design-designfor"><small><i>Diseñador:</i> <?php echo $row['asesor'] ?></small></p>
+               <p class="design-zoom"><small><i>Anchura:</i> <?php echo $row['width'] ?></small></p>
+               <p class="design-zoom"><small><i>Altura:</i> <?php echo $row['height'] ?></small></p>
+               <p class="design-seller"><small><i>Asesor:</i></small></p>
+               <input  type="hidden" name="id_data" value="<?php echo $row['id_data']; ?>">
+               <input class="design-seller edit-name-category" name="asesor" value="<?php echo $row['asesor']; ?>">
                 <div  class="tools">
-                    <div class="icon icon-down items-tools"></div>
                     <button type="submit" value=""  class="icon icon-pencil items-tools"></button>
 <!--                    <div class="icon icon-delete items-tools"></div>-->
                 </div>
