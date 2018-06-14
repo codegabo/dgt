@@ -7,7 +7,7 @@ var img = document.getElementById('live-preview-current-variant'),
     textSize = document.createTextNode("Size");
 
 let variantContainer = document.getElementById("variants-container"),
-    imgVariantContainer = document.createElement("img"),
+    imgVariantContainer = document.createElement("div"),
     currentVariantDesign = document.getElementById("live-preview-current-variant"),
     imgCurrentModel = document.createElement("img"),
     currentdesign = document.getElementById("current-design"),
@@ -33,12 +33,26 @@ let variantContainer = document.getElementById("variants-container"),
     }
     let h1content = document.createTextNode(" " + tag.alt);
 
-    if(tag.tagName == "IMG" && tag.className == "variants-img"){
-        imgVariantContainer.src = tag.src.replace("thumb", "large");
-        imgVariantContainer.className = "live-preview-current-variant";
-        imgVariantContainer.id = "live-preview-current-variant";
-        imgVariantContainer.alt = tag.alt;
+        if(tag.tagName == "IMG" && tag.className == "variants-img"){
+            imgVariantContainer.src = tag.src.replace("thumb", "large");
+            imgVariantContainer.style.backgroundImage = "url('"+tag.src.replace("thumb", "large")+"')";
+            imgVariantContainer.style.position = "absolute";
+            imgVariantContainer.style.left = "1px";
+            imgVariantContainer.style.top = "1px";
+            imgVariantContainer.style.width= "99%";
+            imgVariantContainer.style.height= "99%";
+            imgVariantContainer.style.backgroundSize = "30%";
+            imgVariantContainer.style.backgroundRepeat = "repeat";
 
+
+            // left: 1px;
+            // top: 1px;
+            // width: 99%;
+            // height: 466px;
+
+            imgVariantContainer.className = "live-preview-current-variant";
+            imgVariantContainer.id = "live-preview-current-variant";
+            imgVariantContainer.alt = tag.alt;
 
         imageFull.src = document.getElementById('live-preview-current-variant').src;
         imageFull.className = "live-preview-current-variant";
@@ -47,9 +61,6 @@ let variantContainer = document.getElementById("variants-container"),
         imageFull.style.width = document.getElementById('live-preview-current-variant').style.width;
         imageFull.style.height = document.getElementById('live-preview-current-variant').style.height;
         fullViewContainer.prepend(imageFull);
-
-
-
 
         inputWidth.type = "hidden";
         inputWidth.name = "width";
@@ -68,9 +79,6 @@ let variantContainer = document.getElementById("variants-container"),
         inputimgdesign.id = "inputImgDesign";
         inputimgdesign.value = document.getElementById('live-preview-current-variant').src;
         formData.prepend(inputimgdesign);
-
-
-
 
 
         console.log("alto var " + document.getElementById('live-preview-current-variant').style.height);
@@ -92,7 +100,6 @@ let variantContainer = document.getElementById("variants-container"),
         inputDesignName.id = "inputDesignName";
         inputDesignName.value = " " + firstWord;
         formData.prepend(inputDesignName);
-
 
 
         if(variantContainer.hasChildNodes()) {
@@ -130,10 +137,6 @@ let variantContainer = document.getElementById("variants-container"),
         variantContainer.removeChild(variantContainer.childNodes[2]);
         document.getElementById("live-preview-current-variant").after(imgCurrentModel);
     }
-
-    // if(tag.tagName == "IMG" && tag.className == "designs-img"){
-    //     console.log(imgVariantContainer.alt)
-    // }
 }
 
 
@@ -145,7 +148,7 @@ more.addEventListener('click', () => {
     document.getElementById('live-preview-current-variant').style.width = document.getElementById('live-preview-current-variant').offsetWidth + document.getElementById('live-preview-current-variant').offsetWidth * 2 / 100 + 'px';
     console.log('Alto ↑ ' + document.getElementById('live-preview-current-variant').offsetHeight);
     console.log('Ancho ↑' + document.getElementById('live-preview-current-variant').offsetWidth);
-    if(document.getElementById('live-preview-current-variant').offsetHeight >= 800){
+    if(document.getElementById('live-preview-current-variant').offsetHeight >= 8000){
         more.classList.add("block-zoom-button");
         more.disabled = true;
         less.addEventListener('click', () => {

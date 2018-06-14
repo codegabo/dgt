@@ -47,7 +47,7 @@ else
       <div class="bottom-data">
          <p class="design-name"><small><i>Diseño:</i> <?php echo $row['nombre'] ?></small></p>
          <p class="design-name"><small><i>Cliente:</i> <?php echo $row['cliente'] ?></small></p>
-         <p class="design-designfor"><small><i>Diseñador:</i> <?php echo $row['asesor'] ?></small></p>
+         <p class="design-designfor"><small><i>Diseñador:</i> <?php echo $row['design_for'] ?></small></p>
          <p class="design-zoom"><small><i>Anchura:</i> <?php echo $row['width'] ?></small></p>
          <p class="design-zoom"><small><i>Altura:</i> <?php echo $row['height'] ?></small></p>
          <p class="design-seller"><small><i>Asesor:</i> <?php echo $row['asesor']; ?></small></p>

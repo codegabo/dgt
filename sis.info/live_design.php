@@ -60,7 +60,7 @@ else
        <div class="right-side">
           <div class="live-preview" id="live-preview">
              <div class="variants-container live-preview-current" id="variants-container">
-                <img src="#" alt="" class="live-preview-current-variant" id="live-preview-current-variant" style="width:330px;height:500px;">
+                <img src="#" alt="" class="live-preview-current-variant" id="live-preview-current-variant" >
                 <img src="img/clothes_png/BLUSA.png" alt="" class="live-preview-current" id="live-preview-current">
              </div>
              <button class="button-dropdown-clothes icon-clothes" id="button-dropdown-clothes"></button>
@@ -76,7 +76,7 @@ else
           </div>
           <div class="variants">
     <?php
-    $consulta2="SELECT * FROM disenos WHERE id_categoria = '$id'";
+    $consulta2="SELECT * FROM disenos WHERE id_categoria = '$id' AND id_diseno_padre = '0' ";
     $resultado2=$conexion->query($consulta2);
     while($row2=$resultado2->fetch_assoc()) {
         ?>
