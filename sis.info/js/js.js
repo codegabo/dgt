@@ -1,4 +1,3 @@
-
 var img = document.getElementById('live-preview-current-variant'),
     more = document.getElementById('button-more'),
     less = document.getElementById('button-less'),
@@ -24,7 +23,7 @@ let variantContainer = document.getElementById("variants-container"),
     modelFullContainer = document.getElementById('live-preview-current-variant-fullview');
 
 
-    function elemento(e){
+function elemento(e){
     if (e.srcElement) {
         tag = e.srcElement;
     }
@@ -33,26 +32,22 @@ let variantContainer = document.getElementById("variants-container"),
     }
     let h1content = document.createTextNode(" " + tag.alt);
 
-        if(tag.tagName == "IMG" && tag.className == "variants-img"){
-            imgVariantContainer.src = tag.src.replace("thumb", "large");
-            imgVariantContainer.style.backgroundImage = "url('"+tag.src.replace("thumb", "large")+"')";
-            imgVariantContainer.style.position = "absolute";
-            imgVariantContainer.style.left = "1px";
-            imgVariantContainer.style.top = "1px";
-            imgVariantContainer.style.width= "99%";
-            imgVariantContainer.style.height= "99%";
-            imgVariantContainer.style.backgroundSize = "30%";
-            imgVariantContainer.style.backgroundRepeat = "repeat";
+    if(tag.tagName == "IMG" && tag.className == "variants-img"){
+        imgVariantContainer.src = tag.src.replace("thumb", "large");
+        imgVariantContainer.style.backgroundImage = "url('"+tag.src.replace("thumb", "large")+"')";
+        imgVariantContainer.style.position = "absolute";
+        imgVariantContainer.style.left = "1px";
+        imgVariantContainer.style.top = "1px";
+        imgVariantContainer.style.width= "99%";
+        imgVariantContainer.style.height= "99%";
+        imgVariantContainer.style.backgroundSize = "30%";
+        imgVariantContainer.style.backgroundRepeat = "repeat";
 
 
-            // left: 1px;
-            // top: 1px;
-            // width: 99%;
-            // height: 466px;
 
-            imgVariantContainer.className = "live-preview-current-variant";
-            imgVariantContainer.id = "live-preview-current-variant";
-            imgVariantContainer.alt = tag.alt;
+        imgVariantContainer.className = "live-preview-current-variant";
+        imgVariantContainer.id = "live-preview-current-variant";
+        imgVariantContainer.alt = tag.alt;
 
         imageFull.src = document.getElementById('live-preview-current-variant').src;
         imageFull.className = "live-preview-current-variant";
@@ -91,7 +86,7 @@ let variantContainer = document.getElementById("variants-container"),
 
         var content = h1titleDesign.innerHTML;
         var firstWord = content.split(" ").splice(-1);
-      console.log(firstWord);
+        console.log(firstWord);
 
         h1titleDesign.innerHTML = " " + firstWord;
 
@@ -140,15 +135,33 @@ let variantContainer = document.getElementById("variants-container"),
 }
 
 
+window.addEventListener('keydown', function (ev) {
+    if (ev.key === 'ArrowUp') {
+        // document.getElementById('button-less').blur();
+        // document.getElementById('button-more').focus();
+        document.getElementById('button-more').click();
+    }
+    if (ev.key === 'ArrowDown') {
+        document.getElementById('button-less').click();
+    }
+    if (ev.key === '+') {
+        document.getElementById('button-more').click();
+    }
+    if (ev.key === '-') {
+        document.getElementById('button-less').click();
+    }
+});
+
 
 
 
 more.addEventListener('click', () => {
     document.getElementById('live-preview-current-variant').style.height = document.getElementById('live-preview-current-variant').offsetHeight + document.getElementById('live-preview-current-variant').offsetHeight * 2 / 100 + 'px';
     document.getElementById('live-preview-current-variant').style.width = document.getElementById('live-preview-current-variant').offsetWidth + document.getElementById('live-preview-current-variant').offsetWidth * 2 / 100 + 'px';
+    // console.log(window.event.type);
     console.log('Alto ↑ ' + document.getElementById('live-preview-current-variant').offsetHeight);
     console.log('Ancho ↑' + document.getElementById('live-preview-current-variant').offsetWidth);
-    if(document.getElementById('live-preview-current-variant').offsetHeight >= 8000){
+    if(document.getElementById('live-preview-current-variant').offsetHeight >= 4000){
         more.classList.add("block-zoom-button");
         more.disabled = true;
         less.addEventListener('click', () => {
@@ -163,6 +176,7 @@ less.addEventListener('click', () => {
     document.getElementById('live-preview-current-variant').style.width = document.getElementById('live-preview-current-variant').offsetWidth - document.getElementById('live-preview-current-variant').offsetWidth * 2 / 100 + 'px';
     console.log('Alto ↓ ' + document.getElementById('live-preview-current-variant').offsetHeight);
     console.log('Ancho ↓ ' + document.getElementById('live-preview-current-variant').offsetWidth);
+    // console.log(document.getElementById('live-preview-current-variant')firstChild.nodeValue = ev.type;)
     if(document.getElementById('live-preview-current-variant').offsetHeight <= 350){
         less.classList.remove("zoom-button");
         less.classList.add("block-zoom-button");
@@ -176,56 +190,3 @@ less.addEventListener('click', () => {
 });
 console.log('Alto ' + document.getElementById('live-preview-current-variant').offsetHeight);
 console.log('Ancho ' + document.getElementById('live-preview-current-variant').offsetWidth);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//
-//
-//
-//
-//
-// function elemento(e){
-//     if (e.srcElement.tagName === 'container-right-img') {
-//         // tag = e.srcElement.tagName;
-//         document.getElementById("live-preview").innerHTML = '' +
-//             '<img src="' + e.srcElement.src + '" alt=""  class="live-preview-current" id="live-preview-current">' +
-//             '<button class="button-dropdown-clothes icon-clothes" id="button-dropdown-clothes"></button>\n' +
-//             '            <div class="zoomButtons-container">\n' +
-//             '               <button class="button-more icon-plus" id="button-more"></button>\n' +
-//             '               <button class="button-less icon-minus" id="button-less"></button>\n' +
-//             '            </div>';
-//     }
-//     else if (e.target.tagName === 'container-right-img') {
-//         // tag = e.target.tagName;
-//         document.getElementById("live-preview").innerHTML = '' +
-//             '<img src="' + e.target.src + '" alt=""  class="live-preview-current" id="live-preview-current">' +
-//             '<button class="button-dropdown-clothes icon-clothes" id="button-dropdown-clothes"></button>\n' +
-//             '            <div class="zoomButtons-container">\n' +
-//             '               <button class="button-more icon-plus" id="button-more"></button>\n' +
-//             '               <button class="button-less icon-minus" id="button-less"></button>\n' +
-//             '            </div>';
-//     }
-//     // alert("El elemento selecionado ha sido " + tag);
-// }

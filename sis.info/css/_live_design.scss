@@ -19,11 +19,11 @@
 .container-left{
   display: flex;
   flex-wrap: wrap;
-    @include medias(768px){
-      width: 55%;
-      //height:45vh;
-    }
+  @include medias(768px){
+    width: 55%;
+    //height:45vh;
   }
+}
 .designs, .variants{
   overflow: auto;
   display:flex;
@@ -242,7 +242,6 @@
     display: flex;
   }
 }
-
 .fullview-conatainer{
   display: none;
   outline:1px solid red;
@@ -277,7 +276,6 @@
 .live-preview-current-variant{
   left: 0;
 }
-
 .block-zoom-button{
   background: gray;
   color: darkgray;
@@ -296,4 +294,9 @@
   & .edit-name-category{
     width: 60%;
   }
+}
+.guideline{
+  margin: 0;
+  font-size:1.5em;
+  outline:1px solid red;
 }
