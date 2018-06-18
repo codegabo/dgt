@@ -139,9 +139,12 @@
     display: none;
   }
 }
+.button-dropdown-clothes{
+  left: .9em;
+}
 .zoomButtons-container{
   position: absolute;
-  bottom: 1em;
+  bottom: -.2em;
   right: 1em;
   display: flex;
   @include medias(768px){
@@ -156,12 +159,6 @@
     width:1.2em;
     height:15em;
   }
-  //@include medias(900px){
-  //  right: 41%;
-  //}
-  //@include medias(1024px){
-  //  right: 43%;
-  //}
   .button-more, .button-less{
     border-radius: 5px;
     margin:0 .1em;
@@ -295,8 +292,36 @@
     width: 60%;
   }
 }
+.guidlines-container{
+  position:absolute;
+  border:.1px solid $color-2;
+  top:-12em;
+  right:-10em;
+  transform:rotate(90deg);
+  background: $color-1;
+  display: flex;
+  //width: 15em;
+  border-radius:5px;
+  padding:0 .7em ;
+  flex-wrap: nowrap;
+  overflow: auto;
+  justify-content:space-between;
+}
 .guideline{
-  margin: 0;
+  padding:0 .2em;
+  background: transparent;
+  border:none;
   font-size:1.5em;
-  outline:1px solid red;
+  margin:auto .2em;
+  font-weight: bold;
+  transform: rotate(90deg);
+  //&:nth-child(odd){
+  //  outline:1px solid blue;
+  //}
+  //&:nth-child(even){
+  //  outline:1px solid red;
+  //}
+  &::after{
+    content: '‒';
+  }
 }

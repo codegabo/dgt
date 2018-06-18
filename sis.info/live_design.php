@@ -54,16 +54,16 @@ else
                </div>
                <button class="button-dropdown-clothes icon-clothes" id="button-dropdown-clothes"></button>
                <div class="zoomButtons-container">
-<!--                  <p class="guideline guideline-1">-</p>-->
-<!--                  <p class="guideline guideline-2">-</p>-->
-<!--                  <p class="guideline guideline-3">-</p>-->
-<!--                  <p class="guideline guideline-4">-</p>-->
-<!--                  <p class="guideline guideline-5">-</p>-->
-<!--                  <p class="guideline guideline-6">-</p>-->
-<!--                  <p class="guideline guideline-7">-</p>-->
-<!--                  <p class="guideline guideline-8">-</p>-->
-<!--                  <p class="guideline guideline-9">-</p>-->
-<!--                  <p class="guideline guideline-10">-</p>-->
+                  <!--                  <p class="guideline guideline-1">-</p>-->
+                  <!--                  <p class="guideline guideline-2">-</p>-->
+                  <!--                  <p class="guideline guideline-3">-</p>-->
+                  <!--                  <p class="guideline guideline-4">-</p>-->
+                  <!--                  <p class="guideline guideline-5">-</p>-->
+                  <!--                  <p class="guideline guideline-6">-</p>-->
+                  <!--                  <p class="guideline guideline-7">-</p>-->
+                  <!--                  <p class="guideline guideline-8">-</p>-->
+                  <!--                  <p class="guideline guideline-9">-</p>-->
+                  <!--                  <p class="guideline guideline-10">-</p>-->
                   <button class="button-more icon-plus" id="button-more"></button>
                   <button class="button-less icon-minus" id="button-less"></button>
                </div>

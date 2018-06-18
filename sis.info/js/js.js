@@ -152,13 +152,24 @@ window.addEventListener('keydown', function (ev) {
     }
 });
 
+document.getElementById("live-preview-current").addEventListener("wheel", function (e) {
+    if (e.deltaY < 0) {
+        console.log('scrolling up');
+        document.getElementById('button-more').click();
+    }
+    if (e.deltaY > 0) {
+        console.log('scrolling down');
+        document.getElementById('button-less').click();
+    }
+});
 
+function myFunction() {
 
+}
 
 more.addEventListener('click', () => {
     document.getElementById('live-preview-current-variant').style.height = document.getElementById('live-preview-current-variant').offsetHeight + document.getElementById('live-preview-current-variant').offsetHeight * 2 / 100 + 'px';
     document.getElementById('live-preview-current-variant').style.width = document.getElementById('live-preview-current-variant').offsetWidth + document.getElementById('live-preview-current-variant').offsetWidth * 2 / 100 + 'px';
-    // console.log(window.event.type);
     console.log('Alto ↑ ' + document.getElementById('live-preview-current-variant').offsetHeight);
     console.log('Ancho ↑' + document.getElementById('live-preview-current-variant').offsetWidth);
     if(document.getElementById('live-preview-current-variant').offsetHeight >= 4000){
@@ -176,7 +187,6 @@ less.addEventListener('click', () => {
     document.getElementById('live-preview-current-variant').style.width = document.getElementById('live-preview-current-variant').offsetWidth - document.getElementById('live-preview-current-variant').offsetWidth * 2 / 100 + 'px';
     console.log('Alto ↓ ' + document.getElementById('live-preview-current-variant').offsetHeight);
     console.log('Ancho ↓ ' + document.getElementById('live-preview-current-variant').offsetWidth);
-    // console.log(document.getElementById('live-preview-current-variant')firstChild.nodeValue = ev.type;)
     if(document.getElementById('live-preview-current-variant').offsetHeight <= 350){
         less.classList.remove("zoom-button");
         less.classList.add("block-zoom-button");
@@ -188,5 +198,7 @@ less.addEventListener('click', () => {
         })
     }
 });
+
+
 console.log('Alto ' + document.getElementById('live-preview-current-variant').offsetHeight);
 console.log('Ancho ' + document.getElementById('live-preview-current-variant').offsetWidth);
