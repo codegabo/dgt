@@ -33,8 +33,8 @@ function elemento(e){
     let h1content = document.createTextNode(" " + tag.alt);
 
     if(tag.tagName == "IMG" && tag.className == "variants-img"){
-        imgVariantContainer.src = tag.src.replace("thumb", "large");
-        imgVariantContainer.style.backgroundImage = "url('"+tag.src.replace("thumb", "large")+"')";
+        // imgVariantContainer.src = tag.src.replace("thumb", "large");
+        imgVariantContainer.style.backgroundImage = "url('"+tag.src+"')";
         imgVariantContainer.style.position = "absolute";
         imgVariantContainer.style.left = "1px";
         imgVariantContainer.style.top = "1px";

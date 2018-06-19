@@ -48,6 +48,12 @@ $query = $db->execute($sql);
    </button>
    <fieldset class="newCategorie-fieldset" id="newCategorie-fieldset">
       <form action="fun_categoria.php" class="newCategorie-form" method="POST" enctype="multipart/form-data" autocomplete="off">
+         <small>Recuerda,
+            <ul>
+               <li>Debes subir los archivos de imagenes con extensión: .png</li>
+               <li>El nombre del archivo no debe contener espacios o caracteres especiales</li>
+            </ul>
+         </small>
          <label for="newCategorie-form-input-imagen" class="create-user-label">
             <h2 class="create-user-label-text create-user-label-text-newCategorie">Imagen</h2>
             <input type="file" id="newCategorie-form-input-imagen" class="create-user-input" name="Imagen" accept="image/png">

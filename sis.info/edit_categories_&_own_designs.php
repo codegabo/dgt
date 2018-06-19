@@ -45,7 +45,7 @@ $resultado=$conexion->query($consulta);
    <div class="design">
       <form method="post" action="fun_categoria.php" enctype="multipart/form-data" class="form-category" autocomplete="off">
          <h1 class="design-title" >
-            <input type="file" value="<?php echo $row['ruta']; ?>" class="create-user-label-text" name="Imagen" accept="image/png" style="display: flex; padding: .1em;font-size: 10px;width: 40%;position: absolute;top: 1em;">
+            <input type="file" value="<?php echo $row['ruta']; ?>" class="create-user-label-text" name="Imagen" accept="image/png" style="display: flex; padding: .1em;font-size: 10px;width: 70%;position: absolute;top: 1em;">
             <input type="text" value="<?php echo $row['titulo']; ?>" name="titulo" class="edit-name-category">
          </h1>
          <input type="hidden" name="id" value="<?php echo $row['id_imagen']; ?>">
@@ -86,7 +86,7 @@ $resultado=$conexion->query($consulta);
                        # movemos el archivo
                        if(@move_uploaded_file($origen, $destino))
                        {
-                           echo "<br>".$_FILES["archivo"]["name"][$i]. " <p style='color: #52ff75;'>subida con exito</p>";
+                           echo "<br>".$_FILES["archivo"]["name"][$i]. " <p style='color: #308e22;'>subida con exito</p>";
                        }else{
                            echo "<br><p style='color: red;'>No se ha podido subir el archivo: </p>".$_FILES["archivo"]["name"][$i];
                        }
@@ -98,11 +98,16 @@ $resultado=$conexion->query($consulta);
                }
            }
        }else{
-           echo "<br>No se ha subido ninguna diseño";
+           echo "<br>No se ha seleccionado ningun diseño";
        }
        ?>
          <form action="" method="post" enctype="multipart/form-data" name="inscripcion" autocomplete="off">
-            <small>Recuerda, solo se permite subir archivos de imagenes con extensión: .jpg, .png y .gif</small>
+            <small>Recuerda,
+               <ul>
+                  <li>Debes subir los archivos de imagenes con extensión: .jpg</li>
+                  <li>El nombre del archivo no debe contener espacios o caracteres especiales</li>
+               </ul>
+            </small>
             <label for="PDFuploadfile" class="PDFupload-form-label PDFupload-form-label-file" id="PDFupload-form-label-file">
                <div class="PDFupload-form-label-file-icon">
                   <img src="img/icons/load_file-icon.png" alt="">
