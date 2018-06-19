@@ -134,7 +134,6 @@ function elemento(e){
     }
 }
 
-
 window.addEventListener('keydown', function (ev) {
     if (ev.key === 'ArrowUp') {
         // document.getElementById('button-less').blur();
@@ -154,18 +153,19 @@ window.addEventListener('keydown', function (ev) {
 
 document.getElementById("live-preview-current").addEventListener("wheel", function (e) {
     if (e.deltaY < 0) {
-        console.log('scrolling up');
         document.getElementById('button-more').click();
     }
     if (e.deltaY > 0) {
-        console.log('scrolling down');
         document.getElementById('button-less').click();
     }
 });
 
-function myFunction() {
+// document.getElementById("live-preview-current").addEventListener("touchmove", function (e) {
+//
+//         console.log('scrolling up');
+//         document.getElementById('button-more').click();
+// });
 
-}
 
 more.addEventListener('click', () => {
     document.getElementById('live-preview-current-variant').style.height = document.getElementById('live-preview-current-variant').offsetHeight + document.getElementById('live-preview-current-variant').offsetHeight * 2 / 100 + 'px';
@@ -182,6 +182,7 @@ more.addEventListener('click', () => {
         })
     }
 });
+
 less.addEventListener('click', () => {
     document.getElementById('live-preview-current-variant').style.height = document.getElementById('live-preview-current-variant').offsetHeight - document.getElementById('live-preview-current-variant').offsetHeight * 2 / 100 + 'px';
     document.getElementById('live-preview-current-variant').style.width = document.getElementById('live-preview-current-variant').offsetWidth - document.getElementById('live-preview-current-variant').offsetWidth * 2 / 100 + 'px';

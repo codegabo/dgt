@@ -43,8 +43,9 @@ $resultado=$conexion->query($consulta);
 
 <div class="title-edit-container">
    <div class="design">
-      <form method="post" action="fun_categoria.php" enctype="multipart/form-data" class="form-category">
+      <form method="post" action="fun_categoria.php" enctype="multipart/form-data" class="form-category" autocomplete="off">
          <h1 class="design-title" >
+            <input type="file" value="<?php echo $row['ruta']; ?>" class="create-user-label-text" name="Imagen" accept="image/png" style="display: flex; padding: .1em;font-size: 10px;width: 40%;position: absolute;top: 1em;">
             <input type="text" value="<?php echo $row['titulo']; ?>" name="titulo" class="edit-name-category">
          </h1>
          <input type="hidden" name="id" value="<?php echo $row['id_imagen']; ?>">
