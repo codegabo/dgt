@@ -151,7 +151,7 @@ while($row1=$resultado->fetch_assoc()) {
          <div class="tools">
             <button class="icon icon-pencil items-tools" id="button-newCategorie" type="submit" name="Editar_dis" ></button>
          </form>
-            <div class="icon icon-delete items-tools"></div>
+          <a href="eliminar_diseno.php?id=<?PHP echo $row2['id_diseno']; ?>" ><div class="icon icon-delete"></div></a>
          </div>
       </div>
 

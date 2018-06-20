@@ -165,6 +165,7 @@ while($row2=$resultado2->fetch_assoc()){
          <div class="tags" id="tags">
             <p class="tags-item"><?php echo $row2['etiquetas']; ?></p>
          </div>
+         <a href="eliminar_diseno.php?id=<?PHP echo $row2['id_diseno']; ?>" ><div class="icon icon-delete"></div></a>
       </div>
    </div>
     <?php } ?>

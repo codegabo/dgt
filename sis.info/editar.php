@@ -37,18 +37,6 @@ $row=$resultado->fetch_assoc();
 </head>
 <body>
 <div class="all-container-users">
-   <header class="users-actions">
-       <!--
-      <label for="users-search" class="users-search-label">
-         <input type="search" class="users-search" id="users-search">
-         <img src="img/icons/search-icon.png" class="users-search-icon" alt="">
-      </label>
-      
-      <button class="add-users" id="add-users">
-         <img  src="img/icons/add-icon.png" class="add-users-icon"/><p>AGREGAR</p>
-      </button>
-      -->
-   </header>
    <section>
    <fieldset class="user-fieldset">
       <legend class="legend-user-form"><h1>Nuevo usuario</h1></legend>
@@ -106,22 +94,5 @@ $row=$resultado->fetch_assoc();
   
 </div>
 </body>
-<!--
-<script>
-    let buttonDropdownUsers = document.getElementById('add-users'),
-        containerRightUsers = document.getElementById('container-create_user'),
-        closeContainerRightUsers = document.getElementById('close-create-user');
-
-    buttonDropdownUsers.addEventListener('click', () => {
-        containerRightUsers.classList.add('container-create_user-active');
-        closeContainerRightUsers.classList.add('posi-fix');
-      });
-
-    closeContainerRightUsers.addEventListener('click', () =>{
-        containerRightUsers.classList.remove('container-create_user-active');
-        closeContainerRightUsers.classList.remove('posi-fix');
-    });
-</script>
--->
 </html>
 <?php }  ?>

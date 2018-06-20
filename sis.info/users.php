@@ -53,40 +53,40 @@ else
    <section class="container-create_user" id="container-create_user">
    <fieldset class="user-fieldset">
       <legend class="legend-user-form"><h1>Nuevo usuario</h1></legend>
-      <form action="" class="user-form">
+      <form action="add_usuario.php" method="post" class="user-form" autocomplete="off">
          <label for="create-user-input-name" class="create-user-label">
             <h2 class="create-user-label-text">Nombres</h2>
-            <input type="text" id="create-user-input-name" class="create-user-input">
+            <input type="text" id="create-user-input-name" class="create-user-input" name="nombre">
          </label>
          <label for="create-user-input-lastName" class="create-user-label">
             <h2 class="create-user-label-text">Apellidos</h2>
-            <input type="text" id="create-user-input-lastName" class="create-user-input">
+            <input type="text" id="create-user-input-lastName" class="create-user-input" name="apellido">
          </label>
          <label for="create-user-input-gen" class="create-user-label">
             <h2 class="create-user-label-text">Género</h2>
-            <select class="create-user-select" id="create-user-input-gen">
-               <option value="Masculino">Masculino</option>
-               <option value="Femenino">Femenino</option>
+            <select class="create-user-select" id="create-user-input-gen" name="genero">
+               <option value="Masculino" >Masculino</option>
+               <option value="Femenino" >Femenino</option>
             </select>
          </label>
          <label for="create-user-input-birth" class="create-user-label">
             <h2 class="create-user-label-text">Fecha de nacimiento</h2>
-            <input type="date" id="create-user-input-birth" class="create-user-input birth">
+            <input type="date" id="create-user-input-birth" class="create-user-input birth" name="nacimiento">
          </label>
          <label for="create-user-input-rol" class="create-user-label">
             <h2 class="create-user-label-text">Cargo - Rol</h2>
-            <select class="create-user-select" id="create-user-input-rol">
-               <option value="Administrador">Administrador</option>
-               <option value="Asesor">Asesor</option>
+            <select class="create-user-select" id="create-user-input-rol" name="cargo">
+               <option value="Administrador" >Administrador</option>
+               <option value="Asesor" >Asesor</option>
             </select>
          </label>
          <label for="create-user-input-user" class="create-user-label">
             <h2 class="create-user-label-text">Usuario</h2>
-            <input type="text" id="create-user-input-user" class="create-user-input">
+            <input type="text" id="create-user-input-user" class="create-user-input" name="usuario">
          </label>
          <label for="create-user-input-pass" class="create-user-label">
             <h2 class="create-user-label-text">Contraseña</h2>
-            <input type="password" id="create-user-input-pass" class="create-user-input">
+            <input type="password" id="create-user-input-pass" class="create-user-input" name="contra">
          </label>
          <input type="submit" class="user-form-button create-user-input" value="Agregar">
          <div class="container-right-close icon-close" id="close-create-user"></div>

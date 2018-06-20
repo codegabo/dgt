@@ -18,7 +18,7 @@ else {
     $id = $_GET['id'];
     /*Se eliminan los datos de usuario segun el id*/
 
-    $query = "DELETE FROM user WHERE codigo='$id'";
+    $query = "DELETE FROM disenos WHERE id_diseno='$id' OR id_diseno_padre='$id'";
     $resultado = $conexion->query($query);
 
 
@@ -27,9 +27,9 @@ else {
         echo "
     <html>
     <head>
-    <meta http-equiv='refresh' content='0; url=users.php'>
+    <meta http-equiv='refresh' content='0; url=categories.php'>
     <script>
-    alert('Usuario eliminado');
+    alert('Diseño eliminado');
     </script>
     </head>
     </html>";
@@ -38,9 +38,9 @@ else {
         echo "
     <html>
     <head>
-    <meta http-equiv='refresh' content='0; url=users.php'>
+    <meta http-equiv='refresh' content='0; url=categories.php'>
     <script>
-    alert('Ha ocurrido un error al eliminar el usuario, por favor intente nuevamente o contacte con su administrador');
+    alert('Ha ocurrido un error al eliminar el diseño, por favor intente nuevamente o contacte con su administrador');
     </script>
     </head>
     </html>";
