@@ -51,7 +51,7 @@ else
       </button>
    </header>
    <section class="container-create_user" id="container-create_user">
-   <fieldset class="user-fieldset">
+   <fieldset class="user-fieldset" >
       <legend class="legend-user-form"><h1>Nuevo usuario</h1></legend>
       <form action="add_usuario.php" method="post" class="user-form" autocomplete="off">
          <label for="create-user-input-name" class="create-user-label">

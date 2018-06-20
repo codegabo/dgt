@@ -1,22 +1,16 @@
 <?php
 include("funcion/conectarse.php");
 require_once("sesion.class.php");
-
 $sesion = new sesion();
 $usuario = $sesion->get("usuario");
-
 if( $usuario == false )
 {
     header("Location: cerrarsesion.php");
 }
 else {
-
-
     ?>
     <?php
     include("funcion/conectarse.php");
-
-
     if (isset($_POST["crear"])) {
         if ((
             ($_FILES["Imagen"] ["type"] == "image/jpg") ||
@@ -25,7 +19,6 @@ else {
         )) {
             $titulo = $_POST["titulo"];
             $fotod = $_POST['titulo'];
-
             /*Guardar foto*/
             $ruta = 'img_categoria';
             $archivo = $_FILES['Imagen'] ['tmp_name'];
@@ -46,17 +39,14 @@ else {
     </html>";
             }
         } else {
-
             echo "
 	<script language='javascript'>
 	alert('Solo se Admiten Imagenc Con Formato PNG, no deben ser mayor a 2MB');
 	window.location.href='categories.html';
 	</script>
     ";
-
         }
     }
-
     if (isset($_POST["Editar_cat"])) {
         if ((
             ($_FILES["Imagen"] ["type"] == "image/jpg") ||
@@ -85,19 +75,15 @@ else {
     </html>";
             }
         } else {
-
             echo "
 	<script language='javascript'>
 	alert('Si deseas cambiar el nombre de la categoria, recuerda que también debes cambiar la imagen de la categoria, la cual no deben ser mayor a 2MB');
 	window.location.href='categories.php';
 	</script>
     ";
-
         }
     }
-
     if (isset($_POST["Crear_diseno"])) {
-
         $rutas = 'img_disenos';
         $categoria = $_POST['categoria'];
         $nombre_dis = $_POST['nombre'];
@@ -107,8 +93,6 @@ else {
         $tipo = $_POST['tipo'];
         $disenopadre = $_POST['disenopadre'];
         $rutas = $rutas . '/' . $_POST['nombre'].".jpg";
-
-
         $sql = "INSERT INTO disenos (id_categoria,id_diseno_padre,nombre_dis,disenador,caracteristicas,etiquetas,tipo,ruta) VALUES ('$categoria','$disenopadre','$nombre_dis','$disenador','$caracteristicas','$etiquetas','$tipo','$rutas')";
         $resultado = $conexion->query($sql);
         if ($resultado > 0) {
@@ -123,9 +107,7 @@ else {
     </html>";
         }
     }
-
     if (isset($_POST["Editar_dis"])) {
-
         $id = $_POST['id'];
         $titulo_cat = $_POST['titulo'];
         $fotod = $_POST['titulo'];
@@ -147,17 +129,13 @@ else {
     </head>
     </html>";
         }
-     else {
-
-        echo "
+        else {
+            echo "
 	<script language='javascript'>
 	alert('Si deseas cambiar el nombre de la categoria, recuerda que también debes cambiar la imagen de la categoria, la cual no deben ser mayor a 2MB');
 	window.location.href='categories.php';
 	</script>
     ";
+        }
     }
 }
-
-}
-
-

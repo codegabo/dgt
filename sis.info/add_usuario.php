@@ -32,7 +32,7 @@ VALUES ('$nombre','$apellido','$genero','$nacimiento','$cargo','$usuario','$cont
     <head>
     <meta http-equiv='refresh' content='0; url=users.php'>
     <script>
-    alert('Diseño agregado');
+    alert('Usuario agregado');
     </script>
     </head>
     </html>";

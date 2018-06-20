@@ -160,13 +160,6 @@ document.getElementById("live-preview-current").addEventListener("wheel", functi
     }
 });
 
-// document.getElementById("live-preview-current").addEventListener("touchmove", function (e) {
-//
-//         console.log('scrolling up');
-//         document.getElementById('button-more').click();
-// });
-
-
 more.addEventListener('click', () => {
     document.getElementById('live-preview-current-variant').style.height = document.getElementById('live-preview-current-variant').offsetHeight + document.getElementById('live-preview-current-variant').offsetHeight * 2 / 100 + 'px';
     document.getElementById('live-preview-current-variant').style.width = document.getElementById('live-preview-current-variant').offsetWidth + document.getElementById('live-preview-current-variant').offsetWidth * 2 / 100 + 'px';
