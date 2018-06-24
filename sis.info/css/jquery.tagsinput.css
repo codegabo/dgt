@@ -1,0 +1,45 @@
+div.tagsinput {
+   border:none;
+   background: transparent;
+   padding:5px;
+   overflow-y: auto;
+}
+div.tagsinput span.tag {
+   border: 1px solid #b3b2b2;
+   display: block;
+   float: left;
+   padding: 5px;
+   text-decoration:none;
+   background: #fff;
+   color: #4d4c4c;
+   margin-right: 5px;
+   margin-bottom:5px;
+   font-family: helvetica;
+   border-radius: 5px;
+   font-size:13px;
+}
+div.tagsinput span.tag a {
+   font-weight: bold;
+   color: #82ad2b;
+   text-decoration:none;
+   font-size: 11px;
+}
+div.tagsinput input {
+   width:80px;
+   margin:0px 5px 5px 0;
+   font-size: 13px;
+   border:1px solid transparent;
+   padding:5px;
+   background: transparent;
+   color: #000;
+   outline:0px;
+  }
+.tagsinput{
+
+}
+div.tagsinput div {
+   display:block;
+   float: left;
+   background: transparent;
+}
+

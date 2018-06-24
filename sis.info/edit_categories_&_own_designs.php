@@ -159,6 +159,7 @@ else
                     <p class="design-seller"><?php echo $row2['caracteristicas']; ?></p>
                     <div class="tags" id="tags">
                        <p class="tags-item"><?php echo $row2['etiquetas']; ?></p>
+
                     </div>
                     <a href="eliminar_diseno.php?id=<?PHP echo $row2['id_diseno']; ?>" ><div class="icon icon-delete"></div></a>
                  </div>
@@ -182,6 +183,11 @@ else
                document.getElementById('design-fieldset').classList.add('design-fieldset-active')
            })
        </script>
+       <script src="js/jquery-1.10.1.js"></script>
+       <script src="js/jquery-ui.js"></script>
+       <script src="js/rainbow-custom.min.js"></script>
+       <script src="js/taggle.min.js"></script>
+       <script src="js/scripts.js"></script>
        </html>
     <?php }
 }?>

@@ -31,6 +31,21 @@ $row=$resultado->fetch_assoc();
    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
    <meta http-equiv="X-UA-Compatible" content="ie=edge">
    <link rel="stylesheet" href="css/estilos.css">
+   <!--      -->
+      <link rel="stylesheet" type="text/css" href="css/jquery.tagsinput.css" />
+      <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+      <script type="text/javascript" src="js/jquery.tagsinput.js"></script>
+      <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/jquery-ui.min.js'></script>
+      <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/themes/start/jquery-ui.css" />
+
+	<script type="text/javascript">
+
+		$(function() {
+			$('#tags_1').tagsInput({width:'auto'});
+// Uncomment this line to see an input with no interface for adding new tags.
+			$('input.tags').tagsInput({interactive:true});
+		});
+    </script>
 </head>
 <body>
 <div class="container-supreedit">
@@ -43,7 +58,8 @@ while($row1=$resultado->fetch_assoc()) {
    <p class="input-item-edit"><?php echo $row['nombre_dis']; ?></p> <span class="clarification">Diseño Representativo</span>
    <div class="img-edit-container">
       <div class="tags" id="tags">
-         <p class="tags-item"><?php echo $row['etiquetas']; ?></p>
+<!--         <p class="tags-item">--><?php //echo $row['etiquetas']; ?><!--</p>-->
+         <input id="tags_1" type="text" class="tags-item" value="<?php echo $row['etiquetas']; ?>" /></p>
       </div>
       <img src="<?php echo $row['ruta']; ?>" alt="" class="design-img edits">
       <a href="edit_design.php">
