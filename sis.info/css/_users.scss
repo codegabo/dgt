@@ -73,6 +73,16 @@
     }
   }
 }
+.icon2{
+  top: 13.5em;
+  left: -.1em;
+  @include medias(480px){
+    left: .5em;
+  }
+  @include medias(640px) {
+    top:7.5em;
+  }
+}
 .add-users {
   //outline:1px solid blue;
   border:none;

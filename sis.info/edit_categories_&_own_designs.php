@@ -27,6 +27,7 @@ else
       <link rel="stylesheet" href="css/estilos.css">
       <script src="js/jquery-3.3.1.js"></script>
       <script src="js/dotdotdot.js" type="text/javascript"> </script>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
    </head>
 <body>
     <?php require("funcion/conectarse.php");
@@ -58,6 +59,11 @@ else
        </div>
 
 
+
+
+
+<!--       <input type="text" class="users-search" id="designs-search" onkeyup="toSearch()">-->
+<!--       <input type="text" id="myInput" onkeyup="toSearch()">-->
 
        <div class="variant-container">
           <fieldset class="design-fieldset" id="design-fieldset">
@@ -139,13 +145,22 @@ else
              </form>
           </fieldset>
        </div>
-       <main class="data-container">
+
+
+       <main class="data-container" id="data-container">
+          <div id="users">
+             <input class="search users-search" placeholder="Search" />
+
+
+             <ul class="list data-container" style="list-style: none">
+
            <?php
            $query2="SELECT * FROM disenos WHERE id_categoria = '$id' AND id_diseno_padre = '0' ORDER BY id_diseno desc";
            $resultado2=$conexion->query($query2);
            while($row2=$resultado2->fetch_assoc()){
                ?>
 
+            <li>
               <div class="data-container-item">
                  <div class="top-data">
                     <img src="<?php echo $row2['ruta'] ?>" alt="" class="design-img" >
@@ -164,7 +179,13 @@ else
                     <a href="eliminar_diseno.php?id=<?PHP echo $row2['id_diseno']; ?>" ><div class="icon icon-delete"></div></a>
                  </div>
               </div>
+            </li>
            <?php } ?>
+
+             </ul>
+
+          </div>
+          <script src="//cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
        </main>
        </body>
        <script>
@@ -184,10 +205,13 @@ else
            })
        </script>
        <script src="js/jquery-1.10.1.js"></script>
-       <script src="js/jquery-ui.js"></script>
-       <script src="js/rainbow-custom.min.js"></script>
-       <script src="js/taggle.min.js"></script>
-       <script src="js/scripts.js"></script>
+       <script>
+           var options = {
+               valueNames: [ 'tags-item']
+           };
+
+           var userList = new List('users', options);
+       </script>
        </html>
     <?php }
 }?>
