@@ -107,6 +107,7 @@ else
                    <ul>
                       <li>Debes subir los archivos de imagenes con extensión: .jpg</li>
                       <li>El nombre del archivo no debe contener espacios o caracteres especiales</li>
+                      <li>Cada etiqueta debe estar separada por una coma</li>
                    </ul>
                 </small>
                 <label for="PDFuploadfile" class="PDFupload-form-label PDFupload-form-label-file" id="PDFupload-form-label-file">
@@ -149,7 +150,7 @@ else
 
        <main class="data-container" id="data-container">
           <div id="users">
-             <input class="search users-search" placeholder="Search" />
+             <input class="search users-search" placeholder="Busqueda por etiquetas" />
 
 
              <ul class="list data-container" style="list-style: none">
