@@ -11,7 +11,7 @@ let variantContainer = document.getElementById("variants-container"),
     imgCurrentModel = document.createElement("img"),
     currentdesign = document.getElementById("current-design"),
     h1titleDesign = document.createElement("h1"),
-    imageFull = document.createElement("img"),
+    imageFull = document.createElement("div"),
     fullViewContainer = document.getElementById("live-preview-current-variant-fullview"),
     modelFull = document.getElementById('live-preview-current'),
     formData = document.getElementById('send-data'),
@@ -49,6 +49,14 @@ function elemento(e){
         imgVariantContainer.id = "live-preview-current-variant";
         imgVariantContainer.alt = tag.alt;
 
+        imageFull.style.backgroundImage = "url('"+tag.src+"')";
+        imageFull.style.position = "absolute";
+        imageFull.style.left = "1px";
+        imageFull.style.top = "1px";
+        imageFull.style.width= document.getElementById("live-preview-current-variant").style.width;
+        imageFull.style.height= document.getElementById("live-preview-current-variant").style.height;
+        imageFull.style.backgroundSize = "30%";
+        imageFull.style.backgroundRepeat = "repeat";
         imageFull.src = document.getElementById('live-preview-current-variant').src;
         imageFull.className = "live-preview-current-variant";
         imageFull.id = "live-preview-current-variant";
@@ -151,7 +159,7 @@ window.addEventListener('keydown', function (ev) {
     }
 });
 
-document.getElementById("live-preview-current").addEventListener("wheel", function (e) {
+window.addEventListener("wheel", function (e) {
     if (e.deltaY < 0) {
         document.getElementById('button-more').click();
     }

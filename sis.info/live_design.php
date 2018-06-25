@@ -100,10 +100,14 @@ else
          <div class="container-right-close icon-close" id="container-right-close"></div>
       </section>
    </main>
-   <div class="fullview-conatainer" id="fullview-conatainer">
-      <div class="variants-container live-preview-current" id="live-preview-current-variant-fullview">
+   <canvas id="canvas" width="500" height="500" style="border:1px solid #d3d3d3;">
 
-      </div>
+   </canvas>
+
+   <div class="fullview-conatainer" id="fullview-conatainer">
+         <div class="variants-container live-preview-current" id="live-preview-current-variant-fullview">
+
+         </div>
       <div class="buttons">
          <button class="cotinue-design" id="cotinue-design">Continuar</button>
 
@@ -148,5 +152,15 @@ else
        });
    </script>
    <script src="js/js.js"></script>
-   </html>
+   <script>
+
+       window.onload = function() {
+           var c = document.getElementById("canvas");
+           var ctx = c.getContext("2d");
+//           var img = document.getElementById("live-preview-current");
+           ctx.drawImage(document.getElementById("live-preview-current"), 10, 10);
+       }
+
+   </script>
+</html>
 <?php } ?>
