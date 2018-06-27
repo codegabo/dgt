@@ -34,6 +34,7 @@ $resultado=$conexion->query($consulta);
 while($row1=$resultado->fetch_assoc()) {
 ?>
    <div><p><?php echo $row1['nombre_use']; ?></p> <a href="cerrarsesion.php">Cerrar sesión</a></div>
+   <input type="hidden" value="<?php echo $row1['cargo_use']; ?>" id="cargo">
 
    <nav class="dashboard-menu">
       <div class="icon icon-menu burguer-menu" id="toggle"></div>
@@ -57,53 +58,49 @@ while($row1=$resultado->fetch_assoc()) {
         mainnav.classList.toggle('show-menu-block');
         document.addEventListener("click",function(event){
          if (event.target.className === "dashboard-menu-list-item") {
+             if(document.getElementById("cargo").value === "Asesor"){
              mainnav.innerHTML = '<li class="dashboard-menu-list-item selected-item" id="'+event.target.id+'">'+event.target.firstChild.data+'</li>' +
                  ' <li class="dashboard-menu-list-item" id="design">DISEÑOS</li>\n' +
-                 '<li class="dashboard-menu-list-item" id="last">LO ÚLTIMO</li>\n' +
+                 '<li class="dashboard-menu-list-item" id="last">LO ÚLTIMO</li>\n';
+             }
+             if(document.getElementById("cargo").value === "Administrador"){
+                 mainnav.innerHTML = '<li class="dashboard-menu-list-item selected-item" id="'+event.target.id+'">'+event.target.firstChild.data+'</li>' +
+                     ' <li class="dashboard-menu-list-item" id="design">DISEÑOS</li>\n' +
+                     '<li class="dashboard-menu-list-item" id="last">LO ÚLTIMO</li>\n' +
                  '<li class="dashboard-menu-list-item" id="users">USUARIOS</li>\n' +
                  '<li class="dashboard-menu-list-item" id="data">REGISTROS</li>';
+             }
              document.getElementById("content-container").innerHTML = event.target.firstChild.data;
              if(event.target.id === 'design'){
                  document.getElementById("content-container").innerHTML =
                  '<a href=""><button class="button-dropdown-clothes icon-clothes live-all-files-available" id="live-all-files-available" ></button></a>' +
                  '<iframe src="categories.php" class="content-container-items" id="content-container-items"></iframe>';
-
-//                 document.getElementById("live-all-files-available").addEventListener('click', () => {
-//                 document.getElementById("content-container-items").innerHTML = '<iframe src="live_design.html" frameborder="0" class="live-preview-iframe" id="live-preview-iframe"></iframe>';
-//                 })
              }
              if(event.target.id === 'last'){
                  document.getElementById("content-container").innerHTML =
                      '<a href=""><button class="button-dropdown-clothes icon-clothes live-all-files-available" id="live-all-files-available" ></button></a>' +
                      '<iframe src="news.php" class="content-container-items" id="content-container-items"></iframe>';
-
-//                 document.getElementById("live-all-files-available").addEventListener('click', () => {
-//                 document.getElementById("content-container-items").innerHTML = '<iframe src="live_design.html" frameborder="0" class="live-preview-iframe" id="live-preview-iframe"></iframe>';
-//                 })
              }
              if(event.target.id === 'users'){
                  document.getElementById("content-container").innerHTML =
                      '<a href=""><button class="button-dropdown-clothes icon-clothes live-all-files-available" id="live-all-files-available" ></button></a>' +
                      '<iframe src="users.php" class="content-container-items" id="content-container-items"></iframe>';
-
-//                 document.getElementById("live-all-files-available").addEventListener('click', () => {
-//                 document.getElementById("content-container-items").innerHTML = '<iframe src="live_design.html" frameborder="0" class="live-preview-iframe" id="live-preview-iframe"></iframe>';
-//                 })
              }
              if(event.target.id === 'data'){
                  document.getElementById("content-container").innerHTML =
                      '<a href=""><button class="button-dropdown-clothes icon-clothes live-all-files-available" id="live-all-files-available" ></button></a>' +
                      '<iframe src="data.php" class="content-container-items" id="content-container-items"></iframe>';
-
-//                 document.getElementById("live-all-files-available").addEventListener('click', () => {
-//                 document.getElementById("content-container-items").innerHTML = '<iframe src="live_design.html" frameborder="0" class="live-preview-iframe" id="live-preview-iframe"></iframe>';
-//                 })
              }
          }
         }
        )
     }
 
+//
+if(document.getElementById("cargo").value === "Asesor"){
+    document.getElementById("users").style.display = "none";
+    document.getElementById("data").style.display = "none";
+}
 
 const resize = () => {
     if(innerWidth > 639) {
@@ -121,7 +118,6 @@ const resize = () => {
         });
     }
 };
-
 
 addEventListener('resize', resize);
 addEventListener('DOMContentLoaded', resize);
