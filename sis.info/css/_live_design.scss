@@ -143,20 +143,13 @@
   //left: .9em;
 }
 .zoomButtons-container{
-  outline:1px solid blue;
+  //outline:1px solid blue;
   display: flex;
   @include medias(768px){
-    //position: absolute;
     top: 0;
     z-index:15;
     left: 50%;
     position: fixed;
-    display: flex;
-    align-content:space-between;
-    background: rgba($color-3, .3);
-    flex-wrap: wrap;
-    width:1.2em;
-    height:15em;
   }
   .button-more, .button-less{
     border-radius: 5px;
@@ -173,15 +166,29 @@
       padding: .1em;
       //width: 1em;
       height: 1em;
-      display: block;
+      //display: block;
       font-size: 1em;
     }
   }
 }
 .input-range-live-preview{
   //outline:1px solid red;
-  width: 20vh;
   margin:auto;
+  width: 20vh;
+  @include medias(320px) {
+    width: 30vh;
+  }
+  @include medias(480px){
+    width: 40vh;
+  }
+  @include medias(768px){
+    background: rgba($color-3, .3);
+    transform: rotate(-90deg);
+    position: relative;
+    top: 10em;
+    left: -9.6em;
+    width: 30vh;
+  }
 }
 input[type="range"]{
   background: rgba($color-3, .3);

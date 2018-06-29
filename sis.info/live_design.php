@@ -49,7 +49,7 @@ else
          <div class="right-side">
             <div class="live-preview" id="live-preview">
                <div class="variants-container live-preview-current" id="variants-container">
-                  <img class="live-preview-current-variant" id="live-preview-current-variant" width="1000" height="1000" style="background-image: url('img_disenos/design.jpg'); position: absolute; left: 1px; top: 1px; background-size: 30%; background-repeat: repeat;"/>
+                  <img class="live-preview-current-variant" id="live-preview-current-variant" width="1000" height="1000" style="background-image: url('img/LOGO/small_logo.png'); position: absolute; left: 1px; top: 1px; background-size: 30%; background-repeat: repeat;"/>
                   <img src="img/clothes_png/BLUSA.png" alt="" class="live-preview-current" id="live-preview-current">
 
                </div>
