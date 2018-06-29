@@ -41,17 +41,17 @@ function elemento(e){
         // ESTO DEFINE LOS ATRIBUTOS DEL DISEÑO DE FONDO DEL MODELO
         // imgVariantContainer.src = tag.src.replace("thumb", "large");
         // imgVariantContainer.src = tag.src;
+        imgVariantContainer.id = "live-preview-current-variant";
+        imgVariantContainer.className = "live-preview-current-variant";
+        imgVariantContainer.alt = tag.alt;
         imgVariantContainer.style.backgroundImage = "url('"+tag.src+"')";
         imgVariantContainer.style.position = "absolute";
         imgVariantContainer.style.left = "1px";
         imgVariantContainer.style.top = "1px";
-        imgVariantContainer.style.width= "99%";
-        imgVariantContainer.style.height= "99%";
+        imgVariantContainer.width= "1000";
+        imgVariantContainer.height= "1000";
         imgVariantContainer.style.backgroundSize = "30%";
         imgVariantContainer.style.backgroundRepeat = "repeat";
-        imgVariantContainer.className = "live-preview-current-variant";
-        imgVariantContainer.id = "live-preview-current-variant";
-        imgVariantContainer.alt = tag.alt;
         // --<
 
         imageFull.style.backgroundImage = "url('"+tag.src+"')";
@@ -148,64 +148,81 @@ function elemento(e){
     }
 }
 
-window.addEventListener('keydown', function (ev) {
-    if (ev.key === 'ArrowUp') {
-        // document.getElementById('button-less').blur();
-        // document.getElementById('button-more').focus();
-        document.getElementById('button-more').click();
-    }
-    if (ev.key === 'ArrowDown') {
-        document.getElementById('button-less').click();
-    }
-    if (ev.key === '+') {
-        document.getElementById('button-more').click();
-    }
-    if (ev.key === '-') {
-        document.getElementById('button-less').click();
-    }
-});
 
-window.addEventListener("wheel", function (e) {
-    if (e.deltaY < 0) {
-        document.getElementById('button-more').click();
-    }
-    if (e.deltaY > 0) {
-        document.getElementById('button-less').click();
-    }
-});
 
-more.addEventListener('click', () => {
-    document.getElementById('live-preview-current-variant').style.height = document.getElementById('live-preview-current-variant').offsetHeight + document.getElementById('live-preview-current-variant').offsetHeight * 2 / 100 + 'px';
-    document.getElementById('live-preview-current-variant').style.width = document.getElementById('live-preview-current-variant').offsetWidth + document.getElementById('live-preview-current-variant').offsetWidth * 2 / 100 + 'px';
-    console.log('Alto ↑ ' + document.getElementById('live-preview-current-variant').offsetHeight);
-    console.log('Ancho ↑' + document.getElementById('live-preview-current-variant').offsetWidth);
-    if(document.getElementById('live-preview-current-variant').offsetHeight >= 2000){
-        more.classList.add("block-zoom-button");
-        more.disabled = true;
-        less.addEventListener('click', () => {
-            more.classList.add("zoom-button");
-            more.classList.remove("block-zoom-button");
-            more.disabled = false;
-        })
-    }
-});
+//**************************************************************************
+//**************************************************************************
+//----->
+//ZOOM IN AND ZOOM OUT WITH  CLICK ON BUTTON, PRESSING KEYS ON THE KEYBOARD
+//----->
+//**************************************************************************
+//**************************************************************************
+//
+// window.addEventListener('keydown', function (ev) {
+//     if (ev.key === 'ArrowUp') {
+//         // document.getElementById('button-less').blur();
+//         // document.getElementById('button-more').focus();
+//         document.getElementById('button-more').click();
+//     }
+//     if (ev.key === 'ArrowDown') {
+//         document.getElementById('button-less').click();
+//     }
+//     if (ev.key === '+') {
+//         document.getElementById('button-more').click();
+//     }
+//     if (ev.key === '-') {
+//         document.getElementById('button-less').click();
+//     }
+// });
+//
+// window.addEventListener("wheel", function (e) {
+//     if (e.deltaY < 0) {
+//         document.getElementById('button-more').click();
+//     }
+//     if (e.deltaY > 0) {
+//         document.getElementById('button-less').click();
+//     }
+// });
+//
+// more.addEventListener('click', () => {
+//     document.getElementById('live-preview-current-variant').style.height = document.getElementById('live-preview-current-variant').offsetHeight + document.getElementById('live-preview-current-variant').offsetHeight * 2 / 100 + 'px';
+//     document.getElementById('live-preview-current-variant').style.width = document.getElementById('live-preview-current-variant').offsetWidth + document.getElementById('live-preview-current-variant').offsetWidth * 2 / 100 + 'px';
+//     console.log('Alto ↑ ' + document.getElementById('live-preview-current-variant').offsetHeight);
+//     console.log('Ancho ↑' + document.getElementById('live-preview-current-variant').offsetWidth);
+//     if(document.getElementById('live-preview-current-variant').offsetHeight >= 2000){
+//         more.classList.add("block-zoom-button");
+//         more.disabled = true;
+//         less.addEventListener('click', () => {
+//             more.classList.add("zoom-button");
+//             more.classList.remove("block-zoom-button");
+//             more.disabled = false;
+//         })
+//     }
+// });
+//
+// less.addEventListener('click', () => {
+//     document.getElementById('live-preview-current-variant').style.height = document.getElementById('live-preview-current-variant').offsetHeight - document.getElementById('live-preview-current-variant').offsetHeight * 2 / 100 + 'px';
+//     document.getElementById('live-preview-current-variant').style.width = document.getElementById('live-preview-current-variant').offsetWidth - document.getElementById('live-preview-current-variant').offsetWidth * 2 / 100 + 'px';
+//     console.log('Alto ↓ ' + document.getElementById('live-preview-current-variant').offsetHeight);
+//     console.log('Ancho ↓ ' + document.getElementById('live-preview-current-variant').offsetWidth);
+//     if(document.getElementById('live-preview-current-variant').offsetHeight <= 100){
+//         less.classList.remove("zoom-button");
+//         less.classList.add("block-zoom-button");
+//         less.disabled = true;
+//         more.addEventListener('click', () => {
+//             less.classList.add("zoom-button");
+//             less.classList.remove("block-zoom-button");
+//             less.disabled = false;
+//         })
+//     }
+// });
+//**************************************************************************
+//**************************************************************************
+//-----<
+//**************************************************************************
+//**************************************************************************
 
-less.addEventListener('click', () => {
-    document.getElementById('live-preview-current-variant').style.height = document.getElementById('live-preview-current-variant').offsetHeight - document.getElementById('live-preview-current-variant').offsetHeight * 2 / 100 + 'px';
-    document.getElementById('live-preview-current-variant').style.width = document.getElementById('live-preview-current-variant').offsetWidth - document.getElementById('live-preview-current-variant').offsetWidth * 2 / 100 + 'px';
-    console.log('Alto ↓ ' + document.getElementById('live-preview-current-variant').offsetHeight);
-    console.log('Ancho ↓ ' + document.getElementById('live-preview-current-variant').offsetWidth);
-    if(document.getElementById('live-preview-current-variant').offsetHeight <= 100){
-        less.classList.remove("zoom-button");
-        less.classList.add("block-zoom-button");
-        less.disabled = true;
-        more.addEventListener('click', () => {
-            less.classList.add("zoom-button");
-            less.classList.remove("block-zoom-button");
-            less.disabled = false;
-        })
-    }
-});
+
 
 
 console.log('Alto ' + document.getElementById('live-preview-current-variant').offsetHeight);

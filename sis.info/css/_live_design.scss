@@ -143,11 +143,10 @@
   //left: .9em;
 }
 .zoomButtons-container{
-  position: absolute;
-  bottom: -.2em;
-  right: 1em;
+  outline:1px solid blue;
   display: flex;
   @include medias(768px){
+    //position: absolute;
     top: 0;
     z-index:15;
     left: 50%;
@@ -178,6 +177,14 @@
       font-size: 1em;
     }
   }
+}
+.input-range-live-preview{
+  //outline:1px solid red;
+  width: 20vh;
+  margin:auto;
+}
+input[type="range"]{
+  background: rgba($color-3, .3);
 }
 .container-right{
   display: flex;
