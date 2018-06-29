@@ -6,7 +6,10 @@ var img = document.getElementById('live-preview-current-variant'),
     textSize = document.createTextNode("Size");
 
 let variantContainer = document.getElementById("variants-container"),
-    imgVariantContainer = document.createElement("div"),
+    //-->
+    // ESTE ES EL CONTENEDOR DE EL DISEÑO DE FONDO
+    imgVariantContainer = document.createElement("img"),
+    // --<
     currentVariantDesign = document.getElementById("live-preview-current-variant"),
     imgCurrentModel = document.createElement("img"),
     currentdesign = document.getElementById("current-design"),
@@ -32,8 +35,12 @@ function elemento(e){
     }
     let h1content = document.createTextNode(" " + tag.alt);
 
+
     if(tag.tagName == "IMG" && tag.className == "variants-img"){
+        //-->
+        // ESTO DEFINE LOS ATRIBUTOS DEL DISEÑO DE FONDO DEL MODELO
         // imgVariantContainer.src = tag.src.replace("thumb", "large");
+        // imgVariantContainer.src = tag.src;
         imgVariantContainer.style.backgroundImage = "url('"+tag.src+"')";
         imgVariantContainer.style.position = "absolute";
         imgVariantContainer.style.left = "1px";
@@ -42,12 +49,10 @@ function elemento(e){
         imgVariantContainer.style.height= "99%";
         imgVariantContainer.style.backgroundSize = "30%";
         imgVariantContainer.style.backgroundRepeat = "repeat";
-
-
-
         imgVariantContainer.className = "live-preview-current-variant";
         imgVariantContainer.id = "live-preview-current-variant";
         imgVariantContainer.alt = tag.alt;
+        // --<
 
         imageFull.style.backgroundImage = "url('"+tag.src+"')";
         imageFull.style.position = "absolute";
@@ -119,6 +124,7 @@ function elemento(e){
             }
         }
     }
+
     else if(tag.tagName == "IMG" && tag.className == "container-right-img"){
 
         modelFull.src = document.getElementById('live-preview-current').src;
@@ -173,7 +179,7 @@ more.addEventListener('click', () => {
     document.getElementById('live-preview-current-variant').style.width = document.getElementById('live-preview-current-variant').offsetWidth + document.getElementById('live-preview-current-variant').offsetWidth * 2 / 100 + 'px';
     console.log('Alto ↑ ' + document.getElementById('live-preview-current-variant').offsetHeight);
     console.log('Ancho ↑' + document.getElementById('live-preview-current-variant').offsetWidth);
-    if(document.getElementById('live-preview-current-variant').offsetHeight >= 4000){
+    if(document.getElementById('live-preview-current-variant').offsetHeight >= 2000){
         more.classList.add("block-zoom-button");
         more.disabled = true;
         less.addEventListener('click', () => {
@@ -189,7 +195,7 @@ less.addEventListener('click', () => {
     document.getElementById('live-preview-current-variant').style.width = document.getElementById('live-preview-current-variant').offsetWidth - document.getElementById('live-preview-current-variant').offsetWidth * 2 / 100 + 'px';
     console.log('Alto ↓ ' + document.getElementById('live-preview-current-variant').offsetHeight);
     console.log('Ancho ↓ ' + document.getElementById('live-preview-current-variant').offsetWidth);
-    if(document.getElementById('live-preview-current-variant').offsetHeight <= 350){
+    if(document.getElementById('live-preview-current-variant').offsetHeight <= 100){
         less.classList.remove("zoom-button");
         less.classList.add("block-zoom-button");
         less.disabled = true;

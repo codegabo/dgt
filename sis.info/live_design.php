@@ -49,8 +49,9 @@ else
          <div class="right-side">
             <div class="live-preview" id="live-preview">
                <div class="variants-container live-preview-current" id="variants-container">
-                  <img src="#" alt="" class="live-preview-current-variant" id="live-preview-current-variant" >
+                  <img src="" class="live-preview-current-variant" id="live-preview-current-variant" width="1000" height="1000" style="background-image: url('img_disenos/design.jpg'); position: absolute; left: 1px; top: 30px; background-size: 30%; background-repeat: repeat; min-width:400px; min-height:400px"/>
                   <img src="img/clothes_png/BLUSA.png" alt="" class="live-preview-current" id="live-preview-current">
+
                </div>
                <button class="button-dropdown-clothes icon-clothes" id="button-dropdown-clothes"></button>
                <div class="zoomButtons-container">
@@ -64,9 +65,11 @@ else
                   <!--                  <p class="guideline guideline-8">-</p>-->
                   <!--                  <p class="guideline guideline-9">-</p>-->
                   <!--                  <p class="guideline guideline-10">-</p>-->
-                  <button class="button-more icon-plus" id="button-more"></button>
-                  <button class="button-less icon-minus" id="button-less"></button>
+<!--                  <button class="button-more icon-plus" id="button-more"></button>-->
+<!--                  <button class="button-less icon-minus" id="button-less"></button>-->
+                  <input id="ranger" class="input-range-live-preview" type="range" min="1" max="100" value="100" />
                </div>
+
             </div>
             <div class="current-design" id="current-design">
                <!--             <h1 class="current-design-title">Flores</h1>-->
@@ -101,7 +104,7 @@ else
       </section>
    </main>
    <canvas id="canvas" width="500" height="500" style="border:1px solid #d3d3d3;">
-
+      Este navegador no soporta en elemento CANVAS, el cual permite proyectar el modelo final, por favor utilize este sistema con Google Chrome en su última versión.
    </canvas>
 
    <div class="fullview-conatainer" id="fullview-conatainer">
@@ -153,14 +156,48 @@ else
    </script>
    <script src="js/js.js"></script>
    <script>
+//************************************************************
+var ranger = document.getElementById('ranger');
+var image =  document.getElementById('live-preview-current-variant');
+var width = image.offsetWidth;
+var height = image.offsetHeight;
+
+ranger.onchange = function(){
+    image.width = width * (ranger.value / 100);
+    image.height = height * (ranger.value / 100);
+    console.log(ranger.value)
+}
+//************************************************************
 
        window.onload = function() {
            var c = document.getElementById("canvas");
            var ctx = c.getContext("2d");
-//           var img = document.getElementById("live-preview-current");
-           ctx.drawImage(document.getElementById("live-preview-current"), 10, 10);
-       }
+           window.setInterval(function() {
 
+               var data = "data:image/svg+xml," +
+                   "<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'>" +
+                   "<foreignObject width='100%' height='100%'>" +
+                   "<div xmlns='http://www.w3.org/1999/xhtml' style='font-size:12px'>" +
+                   "<ul><li style='color:red'> hello </li>  <li style='color:green'>thomas</li> </ul> " +
+                   "<div class='live-preview-current-variant' id='live-preview-current-variant' style='background-image: url(&quot;img/clothes_png/BLUSA.png&quot;); position: absolute; left: 1px; top: 1px; width: 329.46px; height: 395.76px; background-size: 30%; background-repeat: repeat;border:1px solid red;'>Hola mundo</div>" +
+                   "</div>" +
+                   "</foreignObject>" +
+                   "</svg>";
+               var img = new Image();
+
+               img.src = data;
+
+               img.onload = function() { ctx.drawImage(img, 0, 0); };
+               c.width=c.width;
+//               ctx.drawImage(document.getElementById("19"), 0, 0);
+               ctx.drawImage(document.getElementById("live-preview-current-variant"), 0, 0);
+               ctx.drawImage(document.getElementById("live-preview-current"), 0, 0);
+
+
+           }, 20);
+
+//           ctx.drawImage(document.getElementById("live-preview-current"), 10, 10);
+       };
    </script>
 </html>
 <?php } ?>
