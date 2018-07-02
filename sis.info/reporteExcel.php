@@ -35,15 +35,18 @@ mysql_select_db("textiles",$conexion);
 <table width="100%" border="1" cellspacing="0" cellpadding="0">
    <tr>
       <th colspan="2" class="title-logo"><img src="http://localhost/web_design/PROYECTOS/Digital%20Global%20Textiles/sis.info/img/LOGO/small_logo.png" alt=""></th>
-      <th colspan="5" class="title">Diseños aprobados por clientes</th>
+      <th colspan="8" class="title">Diseños aprobados por clientes</th>
    </tr>
     <tr>
         <td class="tr-title">Consecutivo</td>
-        <td class="tr-title">Nombre diseño</td>
         <td class="tr-title">Cliente</td>
-        <td class="tr-title">Ruta diseño</td>
-        <td class="tr-title">Ruta modelo</td>
-        <td class="tr-title">Asesor</td>
+       <td class="tr-title">Asesor</td>
+       <td class="tr-title">Nombre diseño</td>
+       <td class="tr-title">Ruta diseño</td>
+       <td class="tr-title">Ruta modelo</td>
+       <td class="tr-title">Tipo de tela</td>
+       <td class="tr-title">Tipo de producción</td>
+       <td class="tr-title">Comentarios</td>
         <td class="tr-title">Fecha y hora de registro</td>
     </tr>
     <?php
@@ -53,21 +56,25 @@ mysql_select_db("textiles",$conexion);
 
         $codigo=$res['id_data'];
         $cliente=$res['cliente'];
-        $nombre=$res['nombre'];
         $asesor=$res['asesor'];
+        $nombre=$res['nombre'];
         $diseno=$res['diseno'];
         $modelo=$res['modelo'];
-        $width=$res['width'];
-        $height=$res['height'];
+        $tela=$res['tela'];
+        $tipo_prod=$res['tipo_prod'];
+        $comentarios=$res['comentarios'];
         $hora=$res['hora'];
         ?>
        <tr class="tr-content">
           <td class="td-content"><?php echo $codigo; ?></td>
-          <td class="td-content"><?php echo $nombre; ?></td>
           <td class="td-content"><?php echo $cliente; ?></td>
+          <td class="td-content"><?php echo $asesor; ?></td>
+          <td class="td-content"><?php echo $nombre; ?></td>
           <td class="td-content"><?php echo $diseno; ?></td>
           <td class="td-content"><?php echo $modelo; ?></td>
-          <td class="td-content"><?php echo $asesor; ?></td>
+          <td class="td-content"><?php echo $tela; ?></td>
+          <td class="td-content"><?php echo $tipo_prod; ?></td>
+          <td class="td-content"><?php echo $comentarios; ?></td>
           <td class="td-content"><?php echo $hora; ?></td>
        </tr>
    <?php
