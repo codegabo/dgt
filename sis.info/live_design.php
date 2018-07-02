@@ -55,16 +55,6 @@ else
                </div>
                <button class="button-dropdown-clothes icon-clothes" id="button-dropdown-clothes"></button>
                <div class="zoomButtons-container">
-                  <!--                  <p class="guideline guideline-1">-</p>-->
-                  <!--                  <p class="guideline guideline-2">-</p>-->
-                  <!--                  <p class="guideline guideline-3">-</p>-->
-                  <!--                  <p class="guideline guideline-4">-</p>-->
-                  <!--                  <p class="guideline guideline-5">-</p>-->
-                  <!--                  <p class="guideline guideline-6">-</p>-->
-                  <!--                  <p class="guideline guideline-7">-</p>-->
-                  <!--                  <p class="guideline guideline-8">-</p>-->
-                  <!--                  <p class="guideline guideline-9">-</p>-->
-                  <!--                  <p class="guideline guideline-10">-</p>-->
                   <button class="button-less icon-minus" id="button-less"></button>
                   <input id="ranger" class="input-range-live-preview" type="range" min="35" max="165" value="100" />
                   <button class="button-more icon-plus" id="button-more"></button>
@@ -83,6 +73,7 @@ else
                 while($row2=$resultado2->fetch_assoc()) {
                     ?>
                    <img src="<?php echo $row2["ruta"]; ?>" alt="<?php echo $row2["nombre_dis"]; ?>" class="variants-img" id="<?php echo $row2["id_diseno"]; ?>">
+<!--                   <input type="text" value="--><?php //echo $row2["disenador"]; ?><!--" id="disenadorNombre" name="disenador">-->
                 <?php } ?>
             </div>
          </div>
@@ -108,11 +99,11 @@ else
 <!--   </canvas>-->
 
    <div class="fullview-conatainer" id="fullview-conatainer">
-         <div class="variants-container live-preview-current" id="live-preview-current-variant-fullview">
-
-         </div>
+<!--         <div class="variants-container live-preview-current" id="live-preview-current-variant-fullview">-->
+<!---->
+<!--         </div>-->
+      <button class="cotinue-design" id="cotinue-design">Continuar diseñando</button>
       <div class="buttons">
-         <button class="cotinue-design" id="cotinue-design">Continuar</button>
 
           <?php require("funcion/conectarse.php");
           $consulta="SELECT * FROM user where usuario_use = '$usuario'";
@@ -121,8 +112,12 @@ else
           ?>
          <form action="fun_livepreview.php" class="send-data" id="send-data" method="POST" enctype="multipart/form-data" autocomplete="off">
             <input type="hidden" class="asesor-input" name="asesor" value="<?php echo $row1['nombre_use']; } ?>">
-            <input type="text" class="edit-name-category"name="cliente" id="inputClient" placeholder="Cliente" required>
-            <button type="submit" class="save-design" id="cotinue-design">Guardar</button>
+            <input type="text" class="edit-name-category" name="cliente" id="inputClient" placeholder="Cliente" required style="width: 100%;">
+            <input type="text" class="edit-name-category" name="tela" id="inputTela" placeholder="Tipo de tela" required style="width: 100%;">
+            <input type="text" class="edit-name-category" name="prod" id="inputTela" placeholder="Tipo de producción" required style="width: 100%;">
+            <textarea  name="comentarios" type="text" id="inputComentarios" class="PDFupload-form-item PDFupload-form-item-description" placeholder="Comentarios..." required></textarea>
+            <button type="submit" class="save-design" id="cotinue-design"><strong>Guardar diseño</strong></button>
+            <hr/>
          </form>
       </div>
    </div>
@@ -134,9 +129,9 @@ else
            closeContainerRight = document.getElementById('container-right-close'),
            watchPreview = document.getElementById('watchPreview'),
            cotinueDesign = document.getElementById('cotinue-design'),
-           fullviewC = document.getElementById('fullview-conatainer'),
-           moreToClick = document.getElementById('button-more'),
-           lessToClick = document.getElementById('button-less');
+           fullviewC = document.getElementById('fullview-conatainer');
+//           moreToClick = document.getElementById('button-more'),
+//           lessToClick = document.getElementById('button-less');
        buttonDropdownClothes.addEventListener('click', () => {
            containerRight.classList.toggle('container-right-active');
            closeContainerRight.classList.add('posi-fix');

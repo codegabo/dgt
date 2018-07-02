@@ -145,11 +145,12 @@
 .zoomButtons-container{
   //outline:1px solid blue;
   display: flex;
-  @include medias(768px){
-    top: 0;
-    z-index:15;
-    left: 50%;
-    position: fixed;
+  @include medias(768px) {
+    //transform: rotate(-90deg);
+    //top: 9em;
+    //z-index: 15;
+    //left: 35%;
+    //position: fixed;
   }
   .button-more, .button-less{
     border-radius: 5px;
@@ -160,13 +161,12 @@
     padding: .1em;
     font-size: 1.5em;
     @include medias(768px){
+      //transform: rotate(-90deg);
       border-radius: 0;
       color:$color-3;
       margin: 0;
       padding: .1em;
-      //width: 1em;
       height: 1em;
-      //display: block;
       font-size: 1em;
     }
   }
@@ -183,11 +183,8 @@
   }
   @include medias(768px){
     background: rgba($color-3, .3);
-    transform: rotate(-90deg);
+    transform: rotate(360deg);
     position: relative;
-    top: 10em;
-    left: -9.6em;
-    width: 30vh;
   }
 }
 input[type="range"]{
@@ -257,7 +254,7 @@ input[type="range"]{
   display: none;
   outline:1px solid red;
   top: 0;
-  padding-top:1em;
+  padding:1em;
   position: fixed;
   z-index:500;
   overflow: auto;
@@ -266,23 +263,27 @@ input[type="range"]{
   background: rgba($color-4, .9);
   &-active{
     display: block;
+    padding:1em 3em;
   }
 }
 .buttons{
   margin:1em 0;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
-  position: absolute;
   width:100%;
+  input{
+    margin:.5em 0;
+  }
 }
 .cotinue-design, .save-design{
   background: transparent;
   border:none;
   border-radius: 5px;
   color:#000000;
+  text-align: center;
   background: $color-1;
   padding: .5em;
-
 }
 .live-preview-current-variant{
   left: 0;
@@ -291,7 +292,6 @@ input[type="range"]{
   background: gray;
   color: darkgray;
   border:0;
-
   border-radius: 1em;
   pointer-events:none;
   &:active{
@@ -299,9 +299,11 @@ input[type="range"]{
   }
 }
 .send-data{
-  width: 70%;
+  width: 100%;
   display: flex;
-  justify-content:space-between;
+  margin:1em auto .5em;
+  flex-wrap: wrap;
+  justify-content:space-around;
   & .edit-name-category{
     width: 60%;
   }

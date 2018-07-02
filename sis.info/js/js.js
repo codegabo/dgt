@@ -18,9 +18,10 @@ let variantContainer = document.getElementById("variants-container"),
     fullViewContainer = document.getElementById("live-preview-current-variant-fullview"),
     modelFull = document.getElementById('live-preview-current'),
     formData = document.getElementById('send-data'),
-    inputWidth = document.createElement("input"),
-    inputHeight = document.createElement("input"),
+    // inputWidth = document.createElement("input"),
+    // inputHeight = document.createElement("input"),
     inputimgdesign = document.createElement("input"),
+    inputtela = document.createElement("input"),
     inputimgModel = document.createElement("input"),
     inputDesignName = document.createElement("input"),
     modelFullContainer = document.getElementById('live-preview-current-variant-fullview');
@@ -68,30 +69,27 @@ function elemento(e){
         imageFull.alt = tag.alt;
         imageFull.style.width = document.getElementById('live-preview-current-variant').style.width;
         imageFull.style.height = document.getElementById('live-preview-current-variant').style.height;
-        fullViewContainer.prepend(imageFull);
+        // fullViewContainer.prepend(imageFull);
 
-        inputWidth.type = "hidden";
-        inputWidth.name = "width";
-        inputWidth.id= "inputWidth";
-        inputWidth.value = document.getElementById('live-preview-current-variant').style.width;
-        formData.prepend(inputWidth);
-
-        inputHeight.type = "hidden";
-        inputHeight.name = "height";
-        inputHeight.id= "inputHeight";
-        inputHeight.value = document.getElementById('live-preview-current-variant').style.height;
-        formData.prepend(inputHeight);
+        // inputWidth.type = "text";
+        // inputWidth.name = "width";
+        // inputWidth.id= "inputWidth";
+        // inputWidth.value = document.getElementById('live-preview-current-variant').style.width;
+        // formData.prepend(inputWidth);
+        //
+        // inputHeight.type = "text";
+        // inputHeight.name = "height";
+        // inputHeight.id= "inputHeight";
+        // inputHeight.value = document.getElementById('live-preview-current-variant').style.height;
+        // formData.prepend(inputHeight);
 
         inputimgdesign.type = "hidden";
         inputimgdesign.name = "diseno";
         inputimgdesign.id = "inputImgDesign";
-        inputimgdesign.value = document.getElementById('live-preview-current-variant').src;
+        let imageUrl =  document.getElementById('live-preview-current-variant').style.backgroundImage,
+            imageUrl1 = imageUrl.replace(/(url\(|\)|")/g, '');
+        inputimgdesign.value = imageUrl1;
         formData.prepend(inputimgdesign);
-
-
-        console.log("alto var " + document.getElementById('live-preview-current-variant').style.height);
-        console.log("ancho var " + document.getElementById('live-preview-current-variant').style.width);
-
 
         h1titleDesign.className = "current-design-title";
         h1titleDesign.id = "current-design-title";
@@ -127,10 +125,11 @@ function elemento(e){
 
     else if(tag.tagName == "IMG" && tag.className == "container-right-img"){
 
+
         modelFull.src = document.getElementById('live-preview-current').src;
         modelFull.className = "live-preview-current";
         modelFull.id = "live-preview-current";
-        modelFullContainer.prepend(modelFull);
+        // modelFullContainer.prepend(modelFull);
 
         inputimgModel.type = "hidden";
         inputimgModel.name= "modelo";

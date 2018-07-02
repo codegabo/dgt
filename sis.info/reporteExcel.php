@@ -35,7 +35,7 @@ mysql_select_db("textiles",$conexion);
 <table width="100%" border="1" cellspacing="0" cellpadding="0">
    <tr>
       <th colspan="2" class="title-logo"><img src="http://localhost/web_design/PROYECTOS/Digital%20Global%20Textiles/sis.info/img/LOGO/small_logo.png" alt=""></th>
-      <th colspan="7" class="title">Diseños aprobados por clientes</th>
+      <th colspan="5" class="title">Diseños aprobados por clientes</th>
    </tr>
     <tr>
         <td class="tr-title">Consecutivo</td>
@@ -44,8 +44,6 @@ mysql_select_db("textiles",$conexion);
         <td class="tr-title">Ruta diseño</td>
         <td class="tr-title">Ruta modelo</td>
         <td class="tr-title">Asesor</td>
-        <td class="tr-title">Width</td>
-        <td class="tr-title">Height</td>
         <td class="tr-title">Fecha y hora de registro</td>
     </tr>
     <?php
@@ -70,8 +68,6 @@ mysql_select_db("textiles",$conexion);
           <td class="td-content"><?php echo $diseno; ?></td>
           <td class="td-content"><?php echo $modelo; ?></td>
           <td class="td-content"><?php echo $asesor; ?></td>
-          <td class="td-content"><?php echo $width; ?></td>
-          <td class="td-content"><?php echo $height; ?></td>
           <td class="td-content"><?php echo $hora; ?></td>
        </tr>
    <?php
