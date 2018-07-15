@@ -28,9 +28,7 @@ else
    <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
-<div  class="tools">
-   <a href="reporteExcel.php"><div class="icon icon-down items-tools"> Descargar reporte</div></a>
-</div>
+
 <main class="data-container">
    <?php
    include ("funcion/conectarse.php");
@@ -71,6 +69,7 @@ else
            <?php }
        }
        else {
+
            $query="SELECT * FROM data_disenos ORDER BY id_data DESC";
            $resultado=$conexion->query($query);
            while($row=$resultado->fetch_assoc()){
@@ -102,5 +101,8 @@ else
 }?>
 
 </main>
+<div  class="tools">
+   <a href="reporteExcel.php"><div class="icon icon-down items-tools" style="position: fixed; top: 0;border:1px solid black;padding: 5px;box-shadow: 0px 1px 12px 0px rgb(255,115,85);"> Descargar reporte total </div></a>
+</div>
 </body>
 </html>
