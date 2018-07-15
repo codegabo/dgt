@@ -33,7 +33,7 @@ $consulta="SELECT * FROM user where usuario_use = '$usuario'";
 $resultado=$conexion->query($consulta);
 while($row1=$resultado->fetch_assoc()) {
 ?>
-   <div><p><?php echo $row1['nombre_use']; ?></p> <a href="cerrarsesion.php">Cerrar sesión</a></div>
+   <div><p><?php echo $row1['nombre_use'].' ';?><?php echo $row1['apellido_use'] ?></p> <a href="cerrarsesion.php">Cerrar sesión</a></div>
    <input type="hidden" value="<?php echo $row1['cargo_use']; ?>" id="cargo">
 
    <nav class="dashboard-menu">
@@ -61,7 +61,8 @@ while($row1=$resultado->fetch_assoc()) {
              if(document.getElementById("cargo").value === "Asesor"){
              mainnav.innerHTML = '<li class="dashboard-menu-list-item selected-item" id="'+event.target.id+'">'+event.target.firstChild.data+'</li>' +
                  ' <li class="dashboard-menu-list-item" id="design">DISEÑOS</li>\n' +
-                 '<li class="dashboard-menu-list-item" id="last">LO ÚLTIMO</li>\n';
+                 '<li class="dashboard-menu-list-item" id="last">LO ÚLTIMO</li>\n' +
+                 '<li class="dashboard-menu-list-item" id="data">REGISTROS</li>';
              }
              if(document.getElementById("cargo").value === "Administrador"){
                  mainnav.innerHTML = '<li class="dashboard-menu-list-item selected-item" id="'+event.target.id+'">'+event.target.firstChild.data+'</li>' +
@@ -97,14 +98,14 @@ while($row1=$resultado->fetch_assoc()) {
     }
 
 //
-if(document.getElementById("cargo").value === "Asesor"){
-    document.getElementById("users").style.display = "none";
-    document.getElementById("data").style.display = "none";
-}
+
 
 const resize = () => {
     if(innerWidth > 639) {
         document.getElementById('toggle').click();
+        if(document.getElementById("cargo").value === "Asesor"){
+            document.getElementById("users").style.display = "none";
+         }
     }
     if(innerWidth <= 639) {
         let toggleMenu = document.getElementById('toggle');
@@ -116,6 +117,9 @@ const resize = () => {
         mainnav.addEventListener('mouseleave', () => {
             toggleMenu.click();
         });
+        if(document.getElementById("cargo").value === "Asesor"){
+            document.getElementById("users").style.display = "none";
+         }
     }
 };
 

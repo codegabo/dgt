@@ -51,7 +51,6 @@ else
                <div class="variants-container live-preview-current" id="variants-container">
                   <img class="live-preview-current-variant" id="live-preview-current-variant" width="1000" height="1000" style="background-image: url('img/LOGO/small_logo.png'); position: absolute; left: 1px; top: 1px; background-size: 30%; background-repeat: repeat;"/>
                   <img src="img/clothes_png/BLUSA.png" alt="" class="live-preview-current" id="live-preview-current">
-
                </div>
                <button class="button-dropdown-clothes icon-clothes" id="button-dropdown-clothes"></button>
                <div class="zoomButtons-container">
@@ -111,7 +110,7 @@ else
           while($row1=$resultado->fetch_assoc()) {
           ?>
          <form action="fun_livepreview.php" class="send-data" id="send-data" method="POST" enctype="multipart/form-data" autocomplete="off">
-            <input type="hidden" class="asesor-input" name="asesor" value="<?php echo $row1['nombre_use']; } ?>">
+            <input type="hidden" class="asesor-input" name="asesor" value="<?php echo $row1['usuario_use']; } ?>">
             <input type="text" class="edit-name-category" name="cliente" id="inputClient" placeholder="Cliente" required style="width: 100%;">
             <input type="text" class="edit-name-category" name="tela" id="inputTela" placeholder="Tipo de tela" required style="width: 100%;">
             <input type="text" class="edit-name-category" name="prod" id="inputTela" placeholder="Tipo de producción" required style="width: 100%;">
@@ -160,10 +159,10 @@ var height = document.getElementById('live-preview-current-variant').offsetHeigh
 ranger.onchange = function(){
     document.getElementById('live-preview-current-variant').width = width * (ranger.value / 100);
     document.getElementById('live-preview-current-variant').height = height * (ranger.value / 100);
-    console.log(ranger.value);
+    console.log('ranger' + ranger.value);
     console.log('Alto ↓ ' + document.getElementById('live-preview-current-variant').offsetHeight);
     console.log('Ancho ↓ ' + document.getElementById('live-preview-current-variant').offsetWidth);
-}
+};
 //************************************************************
 
 //       window.onload = function() {
@@ -195,6 +194,7 @@ ranger.onchange = function(){
 //
 ////           ctx.drawImage(document.getElementById("live-preview-current"), 10, 10);
 //       };
+//      console.log('ranger' + ranger.value);
    </script>
 </html>
 <?php } ?>

@@ -102,7 +102,7 @@ margin: 15px 0;
          <strong>Comentarios</strong><p>'.$data['comentarios'].' </p>
        </div>
        <div class="subinfo-container">
-        <strong>Fecha y Hora de creaci&oacute;n</strong><p>'.$data['hora'].'</p>
+        <strong>Fecha y Hora de registro</strong><p>'.$data['hora'].'</p>
        </div>
     </div>
 </body>

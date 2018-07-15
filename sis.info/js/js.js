@@ -53,23 +53,26 @@ function elemento(e){
         imgVariantContainer.height= "1000";
         imgVariantContainer.style.backgroundSize = "30%";
         imgVariantContainer.style.backgroundRepeat = "repeat";
-        // --<
+        //--<
 
-        imageFull.style.backgroundImage = "url('"+tag.src+"')";
-        imageFull.style.position = "absolute";
-        imageFull.style.left = "1px";
-        imageFull.style.top = "1px";
-        imageFull.style.width= document.getElementById("live-preview-current-variant").style.width;
-        imageFull.style.height= document.getElementById("live-preview-current-variant").style.height;
-        imageFull.style.backgroundSize = "30%";
-        imageFull.style.backgroundRepeat = "repeat";
-        imageFull.src = document.getElementById('live-preview-current-variant').src;
-        imageFull.className = "live-preview-current-variant";
-        imageFull.id = "live-preview-current-variant";
-        imageFull.alt = tag.alt;
-        imageFull.style.width = document.getElementById('live-preview-current-variant').style.width;
-        imageFull.style.height = document.getElementById('live-preview-current-variant').style.height;
+        //-->
+        // CONTENEDOR DE VISTA PREVIAFINAL
+        // imageFull.style.backgroundImage = "url('"+tag.src+"')";
+        // imageFull.style.position = "absolute";
+        // imageFull.style.left = "1px";
+        // imageFull.style.top = "1px";
+        // imageFull.style.width= document.getElementById("live-preview-current-variant").style.width;
+        // imageFull.style.height= document.getElementById("live-preview-current-variant").style.height;
+        // imageFull.style.backgroundSize = "30%";
+        // imageFull.style.backgroundRepeat = "repeat";
+        // imageFull.src = document.getElementById('live-preview-current-variant').src;
+        // imageFull.className = "live-preview-current-variant";
+        // imageFull.id = "live-preview-current-variant";
+        // imageFull.alt = tag.alt;
+        // imageFull.style.width = document.getElementById('live-preview-current-variant').style.width;
+        // imageFull.style.height = document.getElementById('live-preview-current-variant').style.height;
         // fullViewContainer.prepend(imageFull);
+        //--<
 
         // inputWidth.type = "text";
         // inputWidth.name = "width";
