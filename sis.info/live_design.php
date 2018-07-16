@@ -42,8 +42,9 @@ else
              $resultado=$conexion->query($consulta);
              while($row1=$resultado->fetch_assoc()) {
                  ?>
-                <a href="live_design.php?id=<?php echo $row1['id_imagen']; ?>" class="send-category"><img src="<?php echo $row1["ruta"]; ?>" alt="" class="designs-img" id="<?php echo $row1["id_imagen"]; ?>"></a>
-                <!--       <a href="editar.php?id=--><?PHP //echo $row['codigo']; ?><!--">Editar</a>-->
+                <a href="live_design.php?id=<?php echo $row1['id_imagen']; ?>" class="send-category">
+                   <img src="<?php echo $row1["ruta"]; ?>" alt="" class="designs-img" id="<?php echo $row1["id_imagen"]; ?>">
+                </a>
              <?php } ?>
          </div>
          <div class="right-side">
@@ -67,13 +68,21 @@ else
             </div>
             <div class="variants">
                 <?php
-                $consulta2="SELECT * FROM disenos WHERE id_categoria = '$id' AND id_diseno_padre = '0' ";
+//                echo $_POST['var'];
+                $postVar = $_POST['var'];
+                $consulta2="SELECT * FROM disenos WHERE id_categoria = '$id' AND id_diseno_padre = '$postVar' ";
                 $resultado2=$conexion->query($consulta2);
-                while($row2=$resultado2->fetch_assoc()) {
-                    ?>
-                   <img src="<?php echo $row2["ruta"]; ?>" alt="<?php echo $row2["nombre_dis"]; ?>" class="variants-img" id="<?php echo $row2["id_diseno"]; ?>">
-<!--                   <input type="text" value="--><?php //echo $row2["disenador"]; ?><!--" id="disenadorNombre" name="disenador">-->
-                <?php } ?>
+                      while ($row2 = $resultado2->fetch_assoc()) {
+                          echo ' <form action="live_design.php?id=' . $id . '" method="post" style="position:relative">
+                                <input type="hidden" value="' . $row2["id_diseno"] . '" name="var" >
+                                <img src="' . $row2["ruta"] . '" alt="' . $row2["nombre_dis"] . '" class="variants-img" id="' . $row2["id_diseno"] . '">';
+                          if (empty($_POST)) {
+                              echo '<input type="submit" value="+" style="position:absolute;right:1px;bottom:4px;background:white;border:none;padding:0 4px;font-size:1.5em;">';
+                              echo '</form>';
+                          } else {
+                              echo '</form>';
+                          }
+                      } ?>
             </div>
          </div>
       </section>
@@ -123,6 +132,7 @@ else
    </body>
 
    <script>
+//      script para mostrar y ocultar la lista de elementos "ropa"
        let buttonDropdownClothes = document.getElementById('button-dropdown-clothes'),
            containerRight = document.getElementById('container-right'),
            closeContainerRight = document.getElementById('container-right-close'),
@@ -150,7 +160,9 @@ else
    </script>
    <script src="js/js.js"></script>
    <script>
+
 //************************************************************
+//progress bar para el tamaño de el diseño seleccionado
 var ranger = document.getElementById('ranger');
 var image =  document.getElementById('live-preview-current-variant');
 var width = document.getElementById('live-preview-current-variant').offsetWidth;
