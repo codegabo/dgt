@@ -96,13 +96,14 @@ else
               </div>
 
            <?php }
+           echo '<div  class="tools">
+   <a href="reporteExcel.php"><div class="icon icon-down items-tools" style="position: fixed; top: 0;border:1px solid black;padding: 5px;box-shadow: 0px 1px 12px 0px rgb(255,115,85);"> Descargar reporte total </div></a>
+</div>';
        }
    }
 }?>
 
 </main>
-<div  class="tools">
-   <a href="reporteExcel.php"><div class="icon icon-down items-tools" style="position: fixed; top: 0;border:1px solid black;padding: 5px;box-shadow: 0px 1px 12px 0px rgb(255,115,85);"> Descargar reporte total </div></a>
-</div>
+
 </body>
 </html>
