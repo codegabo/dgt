@@ -68,9 +68,11 @@ else
             </div>
             <div class="variants">
                 <?php
-//                echo $_POST['var'];
+            //    echo $_POST['var'];
+            //    echo $id;
+            //    id_categoria = '$id' AND
                 $postVar = $_POST['var'];
-                $consulta2="SELECT * FROM disenos WHERE id_categoria = '$id' AND id_diseno_padre = '$postVar' ";
+                $consulta2="SELECT * FROM disenos WHERE id_diseno_padre = '$postVar' OR id_diseno ='$postVar'";
                 $resultado2=$conexion->query($consulta2);
                       while ($row2 = $resultado2->fetch_assoc()) {
                           echo ' <form action="live_design.php?id=' . $id . '" method="post" style="position:relative">
