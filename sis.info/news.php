@@ -110,7 +110,7 @@ if (isset($_POST['subir'])) {
                    <label for="preview-icon" id="label-preview-icon" class="label-preview-icon">
                   <?php
                   if ( $row1['cargo_use'] == 'Administrador') {
-                      echo '<a href="eliminar_pdf.php?id=' . $datos['id_documento'] . '" ><div class="icon icon-delete"></div>' . $datos['id_documento'] . '</a>';
+                      echo '<a href="eliminar_pdf.php?id=' . $datos['id_documento'] . '" ><div class="icon icon-delete"></div></a>';
                   } ?>
 
       <input id="preview-icon" class="preview-icon" value="<?php echo $datos['nombre_archivo'];?>" readonly/>
