@@ -1,3 +1,5 @@
+'use strict';
+
 var img = document.getElementById('live-preview-current-variant'),
     more = document.getElementById('button-more'),
     less = document.getElementById('button-less'),
@@ -5,11 +7,13 @@ var img = document.getElementById('live-preview-current-variant'),
     element = document.createElement("DIV"),
     textSize = document.createTextNode("Size");
 
-let variantContainer = document.getElementById("variants-container"),
-    //-->
-    // ESTE ES EL CONTENEDOR DE EL DISEÑO DE FONDO
+var variantContainer = document.getElementById("variants-container"),
+
+//-->
+// ESTE ES EL CONTENEDOR DE EL DISEÑO DE FONDO
     imgVariantContainer = document.createElement("img"),
-    // --<
+
+// --<
     currentVariantDesign = document.getElementById("live-preview-current-variant"),
     imgCurrentModel = document.createElement("img"),
     currentdesign = document.getElementById("current-design"),
@@ -18,26 +22,25 @@ let variantContainer = document.getElementById("variants-container"),
     fullViewContainer = document.getElementById("live-preview-current-variant-fullview"),
     modelFull = document.getElementById('live-preview-current'),
     formData = document.getElementById('send-data'),
-    // inputWidth = document.createElement("input"),
-    // inputHeight = document.createElement("input"),
+
+// inputWidth = document.createElement("input"),
+// inputHeight = document.createElement("input"),
     inputimgdesign = document.createElement("input"),
     inputtela = document.createElement("input"),
     inputimgModel = document.createElement("input"),
     inputDesignName = document.createElement("input"),
     modelFullContainer = document.getElementById('live-preview-current-variant-fullview');
 
-
-function elemento(e){
+function elemento(e) {
+    var tag;
     if (e.srcElement) {
         tag = e.srcElement;
-    }
-    else if (e.target) {
+    } else if (e.target) {
         tag = e.target;
     }
-    let h1content = document.createTextNode(" " + tag.alt);
+    var h1content = document.createTextNode(" " + tag.alt);
 
-
-    if(tag.tagName == "IMG" && tag.className == "variants-img"){
+    if (tag.tagName == "IMG" && tag.className == "variants-img") {
         //-->
         // ESTO DEFINE LOS ATRIBUTOS DEL DISEÑO DE FONDO DEL MODELO
         // imgVariantContainer.src = tag.src.replace("thumb", "large");
@@ -45,12 +48,12 @@ function elemento(e){
         imgVariantContainer.id = "live-preview-current-variant";
         imgVariantContainer.className = "live-preview-current-variant";
         imgVariantContainer.alt = tag.alt;
-        imgVariantContainer.style.backgroundImage = "url('"+tag.src+"')";
+        imgVariantContainer.style.backgroundImage = "url('" + tag.src + "')";
         imgVariantContainer.style.position = "absolute";
         imgVariantContainer.style.left = "1px";
         imgVariantContainer.style.top = "1px";
-        imgVariantContainer.width= "1000";
-        imgVariantContainer.height= "1000";
+        imgVariantContainer.width = "1000";
+        imgVariantContainer.height = "1000";
         imgVariantContainer.style.backgroundSize = "30%";
         imgVariantContainer.style.backgroundRepeat = "repeat";
         //--<
@@ -89,7 +92,7 @@ function elemento(e){
         inputimgdesign.type = "hidden";
         inputimgdesign.name = "diseno";
         inputimgdesign.id = "inputImgDesign";
-        let imageUrl =  document.getElementById('live-preview-current-variant').style.backgroundImage,
+        var imageUrl = document.getElementById('live-preview-current-variant').style.backgroundImage,
             imageUrl1 = imageUrl.replace(/(url\(|\)|")/g, '');
         inputimgdesign.value = imageUrl1;
         formData.prepend(inputimgdesign);
@@ -110,24 +113,19 @@ function elemento(e){
         inputDesignName.value = " " + firstWord;
         formData.prepend(inputDesignName);
 
-
-        if(variantContainer.hasChildNodes()) {
-            if(variantContainer.childNodes[3]){
+        if (variantContainer.hasChildNodes()) {
+            if (variantContainer.childNodes[3]) {
                 variantContainer.removeChild(variantContainer.childNodes[0]);
                 variantContainer.prepend(imgVariantContainer);
                 variantContainer.removeChild(variantContainer.childNodes[1]);
                 currentdesign.prepend(h1titleDesign);
-            }
-            else {
+            } else {
                 variantContainer.removeChild(variantContainer.childNodes[0]);
                 variantContainer.prepend(imgVariantContainer);
                 currentdesign.prepend(h1titleDesign);
             }
         }
-    }
-
-    else if(tag.tagName == "IMG" && tag.className == "container-right-img"){
-
+    } else if (tag.tagName == "IMG" && tag.className == "container-right-img") {
 
         modelFull.src = document.getElementById('live-preview-current').src;
         modelFull.className = "live-preview-current";
@@ -135,12 +133,10 @@ function elemento(e){
         // modelFullContainer.prepend(modelFull);
 
         inputimgModel.type = "hidden";
-        inputimgModel.name= "modelo";
-        inputimgModel.id= "inputImgModel";
+        inputimgModel.name = "modelo";
+        inputimgModel.id = "inputImgModel";
         inputimgModel.value = document.getElementById('live-preview-current').src;
         formData.prepend(inputimgModel);
-
-
 
         imgCurrentModel.src = tag.src;
         imgCurrentModel.className = "live-preview-current";
@@ -149,8 +145,6 @@ function elemento(e){
         document.getElementById("live-preview-current-variant").after(imgCurrentModel);
     }
 }
-
-
 
 //**************************************************************************
 //**************************************************************************
@@ -223,8 +217,6 @@ function elemento(e){
 //-----<
 //**************************************************************************
 //**************************************************************************
-
-
 
 
 console.log('Alto ' + document.getElementById('live-preview-current-variant').offsetHeight);

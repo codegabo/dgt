@@ -37,33 +37,49 @@ else
         ?>
 
        <div class="title-edit-container">
-          <div class="design">
-             <form method="post" action="fun_categoria.php" enctype="multipart/form-data" class="form-category" autocomplete="off">
-                <h1 class="design-title" >
-                   <input type="file" value="<?php echo $row['ruta']; ?>" class="create-user-label-text" name="Imagen" accept="image/png" style="display: flex; padding: .1em;font-size: 10px;width: 70%;position: absolute;top: 1em;">
-                   <input type="text" value="<?php echo $row['titulo']; ?>" name="titulo" class="edit-name-category">
+        <?php
+        if ( $row1['cargo_use'] == 'Administrador') {
+            echo '
+            <div class="design">
+             <form method="post" action=" fun_categoria.php" enctype="multipart/form-data" class="form-category" autocomplete="off">
+           
+                <h1 class="design-title" >        
+                   <input type="file" value="'.$row['ruta'].'" class="create-user-label-text" name="Imagen" accept="image/png" style="display: flex; padding: .1em;font-size: 10px;width: 70%;position: absolute;top: 1em;">
+                   <input type="text" value="'.$row['titulo'].'" name="titulo" class="edit-name-category">
                 </h1>
-                <input type="hidden" name="id" value="<?php echo $row['id_imagen']; ?>">
+                <input type="hidden" name="id" value="'.$row['id_imagen'].'">
                 <button class="icon icon-pencil edit-design-card" id="button-newCategorie" type="submit" name="Editar_cat" ></button>
                 <div class="design-image" style="height:100%;">
-                   <img src=" <?php echo $row['ruta'] ?>"/>
+                   <img src="'.$row['ruta'].'"/>
                 </div>
-             </form>
+             </form>';}
+             else {
+                echo '
+                 <div class="design">
+             <form method="post" action=" fun_categoria.php" enctype="multipart/form-data" class="form-category" autocomplete="off">
+           
+                <h1 class="design-title" >        
+                   <input type="text" value="'.$row['titulo'].'" name="titulo" class="edit-name-category" disabled>
+                </h1>
+                <div class="design-image" style="height:100%;">
+                   <img src="'.$row['ruta'].'"/>
+                </div>
+             </form>';
+
+             }?>
           </div>
+        <?php
+        if ( $row1['cargo_use'] == 'Administrador') {
+            echo '
+          <a href="eliminar_categoria.php?id='.$row['id_imagen'].'" ><div class="icon icon-delete"></div></a>
 
-          <a href="eliminar_categoria.php?id=<?PHP echo $row['id_imagen']; ?>" ><div class="icon icon-delete"></div></a>
-
+       
           <button class="add-users add-categorie" id="add-users-design">
              <img  src="img/icons/add-icon.png" class="add-users-icon"/><p>Agregar diseño</p>
-          </button>
+          </button>';
+        } ?>
        </div>
 
-
-
-
-
-<!--       <input type="text" class="users-search" id="designs-search" onkeyup="toSearch()">-->
-<!--       <input type="text" id="myInput" onkeyup="toSearch()">-->
 
        <div class="variant-container">
           <fieldset class="design-fieldset" id="design-fieldset">
@@ -161,8 +177,10 @@ else
            while($row2=$resultado2->fetch_assoc()){
                ?>
 
-            <li>
+              <li>
               <div class="data-container-item">
+
+
                  <div class="top-data">
                     <img src="<?php echo $row2['ruta'] ?>" alt="" class="design-img" >
                     <a href="edit_design.php?id=<?php echo $row2['id_diseno'] ?>">
@@ -177,7 +195,11 @@ else
                        <p class="tags-item"><?php echo $row2['etiquetas']; ?></p>
 
                     </div>
-                    <a href="eliminar_diseno.php?id=<?PHP echo $row2['id_diseno']; ?>" ><div class="icon icon-delete"></div></a>
+                   <?php
+
+               if ( $row1['cargo_use'] == 'Administrador') {
+                   echo '<a href="eliminar_diseno.php?id=' . $row2['id_diseno'] . '" ><div class="icon icon-delete"></div></a>';
+               }  ?>
                  </div>
               </div>
             </li>

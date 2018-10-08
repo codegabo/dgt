@@ -24,7 +24,7 @@ $row=$resultado->fetch_assoc();
 <html lang="es">
 <head>
    <meta charset="UTF-8">
-   <title>Title</title>
+   <title>Categorias</title>
    <meta name="title" content="Gabo's Web Page">
    <meta name="description" content="Gabo's Web Page the best as is possible">
    <meta name="author" content="Juan Gabriel Mogollón Martínez">
@@ -66,6 +66,7 @@ while($row1=$resultado->fetch_assoc()) {
          <div class="icon icon-pencil edit-design"></div>
       </a>
    </div>
+
    <div class="variant-container">
       <fieldset class="design-fieldset-active" id="design-fieldset">
           <?php
@@ -100,9 +101,13 @@ while($row1=$resultado->fetch_assoc()) {
                   }
               }
           }else{
-              echo "<br>No se ha seleccionado ningun diseño";
+              echo "";
           }
           ?>
+
+     <?php
+    if ( $row1['cargo_use'] == 'Administrador') {
+        echo '
          <form action="" method="post" enctype="multipart/form-data" name="inscripcion" autocomplete="off">
             <small>Recuerda,
                <ul>
@@ -141,13 +146,14 @@ while($row1=$resultado->fetch_assoc()) {
                <h2 class="create-user-label-text create-user-label-text-newCategorie">Etiquetas</h2>
                <input type="text" id="" class="create-user-input" name="etiquetas">
             </label>
-            <input type="hidden" name="disenopadre" value="<?php echo $row['id_diseno']; ?>">
+            <input type="hidden" name="disenopadre" value="'.$row["id_diseno"].'">
             <input type="hidden" name="tipo" value="variant">
-            <input type="hidden" name="categoria" value="<?php echo $row['id_categoria']; ?>">
+            <input type="hidden" name="categoria" value="'.$row["id_categoria"].'">
             <input type="hidden" name="tipo" value="design">
             <input type="submit" class="user-form-button-newCategorie user-form-button-newCategorie-designs" id="user-form-button-pdf" name="Crear_diseno" value="Crear">
          </form>
       </fieldset>
+      '; }?>
    </div>
    <section class="variant-list">
   <?php
@@ -160,16 +166,27 @@ while($row1=$resultado->fetch_assoc()) {
 <!--         <p class="clarification">--><?php //echo $row2['nombre_dis']; ?><!--</p>-->
          <form method="post" action="fun_categoria.php" enctype="multipart/form-data" class="form-category" autocomplete="off">
             <h1 class="design-title" >
-               <input type="file" value="<?php echo $row2['ruta']; ?>" name="Imagen" accept="image/png" style="display: flex; padding: .1em;font-size: 10px;width: 70%;position: absolute;top: 1em;">
-               <input type="text" value="<?php echo $row2['nombre_dis']; ?>" name="titulo" class="edit-name-category clarification">
+        <?php
+        if ( $row1['cargo_use'] == 'Administrador') {
+            echo '
+             <input type="file" value="'.$row2['ruta'].'" name="Imagen" accept="image/png" style="display: flex; padding: .1em;font-size: 10px;width: 70%;position: absolute;top: 1em;">
+               <input type="text" value="'.$row2['nombre_dis'].'" name="titulo" class="edit-name-category clarification">';
+        }else {
+echo '<input type="text" value="'.$row2['nombre_dis'].'" name="titulo" class="edit-name-category clarification" disabled>';
+        }
+               ?>
             </h1>
             <input type="hidden" name="id" value="<?php echo $row2['id_diseno']; ?>">
-
+        <?php
+        if ( $row1['cargo_use'] == 'Administrador') {
+            echo '
          <div class="tools">
             <button class="icon icon-pencil items-tools" id="button-newCategorie" type="submit" name="Editar_dis" ></button>
          </form>
-          <a href="eliminar_diseno.php?id=<?PHP echo $row2['id_diseno']; ?>" ><div class="icon icon-delete"></div></a>
-         </div>
+          <a href="eliminar_diseno.php?id='.$row2['id_diseno'].'" ><div class="icon icon-delete"></div></a>
+         </div>';
+            }  ?>
+
       </div>
 
 <?php } ?>

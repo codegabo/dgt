@@ -21,7 +21,7 @@ else
    <html lang="es">
    <head>
       <meta charset="UTF-8">
-      <title>Title</title>
+      <title>Categorias</title>
       <meta name="title" content="Gabo's Web Page">
       <meta name="description" content="Gabo's Web Page the best as is possible">
       <meta name="author" content="Juan Gabriel Mogollón Martínez">
@@ -40,28 +40,41 @@ else
              </div>
           </a>
        <?php } ?>
-      <button class="add-users design add-users-categorie" id="button-newCategorie">
-         <img  src="img/icons/add-icon.png" class="add-users-icon"/><p>Crear nueva categoria</p>
-      </button>
-      <fieldset class="newCategorie-fieldset" id="newCategorie-fieldset">
-         <form action="fun_categoria.php" class="newCategorie-form" method="POST" enctype="multipart/form-data" autocomplete="off">
-            <small>Recuerda,
-               <ul>
-                  <li>Debes subir los archivos de imagenes con extensión: .png</li>
-                  <li>El nombre del archivo no debe contener espacios o caracteres especiales</li>
-               </ul>
-            </small>
-            <label for="newCategorie-form-input-imagen" class="create-user-label">
-               <h2 class="create-user-label-text create-user-label-text-newCategorie">Imagen</h2>
-               <input type="file" id="newCategorie-form-input-imagen" class="create-user-input" name="Imagen" accept="image/png">
-            </label>
-            <label for="newCategorie-form-input-titulo" class="create-user-label">
-               <h2 class="create-user-label-text create-user-label-text-newCategorie">Titulo</h2>
-               <input type="text" id="newCategorie-form-input-titulo" class="create-user-input" name="titulo">
-            </label>
-            <input type="submit" class="user-form-button-newCategorie" id="user-form-button-pdf" value="Crear" name="crear">
-         </form>
-      </fieldset>
+    <?php require("funcion/conectarse.php");
+    $consulta="SELECT * FROM user where usuario_use = '$usuario'";
+    $resultado=$conexion->query($consulta);
+    while($row1=$resultado->fetch_assoc()) {
+?>
+    <?php
+    if ( $row1['cargo_use'] == 'Administrador'){
+        echo '<button class="add-users design add-users-categorie" id="button-newCategorie">
+    <img  src="img/icons/add-icon.png" class="add-users-icon"/><p>Crear nueva categoria</p>
+</button>
+
+
+<fieldset class="newCategorie-fieldset" id="newCategorie-fieldset">
+    <form action="fun_categoria.php" class="newCategorie-form" method="POST" enctype="multipart/form-data" autocomplete="off">
+        <small>Recuerda,
+            <ul>
+                <li>Debes subir los archivos de imagenes con extensión: .png</li>
+                <li>El nombre del archivo no debe contener espacios o caracteres especiales</li>
+            </ul>
+        </small>
+        <label for="newCategorie-form-input-imagen" class="create-user-label">
+            <h2 class="create-user-label-text create-user-label-text-newCategorie">Imagen</h2>
+            <input type="file" id="newCategorie-form-input-imagen" class="create-user-input" name="Imagen" accept="image/png">
+        </label>
+        <label for="newCategorie-form-input-titulo" class="create-user-label">
+            <h2 class="create-user-label-text create-user-label-text-newCategorie">Titulo</h2>
+            <input type="text" id="newCategorie-form-input-titulo" class="create-user-input" name="titulo">
+        </label>
+        <input type="submit" class="user-form-button-newCategorie" id="user-form-button-pdf" value="Crear" name="crear">
+    </form>
+</fieldset>';
+    }
+
+
+    ?>
    </main>
    </body>
    <script>
@@ -72,4 +85,4 @@ else
        })
    </script>
    </html>
-<?php } ?>
+<?php } }?>

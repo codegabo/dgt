@@ -6,7 +6,7 @@ labelPreview.addEventListener('click',previewpdf);
 
 function previewpdf(){
     document.addEventListener("click",function(event) {
-        viewIframe.src = "http://docs.google.com/gview?url=https://www.digitalglobaltextiles.com/pdf/archivos/" + event.target.value + "&embedded=true";
+        viewIframe.src = "https://docs.google.com/gview?url=https://www.digitalglobaltextiles.com/pdf/archivos/" + event.target.value + "&embedded=true";
         viewIframe.className = "pdf-iframe iframe-responsive";
         viewIframe.id = "pdf-iframe";
         viewIframe.frameBorder = "0";

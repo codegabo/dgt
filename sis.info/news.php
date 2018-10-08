@@ -61,7 +61,15 @@ if (isset($_POST['subir'])) {
 </head>
 <body>
 <main class="all-content-container" id="all-content-container">
-      <fieldset class="PDFupload">
+   <?php require("funcion/conectarse.php");
+    $consulta="SELECT * FROM user where usuario_use = '$usuario'";
+    $resultado=$conexion->query($consulta);
+    while($row1=$resultado->fetch_assoc()) {
+?>
+    <?php
+    if ( $row1['cargo_use'] == 'Administrador'){
+       echo '
+   <fieldset class="PDFupload">
          <form method="post" action="" enctype="multipart/form-data"class="PDFupload-form" autocomplete="off" >
             <div class="more-form" id="more-form">
                <label for="PDFtitle" class="PDFupload-form-label">
@@ -84,7 +92,8 @@ if (isset($_POST['subir'])) {
             <input type="file" name="archivo" id="PDFuploadfile" class="PDFupload-form-item" accept=" application/pdf" required>
             <input  name ="subir"type="submit" class="user-form-button-pdf" id="user-form-button-pdf" value="Subir PDF">
          </form>
-      </fieldset>
+      </fieldset>';
+      }?>
       <div class="section-container">
          <section class="files" id="files">
              <?php
@@ -99,7 +108,13 @@ if (isset($_POST['subir'])) {
                       <h5 class="title-big"><?php echo $datos['titulo'];?></h5>
                    </summary>
                    <label for="preview-icon" id="label-preview-icon" class="label-preview-icon">
-                     <input id="preview-icon" class="preview-icon" value="<?php echo $datos['nombre_archivo'];?>" readonly/>
+                  <?php
+                  if ( $row1['cargo_use'] == 'Administrador') {
+                      echo '<a href="eliminar_pdf.php?id=' . $datos['id_documento'] . '" ><div class="icon icon-delete"></div>' . $datos['id_documento'] . '</a>';
+                  } ?>
+
+      <input id="preview-icon" class="preview-icon" value="<?php echo $datos['nombre_archivo'];?>" readonly/>
+                      <br><a href="https://docs.google.com/gview?url=https://www.digitalglobaltextiles.com/pdf/archivos/<?php echo $datos['nombre_archivo'];?>&embedded=true" target="_blank" class="preview-icon" style="text-decoration: none;">Opción 2</a>
                    </label>
                       <!--<input type="button" value="Abrir pdf" onclick="window.open('https://www.digitalglobaltextiles.com/recibo.pdf')" />--><!--<a href="#" onclick="window.open('https://www.digitalglobaltextiles.com/recibo.pdf')">Abrir archivo pdf</a>--><!--<img src="img/icons/view-icon.png" alt="" class="preview-icon">--><!--<iframe src="btn-comentario.php?id='.$data['codigo_est'].'" name="window" marginwidth="0" scrolling="yes" style="border:0px solid transparent;width:70%;height:50%;margin-left:15%;"></iframe>--><!--<iframe src="http://docs.google.com/gview?url=https://www.digitalglobaltextiles.com/recibo.pdf&embedded=true" class="pdf-iframe" frameborder="0"></iframe>-->
 
@@ -128,4 +143,4 @@ if (isset($_POST['subir'])) {
 
 </script>
 </html>
-<?php } ?>
+<?php } }?>

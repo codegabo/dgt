@@ -72,7 +72,7 @@ else
             //    echo $id;
             //    id_categoria = '$id' AND
                 $postVar = $_POST['var'];
-                $consulta2="SELECT * FROM disenos WHERE id_diseno_padre = '$postVar' OR id_diseno ='$postVar'";
+                $consulta2="SELECT * FROM disenos WHERE id_categoria = '$id' AND id_diseno_padre = '$postVar' OR id_diseno ='$postVar'";
                 $resultado2=$conexion->query($consulta2);
                       while ($row2 = $resultado2->fetch_assoc()) {
                           echo ' <form action="live_design.php?id=' . $id . '" method="post" style="position:relative">
@@ -134,29 +134,29 @@ else
    </body>
 
    <script>
-//      script para mostrar y ocultar la lista de elementos "ropa"
-       let buttonDropdownClothes = document.getElementById('button-dropdown-clothes'),
+       //      script para mostrar y ocultar la lista de elementos "ropa"
+       var buttonDropdownClothes = document.getElementById('button-dropdown-clothes'),
            containerRight = document.getElementById('container-right'),
            closeContainerRight = document.getElementById('container-right-close'),
            watchPreview = document.getElementById('watchPreview'),
            cotinueDesign = document.getElementById('cotinue-design'),
            fullviewC = document.getElementById('fullview-conatainer');
-//           moreToClick = document.getElementById('button-more'),
-//           lessToClick = document.getElementById('button-less');
-       buttonDropdownClothes.addEventListener('click', () => {
+       //           moreToClick = document.getElementById('button-more'),
+       //           lessToClick = document.getElementById('button-less');
+       buttonDropdownClothes.addEventListener('click', function () {
            containerRight.classList.toggle('container-right-active');
            closeContainerRight.classList.add('posi-fix');
        });
-       closeContainerRight.addEventListener('click', () => {
+       closeContainerRight.addEventListener('click', function () {
            containerRight.classList.remove('container-right-active');
            closeContainerRight.classList.remove('posi-fix');
        });
-       watchPreview.addEventListener('click', () => {
-//               moreToClick.click();
-//               lessToClick .click();
+       watchPreview.addEventListener('click', function () {
+           //               moreToClick.click();
+           //               lessToClick .click();
            fullviewC.classList.toggle('fullview-conatainer-active');
        });
-       cotinueDesign.addEventListener('click', () => {
+       cotinueDesign.addEventListener('click', function () {
            fullviewC.classList.remove('fullview-conatainer-active');
        });
    </script>

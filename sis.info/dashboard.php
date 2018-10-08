@@ -50,82 +50,65 @@ while($row1=$resultado->fetch_assoc()) {
    </main>
 </body>
 <script>
-//    menu desplegable
-    let toggle = document.getElementById('toggle'),
-        mainnav= document.getElementById('dashboard-menu-list');
-    toggle.addEventListener('click',show);
+    //    menu desplegable
+    var toggle = document.getElementById('toggle'),
+        mainnav = document.getElementById('dashboard-menu-list');
+    toggle.addEventListener('click', show);
     function show() {
         mainnav.classList.toggle('show-menu-block');
-        document.addEventListener("click",function(event){
-         if (event.target.className === "dashboard-menu-list-item") {
-             if(document.getElementById("cargo").value === "Asesor"){
-             mainnav.innerHTML = '<li class="dashboard-menu-list-item selected-item" id="'+event.target.id+'">'+event.target.firstChild.data+'</li>' +
-                 ' <li class="dashboard-menu-list-item" id="design">DISEÑOS</li>\n' +
-                 '<li class="dashboard-menu-list-item" id="last">LO ÚLTIMO</li>\n' +
-                 '<li class="dashboard-menu-list-item" id="data">REGISTROS</li>';
-             }
-             if(document.getElementById("cargo").value === "Administrador"){
-                 mainnav.innerHTML = '<li class="dashboard-menu-list-item selected-item" id="'+event.target.id+'">'+event.target.firstChild.data+'</li>' +
-                     ' <li class="dashboard-menu-list-item" id="design">DISEÑOS</li>\n' +
-                     '<li class="dashboard-menu-list-item" id="last">LO ÚLTIMO</li>\n' +
-                 '<li class="dashboard-menu-list-item" id="users">USUARIOS</li>\n' +
-                 '<li class="dashboard-menu-list-item" id="data">REGISTROS</li>';
-             }
-             document.getElementById("content-container").innerHTML = event.target.firstChild.data;
-             if(event.target.id === 'design'){
-                 document.getElementById("content-container").innerHTML =
-                 '<a href=""><button class="button-dropdown-clothes icon-clothes live-all-files-available" id="live-all-files-available" ></button></a>' +
-                 '<iframe src="categories.php" class="content-container-items" id="content-container-items"></iframe>';
-             }
-             if(event.target.id === 'last'){
-                 document.getElementById("content-container").innerHTML =
-                     '<a href=""><button class="button-dropdown-clothes icon-clothes live-all-files-available" id="live-all-files-available" ></button></a>' +
-                     '<iframe src="news.php" class="content-container-items" id="content-container-items"></iframe>';
-             }
-             if(event.target.id === 'users'){
-                 document.getElementById("content-container").innerHTML =
-                     '<a href=""><button class="button-dropdown-clothes icon-clothes live-all-files-available" id="live-all-files-available" ></button></a>' +
-                     '<iframe src="users.php" class="content-container-items" id="content-container-items"></iframe>';
-             }
-             if(event.target.id === 'data'){
-                 document.getElementById("content-container").innerHTML =
-                     '<a href=""><button class="button-dropdown-clothes icon-clothes live-all-files-available" id="live-all-files-available" ></button></a>' +
-                     '<iframe src="data.php" class="content-container-items" id="content-container-items"></iframe>';
-             }
-         }
+        document.addEventListener("click", function (event) {
+            if (event.target.className === "dashboard-menu-list-item") {
+                if (document.getElementById("cargo").value === "Asesor") {
+                    mainnav.innerHTML = '<li class="dashboard-menu-list-item selected-item" id="' + event.target.id + '">' + event.target.firstChild.data + '</li>' + ' <li class="dashboard-menu-list-item" id="design">DISEÑOS</li>\n' + '<li class="dashboard-menu-list-item" id="last">LO ÚLTIMO</li>\n' + '<li class="dashboard-menu-list-item" id="data">REGISTROS</li>';
+                }
+                if (document.getElementById("cargo").value === "Administrador") {
+                    mainnav.innerHTML = '<li class="dashboard-menu-list-item selected-item" id="' + event.target.id + '">' + event.target.firstChild.data + '</li>' + ' <li class="dashboard-menu-list-item" id="design">DISEÑOS</li>\n' + '<li class="dashboard-menu-list-item" id="last">LO ÚLTIMO</li>\n' + '<li class="dashboard-menu-list-item" id="users">USUARIOS</li>\n' + '<li class="dashboard-menu-list-item" id="data">REGISTROS</li>';
+                }
+                document.getElementById("content-container").innerHTML = event.target.firstChild.data;
+                if (event.target.id === 'design') {
+                    document.getElementById("content-container").innerHTML = '<a href=""><button class="button-dropdown-clothes icon-clothes live-all-files-available" id="live-all-files-available" ></button></a>' + '<iframe src="categories.php" class="content-container-items" id="content-container-items"></iframe>';
+                }
+                if (event.target.id === 'last') {
+                    document.getElementById("content-container").innerHTML = '<a href=""><button class="button-dropdown-clothes icon-clothes live-all-files-available" id="live-all-files-available" ></button></a>' + '<iframe src="news.php" class="content-container-items" id="content-container-items"></iframe>';
+                }
+                if (event.target.id === 'users') {
+                    document.getElementById("content-container").innerHTML = '<a href=""><button class="button-dropdown-clothes icon-clothes live-all-files-available" id="live-all-files-available" ></button></a>' + '<iframe src="users.php" class="content-container-items" id="content-container-items"></iframe>';
+                }
+                if (event.target.id === 'data') {
+                    document.getElementById("content-container").innerHTML = '<a href=""><button class="button-dropdown-clothes icon-clothes live-all-files-available" id="live-all-files-available" ></button></a>' + '<iframe src="data.php" class="content-container-items" id="content-container-items"></iframe>';
+                }
+            }
+        });
+    }
+
+    //
+
+
+    var resize = function resize() {
+        if (innerWidth > 639) {
+            document.getElementById('toggle').click();
+            if (document.getElementById("cargo").value === "Asesor") {
+                document.getElementById("users").style.display = "none";
+            }
         }
-       )
-    }
+        if (innerWidth <= 639) {
+            var toggleMenu = document.getElementById('toggle');
 
-//
+            mainnav.addEventListener('click', function () {
+                toggleMenu.click();
+            });
 
+            mainnav.addEventListener('mouseleave', function () {
+                toggleMenu.click();
+            });
+            if (document.getElementById("cargo").value === "Asesor") {
+                document.getElementById("users").style.display = "none";
+            }
+        }
+    };
 
-const resize = () => {
-    if(innerWidth > 639) {
-        document.getElementById('toggle').click();
-        if(document.getElementById("cargo").value === "Asesor"){
-            document.getElementById("users").style.display = "none";
-         }
-    }
-    if(innerWidth <= 639) {
-        let toggleMenu = document.getElementById('toggle');
-
-        mainnav.addEventListener('click', () => {
-            toggleMenu.click();
-        });
-
-        mainnav.addEventListener('mouseleave', () => {
-            toggleMenu.click();
-        });
-        if(document.getElementById("cargo").value === "Asesor"){
-            document.getElementById("users").style.display = "none";
-         }
-    }
-};
-
-addEventListener('resize', resize);
-addEventListener('DOMContentLoaded', resize);
-
+    addEventListener('resize', resize);
+    addEventListener('DOMContentLoaded', resize);
 </script>
 </html>
 <?php }} ?>
