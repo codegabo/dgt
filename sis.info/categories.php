@@ -1,3 +1,10 @@
+<!--
+if ( $row1['cargo_use'] == 'Administrador'){
+                     echo '<a href="eliminar_pdf.php?id=' . $datos['id_documento'] . '" style="">
+                              <div class="icon icon-delete"></div>
+                           </a>';
+                 }
+-->
 <?php
 include("funcion/conectarse.php");
 require_once("sesion.class.php");

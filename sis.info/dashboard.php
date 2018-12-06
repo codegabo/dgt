@@ -41,8 +41,9 @@ while($row1=$resultado->fetch_assoc()) {
       <ul class="dashboard-menu-list" id="dashboard-menu-list">
          <li class="dashboard-menu-list-item" id="design">DISEÑOS</li>
          <li class="dashboard-menu-list-item" id="last">LO ÚLTIMO</li>
-         <li class="dashboard-menu-list-item" id="users">USUARIOS</li>
          <li class="dashboard-menu-list-item" id="data">REGISTROS</li>
+         <li class="dashboard-menu-list-item" id="users">USUARIOS</li>
+         <li class="dashboard-menu-list-item" id="logs_data">LOG IN DATA</li>
       </ul>
    </nav>
    <main class="content-container" id="content-container">
@@ -59,10 +60,18 @@ while($row1=$resultado->fetch_assoc()) {
         document.addEventListener("click", function (event) {
             if (event.target.className === "dashboard-menu-list-item") {
                 if (document.getElementById("cargo").value === "Asesor") {
-                    mainnav.innerHTML = '<li class="dashboard-menu-list-item selected-item" id="' + event.target.id + '">' + event.target.firstChild.data + '</li>' + ' <li class="dashboard-menu-list-item" id="design">DISEÑOS</li>\n' + '<li class="dashboard-menu-list-item" id="last">LO ÚLTIMO</li>\n' + '<li class="dashboard-menu-list-item" id="data">REGISTROS</li>';
+                    mainnav.innerHTML = '<li class="dashboard-menu-list-item selected-item" id="' + event.target.id + '">'
+                        + event.target.firstChild.data + '</li>' + ' <li class="dashboard-menu-list-item" id="design">DISEÑOS</li>\n'
+                        + '<li class="dashboard-menu-list-item" id="last">LO ÚLTIMO</li>\n'
+                        + '<li class="dashboard-menu-list-item" id="data">REGISTROS</li>';
                 }
                 if (document.getElementById("cargo").value === "Administrador") {
-                    mainnav.innerHTML = '<li class="dashboard-menu-list-item selected-item" id="' + event.target.id + '">' + event.target.firstChild.data + '</li>' + ' <li class="dashboard-menu-list-item" id="design">DISEÑOS</li>\n' + '<li class="dashboard-menu-list-item" id="last">LO ÚLTIMO</li>\n' + '<li class="dashboard-menu-list-item" id="users">USUARIOS</li>\n' + '<li class="dashboard-menu-list-item" id="data">REGISTROS</li>';
+                    mainnav.innerHTML = '<li class="dashboard-menu-list-item selected-item" id="' + event.target.id + '">' + event.target.firstChild.data + '</li>'
+                        + ' <li class="dashboard-menu-list-item" id="design">DISEÑOS</li>\n'
+                        + '<li class="dashboard-menu-list-item" id="last">LO ÚLTIMO</li>\n'
+                        + '<li class="dashboard-menu-list-item" id="data">REGISTROS</li>\n'
+                        + '<li class="dashboard-menu-list-item" id="users">USUARIOS</li>\n'
+                        + '<li class="dashboard-menu-list-item" id="logs_data">LOGIN DATA</li>';
                 }
                 document.getElementById("content-container").innerHTML = event.target.firstChild.data;
                 if (event.target.id === 'design') {
@@ -77,6 +86,9 @@ while($row1=$resultado->fetch_assoc()) {
                 if (event.target.id === 'data') {
                     document.getElementById("content-container").innerHTML = '<a href=""><button class="button-dropdown-clothes icon-clothes live-all-files-available" id="live-all-files-available" ></button></a>' + '<iframe src="data.php" class="content-container-items" id="content-container-items"></iframe>';
                 }
+                if (event.target.id === 'logs_data') {
+                    document.getElementById("content-container").innerHTML = '<a href=""><button class="button-dropdown-clothes icon-clothes live-all-files-available" id="live-all-files-available" ></button></a>' + '<iframe src="logs_data.php" class="content-container-items" id="content-container-items"></iframe>';
+                }
             }
         });
     }
@@ -89,6 +101,7 @@ while($row1=$resultado->fetch_assoc()) {
             document.getElementById('toggle').click();
             if (document.getElementById("cargo").value === "Asesor") {
                 document.getElementById("users").style.display = "none";
+                document.getElementById("logs_data").style.display = "none";
             }
         }
         if (innerWidth <= 639) {
@@ -103,6 +116,7 @@ while($row1=$resultado->fetch_assoc()) {
             });
             if (document.getElementById("cargo").value === "Asesor") {
                 document.getElementById("users").style.display = "none";
+                document.getElementById("logs_data").style.display = "none";
             }
         }
     };

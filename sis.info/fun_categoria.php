@@ -47,6 +47,7 @@ else {
     ";
         }
     }
+
     if (isset($_POST["Editar_cat"])) {
         if ((
             ($_FILES["Imagen"] ["type"] == "image/jpg") ||
@@ -83,6 +84,15 @@ else {
     ";
         }
     }
+
+
+
+
+
+
+
+
+
     if (isset($_POST["Crear_diseno"])) {
         $rutas = 'img_disenos';
         $categoria = $_POST['categoria'];
@@ -107,6 +117,27 @@ else {
     </html>";
         }
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     if (isset($_POST["Editar_dis"])) {
         $id = $_POST['id'];
         $titulo_cat = $_POST['titulo'];
