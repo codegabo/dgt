@@ -49,7 +49,7 @@ else {
               <tbody>
 
               <?php require("funcion/conectarse.php");
-              $consulta = "SELECT * FROM login_data ORDER BY hora_inicio_sesion DESC";
+              $consulta = "SELECT * FROM login_data ORDER BY id DESC";
               $resultado = $conexion->query($consulta);
               while ($row1 = $resultado->fetch_assoc()) {
                   ?>

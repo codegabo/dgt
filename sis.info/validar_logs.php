@@ -1,49 +1,47 @@
 <?php
-//require ("funcion/conectarse.php");
-//
-//if (isset($_POST['submit_log'])) {
-//    $codigoError = null;
-//    $nombreError = null;
-//    $apellidoError = null;
-//    $cargoError = null;
-//    $timestampError = null;
-//    $browserError = null;
-//
-//
-//    $codigo=$_POST['$codigo'];
-//    $nombre=$_POST['$nombre'];
-//    $apellido=$_POST['$apellido'];
-//    $cargo=$_POST['$cargo'];
-//    $timestamp=$_POST['$timestamp'];
-//    $browser=$_POST['$browser'];
-//
-//
-//
-//    $valid = true;
-//
-//    if ($valid) {
-//        $sql = "INSERT INTO login_DATA
-//                (cod_usu,  nombre_usu, apelli_usu, cargo_usu,  hora_inicio_sesion, navega_usu)
-//        VALUES ('$codigo', '$nombre', '$apellido',  '$cargo',  '$timestamp', '$browser')";
-//        $resultado=$conexion->query($sql);
-//        if ($resultado>0) {
-//            echo "
-//    <html>
-//    <head>
-//        <meta http-equiv='refresh' content='0; url=dashboard.php'>
-//    </head>
-//    <body>
-//    <img src='https://ugc.kn3.net/i/760x/http://www.camionetica.com/wp-content/uploads/2013/03/Hola-Mundo-4ta-Migraci%C3%B3n-Camionetica.png' alt=''>
-//</body>
-//    </html>";
-//        }
-//    }
-//}
-//
-//?>
-<!---->
-<!--</body>-->
-<!--</html>-->
+require ("funcion/conectarse.php");
+
+if (isset($_POST['submit_log'])) {
+    $codigoError = null;
+    $nombreError = null;
+    $apellidoError = null;
+    $cargoError = null;
+    $timestampError = null;
+    $browserError = null;
+
+
+    $codigo=$_POST['$codigo'];
+    $nombre=$_POST['$nombre'];
+    $apellido=$_POST['$apellido'];
+    $cargo=$_POST['$cargo'];
+    $timestamp=$_POST['$timestamp'];
+    $browser=$_POST['$browser'];
+
+
+
+    $valid = true;
+
+    if ($valid) {
+        $sql = "INSERT INTO login_DATA
+                (cod_usu,  nombre_usu, apelli_usu, cargo_usu,  hora_inicio_sesion, navega_usu)
+        VALUES ('$codigo', '$nombre', '$apellido',  '$cargo',  '$timestamp', '$browser')";
+        $resultado=$conexion->query($sql);
+        if ($resultado>0) {
+            echo "
+    <html>
+    <head>
+        <meta  content='0; url=dashboard.php'>
+    </head>
+   
+    </html>";
+        }
+    }
+}
+
+?>
+
+</body>
+</html>
 
 
 

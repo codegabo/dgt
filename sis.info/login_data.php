@@ -1,4 +1,5 @@
 <?php
+$_SERVER['HTTP_USER_AGENT'];
 date_default_timezone_set("America/Bogota");
 setlocale(LC_ALL,"es_ES");
 
@@ -42,8 +43,7 @@ while($row1=$resultado->fetch_assoc()) {
        <input type="hidden" value="<?php echo $row1['apellido_use']; ?>" name="apellido" >
        <input type="hidden" value="<?php echo $row1['cargo_use']; ?>" name="cargo" >
        <input type="hidden" value="<?php echo  date('r') ?>" name="timestamp" >
-
-
+       <input type="hidden" value="<?php echo  $_SERVER['HTTP_USER_AGENT'] ?>" name="browser" id="browser">
        <input type="submit" name="submit_log" id="submit_log" style="z-index: 100; margin-left:10em;background: transparent;border:none;" value=" "></input>
 
     </form>
@@ -51,21 +51,6 @@ while($row1=$resultado->fetch_assoc()) {
    <img src="img/Rolling-0.8s-163px.gif" style="display:block;;margin:auto">
    </body>
    <script>
-
-
-       var browsername = bowser.name,
-           browserversion = bowser.version,
-           logsForm = document.getElementById("formulario_log"),
-           inputBrowser = document.createElement("input");
-
-       inputBrowser.type = "",
-           inputBrowser.name = "browser",
-           inputBrowser.id ="browser",
-           inputBrowser.name ="browser",
-           inputBrowser.type ="hidden",
-           inputBrowser.value = browsername + " " + browserversion,
-           logsForm.prepend(inputBrowser);
-
 function click(){
     document.getElementById("submit_log").click()
 }

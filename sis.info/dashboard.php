@@ -11,8 +11,6 @@ if( $usuario == false )
 }
 else
 {
-
-
     ?>
 <!DOCTYPE html>
 <html lang="es">
