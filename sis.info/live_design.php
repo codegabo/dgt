@@ -42,8 +42,11 @@ else
              $resultado=$conexion->query($consulta);
              while($row1=$resultado->fetch_assoc()) {
                  ?>
-                <a href="live_design.php?id=<?php echo $row1['id_imagen']; ?>" class="send-category">
-                   <img src="<?php echo $row1["ruta"]; ?>" alt="" class="designs-img" id="<?php echo $row1["id_imagen"]; ?>">
+                <a href="live_design.php?id=<?php echo $row1['id_imagen']; ?>" class="design" style="height: 7em;width: 100%;margin:.5em">
+                   <h1 class="design-title" style="font-size: 1.2em;"><?php echo $row1['titulo']; ?></h1>
+                   <div class="design-image" style="background: url('<?php echo $row1['ruta'] ?>');" >
+                     <img src="<?php echo $row1["ruta"]; ?>" alt="" class="designs-img" id="<?php echo $row1["id_imagen"]; ?>">
+                   </div>
                 </a>
              <?php } ?>
          </div>
