@@ -33,11 +33,12 @@ else
       <meta http-equiv="X-UA-Compatible" content="ie=edge">
       <link rel="stylesheet" href="css/estilos.css">
    </head>
+
    <body onmousedown="elemento(event);" >
    <main class="container-main">
       <section class="container-left">
          <div class="designs">
-             <?php require("funcion/conectarse.php");
+             <?php
              $consulta="SELECT * FROM categoria";
              $resultado=$conexion->query($consulta);
              while($row1=$resultado->fetch_assoc()) {
@@ -50,6 +51,8 @@ else
                 </a>
              <?php } ?>
          </div>
+
+
          <div class="right-side">
             <div class="live-preview" id="live-preview">
                <div class="variants-container live-preview-current" id="variants-container">
@@ -71,9 +74,6 @@ else
             </div>
             <div class="variants">
                 <?php
-            //    echo $_POST['var'];
-            //    echo $id;
-            //    id_categoria = '$id' AND
                 $postVar = $_POST['var'];
                 $consulta2="SELECT * FROM disenos WHERE id_categoria = '$id' AND id_diseno_padre = '$postVar' OR id_diseno ='$postVar'";
                 $resultado2=$conexion->query($consulta2);
@@ -91,6 +91,8 @@ else
             </div>
          </div>
       </section>
+
+
       <section class="container-right" id="container-right">
          <img src="img/clothes_png/POLO.png"  class="container-right-img" alt="" id="1">
          <img src="img/clothes_png/LEGINS.png"  class="container-right-img" alt="" id="2">
@@ -107,18 +109,12 @@ else
          <div class="container-right-close icon-close" id="container-right-close"></div>
       </section>
    </main>
-<!--   <canvas id="canvas" width="500" height="500" style="border:1px solid #d3d3d3;">-->
-<!--      Este navegador no soporta en elemento CANVAS, el cual permite proyectar el modelo final, por favor utilize este sistema con Google Chrome en su última versión.-->
-<!--   </canvas>-->
 
    <div class="fullview-conatainer" id="fullview-conatainer">
-<!--         <div class="variants-container live-preview-current" id="live-preview-current-variant-fullview">-->
-<!---->
-<!--         </div>-->
       <button class="cotinue-design" id="cotinue-design">Continuar diseñando</button>
       <div class="buttons">
 
-          <?php require("funcion/conectarse.php");
+          <?php
           $consulta="SELECT * FROM user where usuario_use = '$usuario'";
           $resultado=$conexion->query($consulta);
           while($row1=$resultado->fetch_assoc()) {
@@ -182,36 +178,7 @@ ranger.onchange = function(){
 };
 //************************************************************
 
-//       window.onload = function() {
-//           var c = document.getElementById("canvas");
-//           var ctx = c.getContext("2d");
-//           window.setInterval(function() {
-//
-//               var data = "data:image/svg+xml," +
-//                   "<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'>" +
-//                   "<foreignObject width='100%' height='100%'>" +
-//                   "<div xmlns='http://www.w3.org/1999/xhtml' style='font-size:12px'>" +
-//                   "<ul><li style='color:red'> hello </li>  <li style='color:green'>thomas</li> </ul> " +
-//                   "<div class='live-preview-current-variant' id='live-preview-current-variant' style='background-image: url(&quot;img/clothes_png/BLUSA.png&quot;); position: absolute; left: 1px; top: 1px; width: 329.46px; height: 395.76px; background-size: 30%; background-repeat: repeat;border:1px solid red;'>Hola mundo</div>" +
-//                   "</div>" +
-//                   "</foreignObject>" +
-//                   "</svg>";
-//               var img = new Image();
-//
-//               img.src = data;
-//
-//               img.onload = function() { ctx.drawImage(img, 0, 0); };
-//               c.width=c.width;
-////               ctx.drawImage(document.getElementById("19"), 0, 0);
-//               ctx.drawImage(document.getElementById("live-preview-current-variant"), 0, 0);
-//               ctx.drawImage(document.getElementById("live-preview-current"), 0, 0);
-//
-//
-//           }, 20);
-//
-////           ctx.drawImage(document.getElementById("live-preview-current"), 10, 10);
-//       };
-//      console.log('ranger' + ranger.value);
+
    </script>
 </html>
 <?php } ?>
