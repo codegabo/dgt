@@ -1,0 +1,47 @@
+*,*::before,*::after, html{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+h1,h2,h3,h4,h5,h6,p,a,span,ul{
+  font-family: 'Nexa', 'Raleway', sans-serif;
+}
+
+//*{  outline:1px solid red;}
+
+//paleta de colores
+$fc:#FF5E4D;
+$sc:#F7484D;
+$tc:#FF5ACD;
+$foc:#D744EB;
+$fic:#B84DFF;
+$sic:#292929;
+
+//tamaños de fuentes
+$ftitulo:13px;
+$ftexto:12px;
+$ftitulolarge:20px;
+//variables de layout
+$ftextolarge:17px;
+
+
+//h1{
+//  font-size: 16px * 1.5;
+//}
+
+//p{
+//  font-size:$pg;
+//  letter-spacing: 1px;
+//  line-height: 1.5;
+//}
+//imagenes en slide
+.mySlides {display:none;}
+
+@import "_normalize";
+@import "_header";
+@import "_menu";
+@import "_layout";
+@import "_maisection";
+@import "_footer";
+
+
